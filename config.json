@@ -1,0 +1,23 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "Yook.de  - free java games ",
+    "owner": "Someone",
+    "description": "Historical website featuring free to play java games"
+  },
+  "plugins": [
+    "wintersmith-less"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
+}
