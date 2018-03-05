@@ -1,0 +1,16 @@
+
+<b>How to play</b>
+<ul>
+<li>Wait till applet downloads completely. (Ball images must be visible).
+<li>Enter your nickname in a <b>"Player"</b> textfield (on the top af applet).
+<li>To move a ball, click on it with the mouse (it starts jumping) to select it, then click on a free cell in a field. To deselect a ball just click on another.
+<li>If movement is possible, ball wil go to the specified empty field.
+<li>After each turn, 3 new balls are placed on a field (random colors & positions). Preview panel shows colors of the next 3 balls.
+<li>You can alway force the next turn without moving anything. Press button <b>"Next"</b>
+<li>If the game field is full, game is over. Press <b>"Save Score"</b> or <b>"New game"</b> button to start a new game.
+</ul>
+<p>Game goal is to arrange balls of the same color in a straight lines (every direction). 5 or more balls on a straight line are removed and points are given.
+Longer lines give more points to you. Crossing lines count together.
+<p>You do not have to stay online during the game. You can  disconnect from internet after complete page loading and play eintirely offline. Online connection is needed only to submit highscores.
+
+<& ../page_part, stop=>1 &>

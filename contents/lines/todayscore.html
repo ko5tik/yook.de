@@ -1,0 +1,23 @@
+<& ../templates/todayscore.tmpl , gamedata=>$dd, from=>$from, to=>$to &>
+
+<%doc>
+<& ../todayscore.t , 
+  path=>$dd->{path},
+  title=>$dd->{title} . ' today scores list',
+  pagename=>'todayscore.html',
+  linkprefix=>'../', 
+  scores=>$dd->{scores},
+  fieldnames=>$dd->{fieldnames}, 
+  fields=>$dd->{fields}, 
+  from=>$from,
+  to=>$to
+&>
+</%doc>
+<%init>
+my $dd = $m->comp('game_data');
+</%init>
+
+<%args>
+$from=>1
+$to=>20
+</%args>
