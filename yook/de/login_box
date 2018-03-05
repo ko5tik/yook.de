@@ -1,0 +1,46 @@
+<form>
+<table border=0 cellpadding=0 cellspacing=0 width=160>
+<tr>
+<td align=right>
+<b><small>
+Login
+</small></b>
+</td>
+<& .spacer &>
+<tr>
+<td align=right>
+<small><b>Login:</b>
+<% $Gamesite::cgi->textfield(-name=>'login',-size=>10) %>
+</small>
+</td>
+<tr>
+<td align=right>
+<small><b>Password:</b>
+<% $Gamesite::cgi->password_field(-name=>'password',-size=>10) %>
+</small>
+</td>
+<tr>
+<td align=right>
+<small>
+<% $Gamesite::cgi->submit(-value=>'Login') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+<br><br>
+</small>
+</td>
+<& .spacer &>
+<tr><td align=right>
+<small>
+<a href=register.html>Register</a><br>
+<a href=recover.html>Forgot password?</a>
+</small>
+</td>
+<& .spacer &>
+
+</table>
+</form>
+
+
+<%def .spacer>
+<tr align=right>
+<td bgcolor=#667542><img src=images/tp.gif width=150 height=1></td>
+</%def>

@@ -1,0 +1,15 @@
+
+<%init>
+open OF , ">$Gamesite::config{adpath}/$ad.ad";
+print OF $adcode;
+close OF;
+
+$m->comp('/utils/redirect',url=>"$Gamesite::config{baseurl}/admin/edit_ad.html?ad=$ad");
+return;
+</%init>
+
+
+<%args>
+$adcode
+$ad
+</%args>

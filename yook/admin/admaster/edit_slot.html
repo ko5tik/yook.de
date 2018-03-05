@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Editing Ad slot</title>
+</head>
+<body bgcolor=white>
+<& menu &>
+<h2> Editing ad slot</h2>
+<& slot_form , action=>'edit_slot.html' , method=>'post',id=>$slot->[0]->[0], code=>$slot->[0]->[3],ratio=>$slot->[0]->[7], credits=>$slot->[0]->[6],formatid=>$slot->[0]->[2]&>
+<hr>
+<b>Slot view</b>
+<hr>
+<% $slot->[0]->[1] %>
+<hr>
+
+</body>
+</html>
+
+<%init>
+
+if($code) {
+$Admaster::ad->update_slot(id=>$id,code=>$code,credits=>$credits,format_id=>$formatid,ratio=>$ratio);
+}
+
+my $slot = $Admaster::ad->get_slots(id=>$id);
+
+
+</%init>
+
+<%args>
+$id
+$code=>undef
+$ratio=>undef
+$credits=>undef
+$jumpurl=>undef
+$formatid=>undef
+</%args>

@@ -1,0 +1,17 @@
+
+<%init>
+$Xonix::scoredata = $Gamesite::scoredata{xonix}->get_top_scores;
+$Xonix::scoredata->{person} = $Gamesite::userdata->{xonix_highest};
+return $Xonix::scoredata;
+</%init>
+
+<%once>
+{
+package Xonix;
+use vars qw( $scoredata );
+
+$Xonix::scoredata = { age=>0 };
+
+}
+</%once>
+

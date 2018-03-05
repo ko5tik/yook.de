@@ -1,0 +1,63 @@
+<& ../layout , top=>1 , title=>$gamedata->{title} . ' positions' , linkprefix=>$linkprefix , path=>$gamedata->{path}&>
+
+<& ../achieved_box , global=>$global, daily=>$daily , linkprefix=>$linkprefix &>
+
+<& ../dispatch_news , amount=>1 &>
+
+<& ../start_global , linkprefix=>$linkprefix &>
+
+<& ../highscore_list ,
+scores=>$gamedata->{scores},
+fieldnames=>$gamedata->{fieldnames},
+fields=>$gamedata->{fields}, 
+linkprefix=>$linkprefix, 
+pagename=>'highscore.html',
+from=>$gfrom,
+to=>$gto,
+highlight=>$global
+&>
+<& ../end_today , linkprefix=>$linkprefix &>
+
+
+
+
+<& ../start_today , linkprefix=>$linkprefix &>
+
+<& ../highscore_list ,
+scores=>$gamedata->{scores},
+fieldnames=>$gamedata->{fieldnames},
+fields=>$gamedata->{fields}, 
+linkprefix=>$linkprefix, 
+pagename=>'todayscore.html',
+from=>$lfrom,
+to=>$lto,
+highlight=>$daily,
+today=>1 &>
+
+<& ../end_global , linkprefix=>$linkprefix &>
+
+
+<& ../layout, bottom=>1 , linkprefix=>$linkprefix ,path=>$gamedata->{path}&>
+
+
+
+<%init>
+my $gfrom = $global - 11;
+my $gto = $global + 10;
+$gfrom = 0 if $gfrom < 0;
+$gto =  $Gamesite::config{keepscores} if $gto >  $Gamesite::config{keepscores};
+
+my $lfrom =  $daily - 11;
+my $lto = $daily + 10;
+
+$lfrom = 0 if $lfrom < 0;
+</%init>
+
+
+<%args>
+$gamedata
+$global=>undef
+$daily=>undef
+$spend=>undef
+$linkprefix=>'../'
+</%args>

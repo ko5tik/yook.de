@@ -1,0 +1,6 @@
+<& ../page_part , start=>1 , title=>'Heutige Spielergebnisse' , linkprefix=>$linkprefix &>
+Diese Liste beinhaltet alle Spielergebnise, die Heute erzielt wurden. Es wird um Mitternacht gelöscht.
+
+<%args>
+$linkprefix=>undef
+</%args>

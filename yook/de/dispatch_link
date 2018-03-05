@@ -1,0 +1,18 @@
+<& ../.utils/sidebox_start , title=>'Linkempfehlung' &>
+
+<small>
+<a href=<% $linkprefix %>de/jump_out?id=<%$link->[0]%>><% $link->[1] %></a><br>
+[<font color=red><% $link->[2] %></font> ein | <font color=blue><% $link->[3] %></font> aus]<br>
+<b><a href=<% $Gamesite::config{baseurl} %>de/friends.html>Andere Links</a></b>
+</small>
+
+<& ../.utils/sidebox_end &>
+
+<%init>
+my $link = $Gamesite::linkomatic->dispatch_link(1);
+
+</%init>
+
+<%args>
+$linkprefix=>undef
+</%args>

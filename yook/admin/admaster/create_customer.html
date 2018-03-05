@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Creating Customer</title>
+</head>
+<body bgcolor=white>
+<& menu &>
+<H2>Creatig customer</h2>
+%if($dataok) {
+<p>Customer was created. Want to create another one</a>?
+%} elsif($name && $email) {
+<p>Customer was not created, because of email or database problems. Try again
+%}
+<form method=post action=create_customer.html>
+<table>
+<tr valing=top>
+<td align=right>
+<b>Customer name:</b>
+</td>
+<td>
+<% $Admaster::cgi->textfield(-name=>'name', -size=>50) %>
+</td>
+<tr>
+<td align=right>
+<b>Customer email:</b>
+</td>
+<td>
+<% $Admaster::cgi->textfield(-name=>'email', -size=>50) %>
+</td>
+<tr>
+<td>
+</td>
+<td>
+<% $Admaster::cgi->submit(-value=>'Absenden') %>
+<% $Admaster::cgi->reset(-value=>'Zurücksetzen') %>
+</td>
+</table>
+</form>
+<h2>Customer list</h2>
+<& list_customers &>
+</body>
+</html>
+
+<%init>
+my $dataok = undef;
+
+if($name && $email) {
+if($m->comp('/utils/is-valid-email.fn',email=>$email)) {
+
+
+$dataok = $Admaster::ad->create_customer(name=>$name,email=>$email) ;
+} 
+
+}
+
+
+</%init>
+<%args>
+$name=>undef
+$email=>undef
+</%args>

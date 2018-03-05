@@ -1,0 +1,156 @@
+
+
+<p>
+<& .utils/surround_start, width=>'100%' &>
+<table border=0 cellpadding=3 cellspacing=1, width="100%" bgcolor=<% $Gamesite::config{menubg} %>>
+
+<tr>
+<td colspan=<% $colcount %> bgcolor=white>
+<& .fromto , fr=>$from , t=>$to ,  max=>$amount, pagename=>$pagename&>
+</td>
+
+
+<% $heading %>
+
+
+<% $body %>
+<tr>
+<td colspan=<% $colcount %> bgcolor=white>
+<& .fromto , fr=>$from , t=>$to ,  max=>$amount, pagename=>$pagename&>
+</td>
+
+</table>
+
+<& .utils/surround_end &>
+
+<%init>
+
+
+my $colcount = scalar @fieldnames;
+
+
+my $heading = "<tr>";
+
+foreach(@fieldnames) {
+$heading .= "<td> <b>$_</b> </td>";
+}
+
+my $body;
+
+
+my $evodd;
+my @bgcolor = ('white','#dddddd', 'yellow');
+my $nn;
+my $url;
+my $since;
+
+# determine amount of highscores
+my $timeval = time;
+$timeval -= $timeval %86400;
+$timeval = 0 unless $today;
+
+my $amount = $scores->get_score_count($timeval);
+
+$amount = 200 if $amount > 200 && !$today;
+$to = $amount if $to > $amount;
+
+$from = $amount - 20 if $from >= $amount;
+
+$from = 1 if $from < 1;
+my $pos = $from - 1;
+my $scoredata = $scores->get_scores($timeval,$from-1,$to - $from+1, \@fields);
+
+foreach( @$scoredata){
+
+
+$pos++;
+my @ss = @$_;
+$evodd = $bgcolor[$pos % 2];
+$evodd = "yellow" if $pos == $highlight;
+$body .= "<tr bgcolor=$evodd align=right><td align=right> $pos </td>";
+
+$nn =  $ss[0];
+
+
+$url = $ss[(scalar @ss) - 1];
+$since = $ss[(scalar @ss) - 2];
+
+if($url) {
+$body .= "<td align=right> <a href=" . $url .  ">" . $nn . "</a> </td>";
+} else {
+$body .= "<td> " . $nn . "  </td>";
+}
+
+
+for ( 1 .. ((scalar @ss) - 3)) {
+$body .= "<td>" .  $ss[$_] . " </td>";
+}
+
+
+$since = POSIX::strftime "%H:%M  %d/%m/%y" , localtime($since);
+$body .= "<td> $since </td>";
+
+
+}
+
+
+
+</%init>
+
+
+<%args>
+$scores ## highscore object
+$from=>1
+$to=>20
+$highlight=>undef
+@fieldnames=>[]
+@fields=>[]
+$linkprefix=>undef
+$pagename
+$today=>undef # only today scores
+</%args>
+
+
+
+
+
+<%def .fromto>
+<table width=100%>
+<tr>
+<td align=left>
+%if ($left < $fr) {
+<small><b>
+<a href=<% $pagename %>?from=<% $left %>&to=<% $fr -1 %>>&lt;&lt;&lt;</a> <% $left %>-<% $fr -1 %> 
+</b></small>
+%} else {
+&nbsp;
+%}
+</td>
+<td align=right>
+%if ($right > $t) {
+<small><b>
+<% $t+1 %>-<% $right %> <a href=<% $pagename %>?from=<% $t+1 %>&to=<% $right %>>&gt;&gt;&gt;</a>
+</b></small>
+%} else {
+&nbsp;
+%}
+
+</td>
+</table>
+<%init>
+
+my $left = $fr - 20 ;
+$left = 1 if $left < 1;
+
+my $right = $t + 20;
+$right = $max if $right > $max;
+
+</%init>
+<%args>
+$fr
+$t
+$max
+$pagename
+</%args>
+</%def>
+

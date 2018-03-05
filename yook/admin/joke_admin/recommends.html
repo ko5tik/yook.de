@@ -1,0 +1,34 @@
+<html>
+<head>
+
+<title>
+Java sandbox - email invitation log
+</title>
+</head>
+<body bgcolor=white >
+<h2>Email invitation log</h2>
+<table cellspacing=0>
+
+%foreach(@log) { @ll = split(/\[\]/); 
+<tr bgcolor=<% $bg[$count % 2]%>>
+<td><% $count++ %></td>
+<td><% $ll[0] %></td>
+<td><% $ll[1] %></td>
+<td><% $ll[2] %></td>
+<td><% scalar localtime $ll[3] %></td>
+
+%}
+</table>
+</body>
+</html>
+
+<%init>
+
+open LF , "$Gamesite::config{'datapath'}/joke.log";
+my @log = <LF>;
+my @ll;
+close LF;
+my $count = 1;
+my @bg = ( 'white' , '#eeeeee' );
+</%init>
+

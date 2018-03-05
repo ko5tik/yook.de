@@ -1,0 +1,17 @@
+<center>
+<applet code=moonraid.class width=500 height=300>
+If your browser would support java 1.1 , you will see cool applet here.
+
+<param name=highscore value="<% $topscore %>">
+<param name=player value="<% $player %>">
+
+</applet>
+</center>
+<BR>
+
+
+
+<%args>
+$player=>undef
+$topscore=>undef
+</%args>

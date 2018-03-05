@@ -1,0 +1,25 @@
+<%init>
+
+my $j = $Gamesite::jokes;
+$j->restore_where("status=$status and kind=$kind","date desc");
+
+
+while($j->restore_next) {
+if($ARGS{'jid.' . $j->id} eq 'remove') {
+$j->status(&Joke::REMOVED);
+$j->save;
+} elsif($ARGS{'jid.' . $j->id} eq 'accept') {
+$j->status(&Joke::ACCEPTED);
+$j->save;
+}
+
+}
+
+$m->comp('/utils/redirect', url=>$Gamesite::config{baseurl} . "admin/joke_admin/");
+
+</%init>
+
+<%args>
+$kind=>1
+$status=>0
+</%args>

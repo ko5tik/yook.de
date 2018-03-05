@@ -1,0 +1,83 @@
+<& ../../layout , top=>1 , title=>'meta generator - step 1' , linkprefix=>'../../',
+path=>'webmaster/meta_gen/' &>
+
+%if($response->is_error) {
+<& ../../page_part , title=>'Error' , start=>1&>
+<p>An error occured during the attempt to fetch URL <b><% $url %></b>:<br>
+<% $response->error_as_HTML %>
+%} elsif( $response->is_success) {
+<& ../../page_part , title=>'Success' , start=>1 &>
+<p>Your <a href=<% $url %>>Document</a> was successfully fetched and parsed.
+<& keyword_form , text_keywords=>\%$words, meta_keywords=>\@keywords, description=>$meta->{description} , title=>$doc->TITLE , locale=>$locale&>
+%}
+<%doc>
+<pre>
+
+<% Data::Dumper->Dump([ $response]) %>
+
+<% Data::Dumper->Dump([ $doc]) %>
+
+</pre>
+</%doc>
+<& ../../layout, bottom=>1, linkprefix=>'../../' &>
+
+
+<%init>
+
+
+use LWP::UserAgent;
+use POSIX qw(locale_h);
+my $ua = new LWP::UserAgent;
+my $doc = new MetaMaster;
+my $request = new HTTP::Request('GET', $url);
+
+my $response = $ua->request($request);
+
+
+use locale;
+my $old_locale = setlocale(LC_CTYPE);
+setlocale(LC_CTYPE,$locale);
+$doc->parse($response->content);
+setlocale(LC_CTYPE,$old_locale);
+
+
+my $words = $doc->WORDS;
+my $meta = $doc->META;
+
+#calculate keywords usage
+my @keywords = split /,/ , $meta->{keywords};
+my %meta_keywords;
+for (0..(scalar @keywords - 1)) {
+$keywords[$_] =~ s/^\s*//; # zap leading ...
+$keywords[$_] =~ s/\s*$//; # ...and trainling spaces
+$meta_keywords{$keywords[$_]} = 1;
+}
+
+#@keywords = sort { $words->{$b} <=> $words->{$a} } @keywords;
+
+#calculate description keywords
+
+my $dwords = {};
+my @descwords = split /\W/ , $meta->{description};
+foreach (@descwords) {
+	next unless $_;
+	$_ = lc $_;
+	if(defined $dwords->{$_}) {
+	    $dwords->{$_}++;
+	} else {
+	    $dwords->{$_} = 1;
+	}
+}
+
+my $total = 0;
+foreach(keys %$words) {
+$total += length $_;
+}
+
+
+</%init>
+
+<%args>
+$url=>undef
+$locale=>'C'
+</%args>

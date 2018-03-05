@@ -1,0 +1,28 @@
+<& ../templates/achieved.tmpl, gamedata=>$dd, global=>$global, daily=>$daily, 
+spend=>$spend &>
+<%doc>
+<& ../achieved.t , 
+  linkprefix=>'../',
+  path=>$dd->{path},
+  title=>$dd->{title} . ' positions',
+  scores=>$dd->{scores},
+  fieldnames=>$dd->{fieldnames}, 
+  fields=>$dd->{fields}, 
+  global=>$global,
+  daily=>$daily,
+  spend=>$spend
+&>
+</%doc>
+
+<%init>
+my $dd = $m->comp('game_data');
+</%init>
+<%args>
+$global=>undef
+$daily=>undef
+$spend=>undef
+</%args>
+
+
+
+

@@ -1,0 +1,100 @@
+<P>Benutzen Sie die Paddel um mit dem Ball die Böcke wegzuschiesen. Sie können
+es entweder mit den Pfeiltasten oder mit dem Maus steuern. Klicken sie mit der Maus oder drucken sie die Leertaste um das Ball zu Starten.
+
+<p>Jeder Block bringt 10 Punkte und ein Bonus. Bonus erhoht sich bei jedem Abprall von den Blöcken, und wird bei dem Paddelkontakt ( oder Ballverlust ) zurückgesetzt. 
+<p>Extrabälle gibt es bei 2000, 5000 und weiter alle 5000 Punkte. 
+
+
+<P>Wenn ihr letzes Ball verloren ist, erscheint die Highcorepanel. TRagen Sie ihre Name ein und speichern sie es um eine Neues Spiel  zu anfangen. 
+
+<P>Sie brauchen ein Java-fähiges Browser der zumindest java 1.1.6 unterstützt
+( Netscape 4.06 und neuer ist OK )
+<& ../page_part , stop=>1 &>
+<& ../page_part , start=>1, title=>'Powerups & paddles' &>
+
+
+<table>
+<tr valign=top>
+<td>
+<img src=paddle.gif border=0 width=37 height=10>
+</td>
+<td>
+Normales Paddel. 
+</td>
+<tr valign=top>
+<td>
+<img src=paddle_w.gif border=0 width=50 height=10>
+</td>
+<td>
+Breites paddel. 
+</td>
+<tr valign=top>
+<td>
+<img src=paddle_f.gif border=0 width=37 height=10>
+</td>
+<td>
+Schießpaddel - sie konnen mit Leertaste oder Mausklick eine Rakete abfeuern.
+</td>
+<tr valign=top>
+<td>
+<img src=paddle_s.gif border=0 width=37 height=10>
+</td>
+<td>
+Kleberpaddel. Ball bleibt daran kleben. Muasklick oder Leertaste startet es wieder. 
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_cy.gif border=0 width=13 height=11>
+</td>
+<td>
+Multiball.
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_g.gif border=0 width=13 height=11>
+</td>
+<td>
+Gibt Kleberpaddel.
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_gr.gif border=0 width=13 height=11>
+</td>
+<td>
+Balle von Boden abrapllen und nicht mehr verloren gehen. FArbe wechselt von grün uber gelb ins rot. Dann verschwindet es. 
+
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_m.gif border=0 width=13 height=11>
+</td>
+<td>
+Gibt breites Paddel. 
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_r.gif border=0 width=13 height=11>
+</td>
+<td>
+Gibt Feuerpaddel. 
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_y.gif border=0 width=13 height=11>
+</td>
+<td>
+100 Punkte Bonus und normales Paddel. 
+</td>
+</table>
+
+<p>Bitte melden Sie alle Probleme <a href=../support.html>hier</a>
+
+
+<& ../page_part, stop=>1 &>
+

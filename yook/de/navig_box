@@ -1,0 +1,24 @@
+<& ../.utils/surround_start , width=>650 , align=>'center' &>
+
+<table border=0 cellpadding=3 cellspacing=1 width="100%"  bgcolor=<% $Gamesite::config{menubg} %>>
+<tr>
+<td align=center>
+<a href=<% $Gamesite::config{baseurl} %>><img src=<% $Gamesite::config{baseurl} %>images/yook80x31.gif width=80 height=31 border=0></a><br>
+<a href=<% $Gamesite::config{baseurl} %>de/><img src=<% $Gamesite::config{baseurl} %>images/germany29x17.gif width=29 height=17 border=0></a>
+<a href=<% $Gamesite::config{baseurl} %>><img src=<% $Gamesite::config{baseurl} %>images/uk29x17.gif width=29 height=17 border=0></a>
+</td>
+<td align=right bgcolor=<% $Gamesite::config{barcolor} %>>
+<b>Yook:</b> [<& .lnk, t=>'yook'&>] [<& .lnk,t=>'friends',u=>'friends.html'&>] [<& .lnk, t=>'webmaster', u=>'webmaster.html'&>] [<& .lnk, t=>'support' , u=>'support.html'&>] [<& .lnk , t=>'privacy' , u=>'privacy.html'&>]<br>
+<b>Services:</b>[<a href=http://email.yook.de>email</a>] [<a href="javascript: openchat()">chat</a>] [<a href=http://yook.community.everyone.net/community/scripts/community_directory.pl>community</a>] [<a href=http://yook.search.everyone.net/>search</a>] [<A HREF="http://www.storerunner.com/default.asp?afbid=1340">shop</a>] [<& .lnk , t=>'customise', u=>'setup.html'&>]<br>
+<b>Games:</b> [<& .lnk , t=>'colors' , u=>'colors/'&>] [<& .lnk , t=>'lines', u=>'lines/'&>] [<& .lnk, t=>'moonraid' , u=>'moonraid/'&>] [<& .lnk , t=>'missile command' , u=>'missile/'&>] [<& .lnk , t=>'samegame' , u=>'samegame/' &>] [<& .lnk , t=>'stakan' , u=>'tetris/' &>] [<& .lnk , t=>'xonix' , u=>'xonix/' &>] [<& .lnk , t=>'<font color=red>new!</font>&nbsp;breakout' , u=>'breakout/' &>]<br>
+</td>
+</table>
+<& ../.utils/surround_end &>
+
+
+<%def .lnk><a href=<% $Gamesite::config{baseurl}%>de/<%$u%>><% $t %></a>\
+<%args>
+$t
+$u=>''
+</%args>
+</%def>

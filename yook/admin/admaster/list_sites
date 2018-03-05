@@ -1,0 +1,11 @@
+<ul>
+%foreach( @$sites) {
+<li><a href=show_site.html?id=<% $_->[0] %>><% $_->[1] %></a>
+
+%}
+
+</ul>
+
+<%init>
+my $sites =  $Admaster::ad->get_sites;
+</%init>

@@ -1,0 +1,59 @@
+<& ../layout , top=>1, title=>"rendsu test" , linkprefix=>"../", path=>"rendsu/"&>
+
+
+<& ../page_part , title=>'Rendsu game test' , start=>1 &>
+<p>Welcome to the new game. If you are first time here, please read 
+thi page. 
+
+<dl>
+<dt><b>Important warning</b>
+<dd>This game is new and is here primarily for test of capabilites of 
+game server developed by <a href="http://www.net4u.de">Net4U</a>. Yook.de
+supplies game client. Server software is currently under development and 
+test, so you may be kicked off game or lose connection without any warning.
+Best way to see this is to watch your java console for error messages.
+<p>As always there are no warranties that it would work and alo no 
+responsibility from developers in case of any damages. Use at your own risk.
+<dt><b>Technical requirements</b>
+<dd>If you are able to play games on yook.de, your java version is good enough.
+Applet connects to game server using port 11111, so if you use firewall
+be sure to open this port. If your admin does not allow you to do so,
+you are lost.
+
+<dt><b>How to play</b>
+<dd>Rendsu is much like tic-tac-toe, but your goal is to get 5 figures in a row.Cross starts, first move is always center of field ( which is 19 by 19 ), 
+second move of cross can not be placed within 5x5 rectangle around the middle.
+You move by clicking mouse pointer on desired field. There are indicators on 
+the bottom which remind you which figure you play , and who is on the turn. 
+<p>If game beeps when you try to move - move is not allowed.
+
+<p>During the play you have chat window - use it to communicate with your counterpart.
+Use "give up" button to give up, and to close game after it is over.
+
+<dt><b>Logging in and starting game</b>
+<dd>First you have to log in using your username and password ( more on registering later... )
+<p>After login you will get dialog window where you can:
+<ul>
+<li>Offer new game. Player offering game plays cross. ( just hit "offer game" button )
+<li>Join offered game ( select one waiting player form the list and hit "join"
+button )
+<li>View running game ( select one of the running games from the list, and hit view button )
+</ul>
+<p>Of course you can cancel your game offer at any time. (as long nobody joined you)
+</dl>
+
+
+<& ../page_part ,  stop=>1 &>
+<& ../page_part , start=>1, title=>"Registrationi & login" &>
+If you are already registered, you can proceed directly to <a href="play.html">game page</a> . 
+<p>To register enter your desired yousername and password, and hit "register".
+If this username is not yet taken, you will be redirected to game page.
+
+<& login_box &>
+
+
+<& ../page_part, stop=>1 &>
+
+<& ../layout, bottom=>1 , linkprefix=>"../", path=>"rendsu/"&>
+
+

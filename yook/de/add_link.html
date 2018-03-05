@@ -1,0 +1,136 @@
+<& layout , top=>1 , title=>'Webamasterbereich' , linkprefix=>'../' &>
+
+%if($dataok) {
+<& ../page_part , start=>1 , title=>'Vielen Dank' , linkprefix=>'../'  &>
+Ihr Link wurde zur Bearbeitung vorgemerkt.
+<& ../page_part , stop=>1 , linkprefix=>'../'&>
+% } else {
+<&  ../page_part , start=>1, title=>'Überprüfen Sie die Daten' , linkprefix=>'../' &>
+<p>Es hat probleme mit Ihren Daten gegeben: 
+<% $errmsg %>
+<form action=add_link.html method=post>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Website:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'site',-size=>30,-value=>$site) %><br>
+<small>site name</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>URL:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'url',-size=>30, -value=>$url) %><br>
+<small>url to link to</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Contact:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'contact',-size=>30, -value=>$contact) %><br>
+<small>contact person</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Email:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>30, -value=>$email) %><br>
+<small>contact email</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Password:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'password',-size=>30, -value=>$password) %><br>
+<small>pick a password</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Verify:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'password2',-size=>30, -value=>$password2) %><br>
+<small>verify your password</small>
+</td>
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Register') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+<& ../page_part , stop=>1 &>
+%}
+
+<& layout, bottom=>1 , -linkpefix=>'../' &>
+
+<%init>
+my $dataok = 1;
+my $errmsg = "<ul>";
+if($contact eq '') {
+$errmsg .="<li>Kontaktperson fehlt";
+$dataok = 0;
+}
+if(!$m->comp('/utils/is-valid-email.fn',email=>$email)) {
+$errmsg .="<li>Email scheint nicht korrekt zu sein";
+$dataok = 0;
+}
+if( $url !~ /^http:\/\//) {
+$errmsg .="<li>URL muß mit http:// anfangen";
+$dataok = 0;
+}
+if($password eq '') {
+$errmsg .="<li>Kennwort kann nicht leer sein";
+$dataok = 0;
+}
+if($password ne $password2) {
+$errmsg .="<li>Kennwörte stimmen nicht überein";
+$dataok = 0;
+}
+if($site eq '') {
+$errmsg .="<li>Seitentitel nicht angegeben";
+$dataok = 0;
+}
+
+$errmsg .= "</ul>";
+
+my $now = localtime time;
+if($dataok) {
+open OF , ">>$Gamesite::config{datapath}/link.request";
+print OF join('[]',$site,$contact,$email,$url,$password,$password2,1), "\n";
+close OF;
+
+my $mailmsg =<<EOF;
+Hallo $contact,
+Sie haben Ihre Webseite als Link-Partner von
+$Gamesite::config{baseurl} 
+eingetragen.
+Sie haben FOlgende Angaben Gemacht:
+Kontakt: $contact
+Email: $email
+Titel: $site
+URL: $url
+Kennwort: $password
+
+Vielen Dank für Ihre Eintragung, es wird so schnell wie möglich bearbeitet.
+
+Falls Jemand Ihre Webseite ohne Ihren Kenntniss eingetragen hat, 
+melden Sie es unter Email kpriblouda\@yahoo.com so schnell wie möglich.
+Verwenden Sie folgende information in ihren Missbrauchmeldung:
+REMOTE_ADDR:  $ENV{'REMOTE_ADDR'}
+TIMESTAMP: $now
+
+Bitte beantworten Sie nicht dieses EMail
+
+EOF
+
+$m->comp('/utils/sendemail', to=>$email, from=>'noreturn@nowhere.net',subject=>'Yook.de - Freundeslink', body=>$mailmsg);
+
+
+}
+</%init>
+
+<%args>
+$email
+$url
+$password
+$password2
+$contact
+$site
+
+</%args>

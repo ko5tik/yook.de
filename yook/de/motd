@@ -1,0 +1,23 @@
+
+
+<& ../page_part , start=>1 , title=>'Willkommen bei Yook.de' , linkprefix=>'../' &>
+<dl>
+<dt><b>Chat, E-Mail, Forum und Suchmaschine</b>
+<dd>Neue Funktionen bei Yook.de.
+<ul>
+<li><a href=http://email.yook.de/>E-Mail</a> - holen Sie sich eine E-Mail Adresse &lt;IhrName&gt;@yook.de. Es ist frei, und Ihre Mailbox ist 6MB groß.
+<li><a href="javascript: openchat()">Chat</a> - Chatten Sie mit den anderen Spielern.
+<li><a href=http://yook.community.everyone.net/community/scripts/community_directory.pl>Forum</a> - Diskutieren Sie im Forum.
+<li><a href=http://yook.search.everyone.net/>Suchmaschine</A> - Finden Sie was Sie im Internet brauchen mit der Suchmaschine.
+</ul>
+<dt>
+<b>Neues Spiel bei Yook.de.</b>
+<dd><b>Missile Command</b> - Neues Spiel bei Yook.de. Verteidigen Sie Ihre Stützpunkte gegen Raketenangriff.
+</dl>
+<p><a href=support.html>Melden</a> Sie bitte alle auftretende Fehler an den <a href=support.html>Webmaster</a>.
+
+<p><b>Speak Englisch?</b> Play games  <a href=<% $Gamesite::config{baseurl} %>>here</A>.
+
+<& ../page_part , stop=>1 , linkprefix=>'../' &>
+
+

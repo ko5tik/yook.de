@@ -1,0 +1,58 @@
+<& ../../layout , top=>1 , title=>'HTML code cleaned' , linkprefix=>'../../',
+path=>'webmaster/clean/' &>
+
+<html>
+<head>
+<title>
+Clean HTML Code
+</title>
+</head>
+<body bgcolor=white>
+
+
+</body>
+</html>
+
+%if($response->is_error) {
+<& ../../page_part , title=>'Error' , start=>1&>
+<p>An error occured during the attempt to fetch URL <b><% $url %></b>:<br>
+<% $response->error_as_HTML %>
+
+%} else {
+<& ../../page_part , title=>'Your page was cleaned' , start=>1 &>
+
+<p>Old size was <% length($response->content) %> bytes , new size is <% length $$clean %> bytes.
+<form>
+<% $cgi->textarea(-name=>'foo',-value=>$$clean , -rows=>10 , -cols=>50) %>
+</form>
+%}
+
+
+
+<& ../../layout, bottom=>1, linkprefix=>'../../',path=>'webmaster/clean/'  &>
+
+<%init>
+use LWP::UserAgent;
+use HTML::Clean;
+my $cgi = $Gamesite::cgi;
+
+my $ua = new LWP::UserAgent;
+$url =~ s/file:\//fuck off you dirty hacker/is; 
+my $request = new HTTP::Request('GET', $url);
+my $response = $ua->request($request);
+
+my $cc = $response->content;
+my $cl = new HTML::Clean(\$cc) ;
+#unless $response->is_error;
+$cl->level(9);
+#$cl->compat;
+$cl->strip({whitespace=>1,shortertags=>1,comments=>1,entities=>1,dequote=>1,defcolor=>1,javascript=>1,htmldefaults=>1,lowercasetags=>1});
+
+my $clean = $cl->data;
+
+</%init>
+
+
+<%args>
+$url=>undef
+</%args>

@@ -1,0 +1,16 @@
+
+<%init>
+
+$Samegame::scoredata = $Gamesite::scoredata{samegame}->get_top_scores;
+$Samegame::scoredata->{person} = $Gamesite::userdata->{same_highest};
+
+return $Samegame::scoredata;
+</%init>
+
+<%once>
+{
+package Samegame;
+use vars qw( $scoredata );
+
+}
+</%once>

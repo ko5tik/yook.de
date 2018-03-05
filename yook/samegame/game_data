@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'SameGame',
+path=>'samegame/',
+fieldnames=>[ 'Pos' , 'Name' , 'Points' ,'Level' , 'Time spend' , 'Since'], 
+fields=>['name','points','level','seconds','time','url'],
+scores=>$Gamesite::scoredata{samegame},
+archive=>'samelite.tar.gz'
+};
+
+
+</%init>

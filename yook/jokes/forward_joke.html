@@ -1,0 +1,58 @@
+<& ../layout , top=>1 , title=>'Yook jokes' , path=>'jokes/'&>
+
+%if($ok) {
+<& ../.utils/headline , title=>'Message sent' &>
+<p>Message was sent to your friend. Thank you.
+
+%} else {
+<& ../.utils/headline , title=>'Wrong email' &>
+<p><b><% $email %></b> does not appear to be correct. Please correct it and send it again.
+<& forward_box , uri=>$uri, email=>$email &>
+
+%}
+<& ../layout ,  bottom=>1 , path=>'jokes/'&>
+<%init>
+my $ok = $m->comp('/utils/is-valid-email.fn', email=>$email);
+
+if($ok) {
+my $now = localtime;
+
+my $msg = <<EOF;
+Hello,
+Somebody who knows you decided that you will enjoy reading 
+jokes and tales on this page:
+http://www.yook.de$uri
+
+You can also visit main page of Yook.de
+http://www.yook.de/
+
+and play cool java games or read jokes.
+
+This message is not a SPAM, and your email address
+will not be used for anything except sending this message.
+
+If you believe that somebody abused this feature,
+please forward this message to  webmaster at:
+webmaster\@yook.de
+
+Be sure to include following information:
+Timestamp: $now
+
+please do not reply to this message directly.
+
+regards,
+Yook.de
+
+EOF
+
+$m->comp('/utils/sendemail', to=>$email , from=>'nobody@yook.de', subject=>'Invitation to read jokes at Yook.de', body=>$msg) ;
+
+open OF ,">>$Gamesite::config{'datapath'}/joke.log";
+print OF $email, '[]', $uri , '[]',  $ENV{'REMOTE_ADDR'} , '[]' , time, "\n";
+close OF;
+}
+</%init>
+<%args>
+$email=>undef
+$uri=>undef
+</%args>

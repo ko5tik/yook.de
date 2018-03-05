@@ -1,0 +1,17 @@
+
+<%init>
+$Missile::scoredata = $Gamesite::scoredata{missile}->get_top_scores;
+$Missile::scoredata->{person} = $Gamesite::userdata->{missile_highest};
+return $Missile::scoredata;
+</%init>
+
+<%once>
+{
+package Missile;
+use vars qw( $scoredata );
+
+$Missile::scoredata = { age=>0 };
+
+}
+</%once>
+

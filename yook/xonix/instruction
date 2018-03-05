@@ -1,0 +1,30 @@
+
+<H4>Short instructions</H4>
+<OL>
+<LI>Wait till applet downloads completely.
+<LI>Click with the mouse inside aplpet, that it can become keyboard focus.
+<li>Press any key to start game.
+<li>Use arrow keys to steer red dot.
+<li>Use "P" to pause/unpause game.
+
+</OL>
+<h4>How to play</h4>
+<p>You are steering red dot. You have to surround areas of a 
+field with a path of red dot (they will bekome blue after this).
+<p>Avoid yellow (they can move only inside blue areas and your
+path) and green (moving on black field) dots. Every collision with 
+them will cost you one live. Collision of green dot with your path
+(or crossing your own path) will aslo kill you.
+<p>Shall a green dot occur in the surrounded area, it will be captured.
+<p>Once you claimed predefined percentage of a field, the level 
+is over (you can see actual / required percentage in the top right
+corner).
+<p>You will get a bonus for excess percentage and captured green dots.
+
+<P>You do not have to stay online during the game. Internet connection is required only to submit highscores.
+
+<h4>Game history</h4>
+<p>I seen this game on the ASCII terminals of PDP-8 Machines in the mid-80.
+I'm not sure whether they originated from PDP, or from some arcade machine.
+It's still fun.
+<& ../page_part, stop=>1 &>

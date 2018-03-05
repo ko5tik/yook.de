@@ -1,0 +1,22 @@
+<p>
+<& surround_start , width=>"100%" &>
+<table border=0 cellpadding=3 cellspacing=1 width="100%">
+<tr><td bgcolor=<% $Gamesite::config{menubg} %> align=center wodth="50%">
+<b><% $title %></b>
+</td>
+<td bgcolor=<% $Gamesite::config{barcolor} %> align=center width="50%">
+%if($url) {
+<a href=<% $url %>>
+%}
+<b><% $link_name %></b>
+%if($url) {
+</a>
+%}
+</td>
+</table>
+<& surround_end &>
+<%args>
+$title=>undef
+$link_name=>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+$url=>undef
+</%args>

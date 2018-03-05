@@ -1,0 +1,22 @@
+
+<p>Spielaufgabe ist das Spielfeld komplett zu raümen. Sie können 
+zusammenhängende Zellen wegraumen indem sie auf sie mit dem Maus klicken.
+Je mehr Zellen sie auf ein mal wegraümen, desto mehr Punkte werden vergeben.
+<p>Sie können auch einzelne Zellen entfernen, indem Sie <b>"Bomben"</b> 
+einsetzen. Zu beginnd es Spiels haben Sie 15 Bomben. Pro Level werden 
+5 weitere bomben zu Verfügung gestellt. Um eine Zelle "wegzubomben" 
+halten Sie die <b>"STRG"</b>-Taste, und clicken Sie sie mit dem Maus an.
+
+<p>Schwarze Zellen sind <b>"Joker"</b>. Die verbinden die Zellengruppen von Unterschiedlichen Farben.
+
+<p>Das Spiellevel ist zu Ende wenn alle Zellen weggeräumt sind. Wenn
+es keine Zusammenhängende Zellengruppen mehr gibt, und alle "Bomben" 
+verbraucht sind, ist das Spiel zu Ende. Vergessen Sie nicht Ihr Spielergebniss 
+zu Speichern.
+
+
+<p>Sie konnen das Spiel auch offline Spielen, nachdem das Applet volsstandig 
+geladen ist. Internetverbindung wird nur für die Ergebnissspeicherung benötigt.
+
+
+<& ../../page_part, stop=>1 &>

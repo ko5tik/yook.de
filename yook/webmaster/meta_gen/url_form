@@ -1,0 +1,27 @@
+<dl>
+<form method=get action=<% $target %>>
+<dt><b>URL to process:</b>
+<dd>
+Enter <b>complete</b> URL of page you want to optimize<br>
+<% $cgi->textfield(-name=>'url', -value=>$url, -size=>40) %><br>
+
+<dt><b>Document language:</b>
+<dd>
+Select proper language for your document. Meta tag generator has to know
+it, to be able to separate words (Default is good for english sites)<br>
+<% $cgi->popup_menu(-name=>'locale',
+'-values'=>['C','en','cs','da','de','el','es','fi','fr','is','it','nl','no','pl','pt','ru','sk','sv','tr'], 
+-default=>'C',-labels=>{C=>'Default',en=>'English',cs=>'Cesky',da=>'Dansk',de=>'Deutsch',el=>'Ellinika',es=>'Espanol', fi=>'Suomi',fr=>'Francais',is=>'Islensk',it=>'Italiano',nl=>'Nederlands','no'=>'Norsk',pl=>'Polski',pt=>'Portugues',ru=>'Russkii',sk=>'Slovensky', sv=>'Svenska','tr'=>'Türkce'}) %><br>
+
+<p>
+<dd><% $cgi->submit(-value=>'Do it') %> <% $cgi->reset %>
+</form>
+</dl>
+
+<%init>
+my $cgi = $Gamesite::cgi;
+</%init>
+<%args>
+$target=>'check_meta.html'
+$url=>'http://'
+</%args>

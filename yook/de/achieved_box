@@ -1,0 +1,11 @@
+
+<& ../page_part , start=>1 , title=>"Gratulation, $Gamesite::userdata->{nickname}" , linkprefix=>$linkprefix&>
+<p>Ihr Spielergebniss wurde gespeichert. Ihre Platz in der ewigen Bestenliste  ist  <b>#<% $global %></b>  , und <b>#<% $daily %></b> heute.
+<& ../page_part , stop=>1, linkprefix=>$linkprefix &>
+
+
+<%args>
+$global
+$daily
+$linkprefix=>undef
+</%args>

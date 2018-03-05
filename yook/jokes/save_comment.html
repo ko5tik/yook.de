@@ -1,0 +1,79 @@
+<& ../layout , top=>1 , title=>'Comment to teller' , path=>'jokes/'&>
+
+%if($ok) {
+<& ../.utils/headline , title=>'Your message was sent' &>
+<p>Youe message was forwarded to author.
+%} else {
+<& ../.utils/headline , title=>'Your message was not sent' &>
+<p>Your message was not send because of:
+<dl>
+<% $failmsg %>
+</dl>
+please press "Back" button of your browser and correct data.
+%}
+
+<& ../layout ,  bottom=>1 , path=>'jokes/'&>
+
+
+
+<%init>
+my $j = $Gamesite::jokes;
+$j->restore($id);
+
+my $ok = 1;
+my $failmsg;
+
+if(!$id) {
+$ok = 0;
+$failmsg .= "<dt><b>Joke ID:</b><dd>There was no valid joke ID.";
+}
+
+if(!$m->comp('/utils/is-valid-email.fn',email=>$email)) {
+$ok = 0;
+$failmsg .= "<dt><b>Your email:</b><dd>You did not specified valid email.";
+}
+
+if($comment eq '') {
+$ok = 0;
+$failmsg .= "<dt><b>Your comments:</b><dd>You did not entered any comments.";
+}
+
+if($ok) {
+my $now = time;
+my $nn = localtime $now;
+my $na =  $j->teller;
+my $msg = <<EOF;
+
+Hi $na,
+This message was send from Yook.de jokes site.
+$name entered following comments about your entry:
+
+$comment
+
+He entered foillowing email adress: $email
+------------------------------------------------------
+If you think that this person abused this feature,
+please contact webmaster under following email address:
+webmaster\@yook.de
+and include following information in your abuse report:
+
+Timestamp: $now
+Time: $nn;
+
+You may also choose to remove all references to your email address from yook.de
+Ask webmaster and It will be done ASAP.
+
+
+EOF
+
+
+$m->comp('/utils/sendemail', to=>$j->teller_email , from=>'nobody@yook.de' , subject=>'Comments about your entry', body=>$msg);
+
+}
+</%init>
+<%args>
+$name=>undef
+$id=>0
+$email=>undef
+$comment=>undef
+</%args>

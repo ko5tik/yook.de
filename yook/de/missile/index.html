@@ -1,0 +1,6 @@
+<& ../templates/index.tmpl , gamedata=>$dd, scoredata=>$scoredata&>
+
+<%init>
+my $scoredata = $m->comp('top_scores');
+my $dd = $m->comp('game_data');
+</%init>

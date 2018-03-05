@@ -1,0 +1,16 @@
+
+<%init>
+$Breakout::scoredata = $Gamesite::scoredata{breakout}->get_top_scores;
+$Breakout::scoredata->{person} = $Gamesite::userdata->{breakout_highest};
+return $Breakout::scoredata;
+</%init>
+
+<%once>
+{
+package Breakout;
+use vars qw( $scoredata );
+
+$Breakout::scoredata = { age=>0 };
+
+}
+</%once>

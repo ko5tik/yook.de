@@ -1,0 +1,20 @@
+<form name=login_form action=http://email.yook.de/email/scripts/loginuser.pl method=post>
+<& .utils/surround_start , width=>650 , align=>'center' &>
+<table border=0 cellpadding=3 cellspacing=1 width="100%" >
+<tr>
+<td align=center   bgcolor=<% $Gamesite::config{menubg} %>>
+<b>Email Login</b>
+</td>
+<td align=center bgcolor=<% $Gamesite::config{barcolor} %>>
+<small>
+Login: <input type="text" name="loginName" size="12" value="" maxlength=32>
+Password: <input  type=password name=user_pwd size=12 maxlength=32>
+<input type="SUBMIT" value="Login" name="login">
+</small>
+</td>
+<td align=center   bgcolor=<% $Gamesite::config{menubg} %>>
+<b><a href=http://email.yook.de/email/scripts/useragreement.pl>Get your own!</a></b>
+</td>
+</table>
+<& .utils/surround_end &>
+</form>

@@ -1,0 +1,50 @@
+# MySQL dump 7.1
+#
+# Host: localhost    Database: admaster
+#--------------------------------------------------------
+# Server version	3.22.32
+
+#
+# Table structure for table 'customer'
+#
+CREATE TABLE customer (
+  id int(11) DEFAULT '0' NOT NULL auto_increment,
+  name text,
+  email text,
+  PRIMARY KEY (id)
+);
+
+#
+# Table structure for table 'format'
+#
+CREATE TABLE format (
+  id int(11) DEFAULT '0' NOT NULL auto_increment,
+  description text,
+  PRIMARY KEY (id)
+);
+
+#
+# Table structure for table 'seq'
+#
+CREATE TABLE seq (
+  seqnr int(11)
+);
+
+INSERT INTO seq ( seqnr ) values ( 0 );
+#
+# Table structure for table 'slot'
+#
+CREATE TABLE slot (
+  id int(11) DEFAULT '0' NOT NULL auto_increment,
+  cust_id int(11),
+  format_id int(11),
+  code text,
+  active tinyint(4) DEFAULT '0',
+  impressions int(11) DEFAULT '0',
+  credits int(11),
+  ratio int(11) DEFAULT '1',
+  ratio_used int(11) DEFAULT '1',
+  seq int(11),
+  PRIMARY KEY (id)
+);
+

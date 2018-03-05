@@ -1,0 +1,23 @@
+
+<P>Fliegen Sie zwieschen den Toren, und versuchen Sie Kleine Lila-Aliens abzuschiesen. Vermeiden Sie kollisionen. Sie können den Toren  und Aliens ausweichen, indem Sie höher Fliegen.
+<p>Sammeln Sie den Treibstoff indem Sie zwieschen den Toren durchfilegen.
+<p>Falls Sie sich zu hoch befinden, wird Ihr Visir abgeblendet. In diesen Fall,
+können Sie weder Treibstoff sammeln, noch die Aliens abschiesen. Wegepunkte werden auch nicht berechnet.  
+
+<P>Ein Computer mit 200 MHz wird empfohlen. Diese Spiel benotigt java 1.1.
+
+<h4>Tastaturkontrollen</h4>
+<UL>
+<LI>Pfeiltasten - steuern Shiffbewegung. 
+<LI>Leertaste - Schiesen.
+<LI>S - Ton ein/aus.
+<LI>P - Pause ein/aus.
+</UL>
+<P>Wenn Ihr letztes Schiff verloren ist erscheint die "Game over" Panel.
+Speichern Sie Ihr Spielergebniss ab. Sie werden unter Umständen noch ein mal 
+in das Appletinnere KLicken mussen, damit es die tastaturkontrolle übernehmen kann.
+<P>Zusatzschiffe werden bei  20000 und  50000 Punkte vergeben. Dann alle 50000 Punkte. <B>Viel Spass</B>
+
+
+<& ../../page_part, stop=>1 &>
+

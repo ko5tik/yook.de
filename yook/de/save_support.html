@@ -1,0 +1,41 @@
+<& layout , top=>1 , title=>'technical support'  , linkprefix=>'../'&>
+<& ../page_part , linkprefix=>'../', start=>1 , title=>'Your problem report was accepted'  &>
+Ihre Support-frage wurde an der Webmaster weitergeleitet.
+Vielen dank für Ihre meldung.
+<& ../page_part , stop=>1 &>
+
+<& layout, bottom=>1, linkprefix=>'../' &>
+
+
+
+<%init>
+my $now = localtime time;
+my $message=<<EOF;
+Support call logged at: $now
+Name: $name
+Email: $email
+URL: $url
+Page: $from
+Cause: $cause
+sender: $ENV{'REMOTE_ADDR'}
+Problem:
+$problem
+
+EOF
+
+$m->comp('/utils/sendemail',to=>'kpriblouda@yahoo.com', from=>'noreturn@nowhere.net', subject=>'Java sandbox support request', body=>$message);
+
+if($m->comp('/utils/is-valid-email.fn', email=>$email)) {
+   $m->comp('/utils/sendemail',to=>$email, from=>'noreturn@nowhere.net', subject=>'Java sandox - feedback received', body=>$message);
+}
+</%init>
+
+<%args>
+$name=>undef
+$email=>undef
+$url=>undef
+$cause=>undef
+$problem=>undef
+$from=>undef
+</%args>
+

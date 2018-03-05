@@ -1,0 +1,12 @@
+
+<& ../highscore_box ,scoredata=>$scoredata , linkprefix=>'../' &><br><br>
+
+<%init>
+my $scoredata = $m->comp('top_scores');
+</%init>
+
+
+<%args>
+$linkprefix=>undef
+$target=>undef
+</%args>

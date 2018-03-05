@@ -1,0 +1,39 @@
+
+<& ../.utils/surround_start , width=>650 &>
+<table border=0 cellpadding=5 cellspacing=1 width="100%">
+<tr align=center>
+<td bgcolor=<% $Gamesite::config{menubg} %>>
+<b><% $tt %></b>
+<br>
+Release of <% POSIX::strftime "%d %B %Y", localtime($rel) %>
+</td>
+<td bgcolor=white align=left>
+<ul>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/j/<% $lj %>>Latest jokes</a>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/t/<% $lt %>>Latest tales</a>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/telljoke.html>Tell a joke</a>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/telltale.html>Tell a tale</a>
+<%doc>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/subscribe.html>Subscribe</a>
+</%doc>
+</ul>
+</td>
+</table>
+<& ../.utils/surround_end &>
+
+<%init>
+my $j = $Gamesite::jokes;
+my $tt = 'Jokes';
+
+$tt = 'Tales' if $kind == &Joke::TALE;
+
+my $dates = $j->get_release_dates(&Joke::JOKE,&Joke::ACCEPTED);
+my $lj = POSIX::strftime "%Y%m%d", (localtime $dates->[0]);
+$dates = $j->get_release_dates(&Joke::TALE,&Joke::ACCEPTED);
+my $lt =  POSIX::strftime "%Y%m%d", (localtime $dates->[0]);
+</%init>
+
+<%args>
+$kind
+$rel
+</%args>

@@ -1,0 +1,12 @@
+<form action=<% $Gamesite::config{baseurl} %>recommend.html>
+<& .utils/sidebox_start , title=>'Recommend it' &>
+<small>
+Like this site? Tell your friends about. Enter email address in the field and press the 'Enter' button.
+
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>20) %>
+</small>
+<& .utils/sidebox_end &>
+</form>
+<%args>
+$linkprefix=>undef
+</%args>

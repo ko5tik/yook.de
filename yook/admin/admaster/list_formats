@@ -1,0 +1,9 @@
+<ul>
+%foreach(@$formats) {
+<li><b><% $_->[1] %></b><br>
+<small>[<a href=edit_format.html?id=<% $_->[0]%>>edit</a>] [<a href=remove_format.html?id=<% $_->[0]%>>remove</a>]</small>
+%}
+</ul>
+<%init>
+my $formats = $Admaster::ad->get_formats;
+</%init>

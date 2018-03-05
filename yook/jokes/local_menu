@@ -1,0 +1,21 @@
+<& ../.utils/sidebox_start , title=>'Jokes@Yook' &>
+<ul>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/j/<% $lj %>>Latest jokes</a>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/t/<% $lt %>>Latest tales</a>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/telljoke.html>Tell a joke</a>
+<li><a href=<% $Gamesite::config{baseurl}%>jokes/telltale.html>Tell a tale</a>
+</ul>
+<& ../.utils/sidebox_end &>
+
+<%init>
+my $j = $Gamesite::jokes;
+my $dates = $j->get_release_dates(&Joke::JOKE,&Joke::ACCEPTED);
+
+my $lj = POSIX::strftime "%Y%m%d", (localtime $dates->[0]);
+
+
+$dates = $j->get_release_dates(&Joke::TALE,&Joke::ACCEPTED);
+
+my $lt =  POSIX::strftime "%Y%m%d", (localtime $dates->[0]);
+
+</%init>

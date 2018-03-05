@@ -1,0 +1,21 @@
+
+
+Spielaufgabe ist die Kugeln der gleicher Farbe auf der geraden Linien zu platzieren. Falls eine Linie 5 oder mehr Kugeln enthält, werden diese weggeräumt und Punkte vergeben.
+Es werden Linien in jeder Richtung akzeptiert, sowie sich kreuzende Linien.
+Längere Linien geben mehr Punkte.
+Und so geht es:
+<ul>
+<li>Warten Sie bis das Applet sich geladen hat. (Sie müssen Kugeln sehen können).
+<li>Tragen Sie Ihren Namen in das  <b>"Player"</b>-Feld ein (falls er noch nicht eingetragen ist).
+<li>Um ein Kugel zu verschieben, klicken Sie sie mit der Maus an, anschliessend klicken Sie in  gewünschte Feld. Falls Sie eine falsche Kugel angeklickt haben, 
+klicken Sie einfach auf die richtige.
+<li>Wenn der Weg frei ist, wird die Kugel in das gewünschte Feld bewegt.
+<li>Nach jedem Zug werden 3 weitere Kugeln auf das Feld platziert. Die Farben 
+können Sie im Vorschaufeld sehen.
+<li>Sie können dem nächsten Zug auslösen, ohne Kugeln zu bewegen: Einfach  <b>"Next"</b> - Taste drücken.
+<li>Das Spiel ist beendet, wenn das ganze Spielfeld mit dem Kugeln belegt ist. Drücken Sie <b>"Save Score"</b>,  um Ihr Ergebnis zu speichern, oder <b>"New game"</b> um neues Spiel zu starten.
+</ul>
+
+<p>Sie brauchen während des Spiels nicht Online zu sein. Die Internetverbindung wird nur für Spielergebnisübertragung benötigt.
+
+<& ../../page_part, stop=>1 &>

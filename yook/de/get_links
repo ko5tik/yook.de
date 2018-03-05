@@ -1,0 +1,23 @@
+<%init>
+if($m->current_comp->first_time) {
+$Linkmaster::age = 0;
+}
+my $fileage = (stat $Gamesite::config{'datapath'} . "/link.list")[9];
+if($Linkmaster::age <  $fileage) {
+#reread file
+open LF , $Gamesite::config{'datapath'} . "/link.list";
+@Linkmaster::friends = <LF>;
+chop @Linkmaster::friends;
+close LF;
+$Linkmaster::age = $fileage;
+}
+
+
+</%init>
+
+<%once>
+{
+package Linkmaster;
+use vars qw( $age @friends );
+}
+</%once>

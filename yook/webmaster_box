@@ -1,0 +1,12 @@
+<& .utils/sidebox_start , title=>'Webmaster' &>
+
+<small>
+Are you a webmaster? Place link to this page, and this link will be rewarded.
+<a href=<% $Gamesite::config{baseurl} %>webmaster.html>Read on</a>.
+</small>
+
+<& .utils/sidebox_end &>
+
+<%args>
+$linkprefix=>undef
+</%args>

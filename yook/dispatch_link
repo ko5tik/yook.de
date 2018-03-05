@@ -1,0 +1,18 @@
+<& .utils/sidebox_start , title=>'Featured link' &>
+
+<small>
+<a href=<% $linkprefix %>jump_out?id=<%$link->[0]%>><% $link->[1] %></a><br>
+[<font color=red><% $link->[2] %></font> in | <font color=blue><% $link->[3] %></font> out]<br>
+<b><a href=<% $Gamesite::config{baseurl} %>friends.html>all links</a></b>
+</small>
+<& .utils/sidebox_end &>
+
+
+<%init>
+my $link = $Gamesite::linkomatic->dispatch_link(0);
+
+</%init>
+
+<%args>
+$linkprefix=>undef
+</%args>

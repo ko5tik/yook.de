@@ -1,0 +1,24 @@
+<& layout , top=>1 , title=>'yook news',main=>1 , show_email=>1 &>
+<& .utils/headline , title=>'All news' , &>
+<dl>
+%while($n->restore_next) {
+<dt><b> <% $n->headline %></b>
+<dd><% $n->teaser %><br>
+<small><%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($n->timestamp) %></small> - <a href=show_news.html?id=<% $n->id %>><b>read on</b></a>
+%}
+%if($n->restore_next) {
+<dt><b> <% $n->headline %></b>
+<dd><% $n->teaser %><br>
+<small><%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($n->timestamp) %></small> - <a href=show_news.html?id=<% $n->id %>><b>read on</b></a>
+
+%}
+</dl>
+<& layout , bottom=>1 , main=>1 &>
+
+
+<%init>
+my $n = $Gamesite::news_en;
+$n->restore_where('','timestamp desc');
+
+
+</%init>

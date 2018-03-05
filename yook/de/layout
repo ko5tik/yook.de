@@ -1,0 +1,123 @@
+%if($top){
+<html>
+<head>
+<META name="COPYRIGHT" content="Konstantin Pribluda 1999-2000 all rights reserved">
+<META name="AUTHOR" content="Konstantin Priblouda, konstantin@pribluda.de">
+%if( !($user_agent =~ /Mozilla/ ) && $m->comp_exists( $path . 'meta' )) {
+<META name="ROBOTS" content="all">
+<& $path . 'meta' &>
+%}
+
+<base target=<% $target %>> 
+<title>
+<% $Gamesite::config{site_title} %> - <% $title %>
+</title>
+</head>
+<body bgcolor=white>
+
+<& navig_box &>
+%if($show_email) {
+<& email_box &>
+%}
+
+<p>
+<center>
+<% $ads->[0] %>
+</center>
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=650 align=center>
+<tr valign = top>
+<td width=480>
+
+
+<%doc>
+
+</td>
+<td width=470>
+
+<% $ads->[0] %>
+</%doc>
+%}
+%if($bottom) {
+<img src=<% $Gamesite::config{baseurl} %>images/tp.gif width=450 height=1>
+</td>
+<td>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<& left_menu , path=>$path ,linkprefix=>$linkprefix&>
+<p>
+<center>
+<%doc>
+<a href="http://www.yook.de/de/jump_out?id=55" target=_blank title="GMS Network - Wo spielen Spass macht !"><img border="0" src="http://www.gms-network.de/Logos/aokz_88x31.gif" alt="GMS Network - Wo spielen Spass macht !" width="88" height="31"></a>
+<br>
+<!--HitMeter COUNTER--><img height=1 width=1
+src="http://www.hitmeter.de/counter?id=1660"
+alt=""><!--HitMeter COUNTER-->
+
+<!--HitMeter LOGO--><a target=_top
+href="http://hitmeter.de/jump?from=1660"><img
+src="http://194.77.224.158/counter?id=1660;t=4;l=1"
+border=0 height=52 width=100
+alt="HitMeter"></a><br><a target=_top
+href="http://hitmeter.de/advert?id=1660"><img
+src="http://194.77.224.158/advert?id=1660;t=3"
+width=100 height=12 border=0
+alt="Advert"></a><br>
+
+
+<!--HitMeter LOGO-->
+
+</%doc>
+<%doc>
+<br>
+<!--BEGINN WEBLIST-LOGO-->
+<a href="http://www.yook.de/de/jump_out?id=28" target="_top">
+ <img src="http://www.cheatz.de/cgi-bin/gamecharts/weblist.cgi?ID=10739"
+   border="0" width="60" height="60"></a>
+<!--ENDE WEBLIST-LOGO-->
+<br>
+<!-- netliks -->
+<a href="http://www.yook.de/de/jump_out?id=30">
+<img src=/images/linkoseum2.gif width=125 height=40 alt="" border=0></A>
+<!-- netliks end -->
+<br>
+<a href="http://www.yook.de/de/jump_out?id=27"
+  TARGET=_NEW><IMG SRC="http://www.ggo.de/links/topsites/topsites.jpg" BORDER=0 width=84 height=20></a>
+</%doc>
+</center>
+</td>
+</table>
+
+<p>
+<center>
+<% $ads->[1] %>
+</center>
+<p>
+
+<& bottom_box &>
+
+
+</body>
+</html>
+%}
+
+<%init>
+my $tt = $title;
+$tt =~ s/ /+/;
+
+my $ads = $Gamesite::ad->serve_ads('format'=>2,amount=>2);
+my %hin  = $r->headers_in;
+my $user_agent = $hin{'User-Agent'};
+</%init>
+<%args>
+$top=>undef
+$bottom=>undef
+$title=>undef
+$linkprefix=>undef
+$path=>undef # where to lookup local menus
+$target=>'_top'
+$main=>undef # whether it's main page
+$show_email=>undef
+</%args>

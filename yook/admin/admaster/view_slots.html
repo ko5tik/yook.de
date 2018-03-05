@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Advertising slots for <% $customer[1] %></title>
+</head>
+<body bgcolor=white>
+<& menu &>
+<H2>Creatig new slot</h2>
+<p>Creating advertising slot for customer <b><% $customer[1] %></b> (<a href=mailto:<% $customer[2]%>><% $customer[2] %></a>)
+<& slot_form , action=>'create_slot.html',  method=>'post', custid=>$customer[0], ratio=>1, credits=>1000&>
+
+<h2>Advertising slots for <% $customer[1] %></h2>
+
+<h4>Aktive Slots</h4>
+
+
+%foreach(@$active_slots) {
+<table border=1>
+<tr>
+<td>
+<% $_->[3] %>
+</td>
+<td>
+<li><a href=view_slots.html?custid=<%$custid%>&deactivate=<% $_->[0] %>>Deactivate</a>
+<li><a href=edit_slot.html?id=<% $_->[0] %>>Edit</a>
+</td>
+<tr>
+<td colspan=2>
+<ul>
+<li>Impressions: <% $_->[5] %>
+<li>Ratio: <% $_->[7] %>
+<li>Credits: <% $_->[6] %>
+</ul>
+</td>
+</table>
+%}
+
+
+<h4>Inactive slots</h4>
+%foreach(@$sleeping_slots) {
+<table border=1>
+<tr>
+<td>
+<% $_->[3] %>
+</td>
+<td>
+<li><a href=view_slots.html?custid=<%$custid%>&activate=<% $_->[0] %>>Activate</a>
+<li><a href=remove_slot.html?id=<% $_->[0] %>&custid=<%$custid%>>Remove</a>
+<li><a href=edit_slot.html?id=<% $_->[0] %>>Edit</a>
+</td>
+</td>
+</table>
+%}
+<%doc>
+<h4>Wastebasket</h4> <a href=view_slots.html?custid=<%$custid%>&purge=1>Empty waste</a>
+%foreach(@$removed_slots) {
+<table border=1>
+<tr>
+<td>
+<% $_->[3] %>
+</td>
+<td>
+<li><a href=view_slots.html?custid=<%$custid%>&restore=<% $_->[0] %>>Restore</a>
+<li><a href=edit_slot.html?id=<% $_->[0] %>>Edit</a>
+</td>
+</td>
+</table>
+%}
+</%doc>
+</body>
+</html>
+<%init>
+my @customer = $Admaster::ad->get_customer($custid);
+
+if($code) {
+$Admaster::ad->create_slot(cust_id=>$custid,credits=>$credits,code=>$code,format_id=>$formatid);
+}
+if($activate) {
+$Admaster::ad->update_slot(id=>$activate, active=>1);
+}
+if($deactivate) {
+$Admaster::ad->update_slot(id=>$deactivate, active=>0);
+}
+
+
+my $active_slots = $Admaster::ad->get_slots(active=>1,cust_id=>$custid);
+my $sleeping_slots = $Admaster::ad->get_slots(active=>0,cust_id=>$custid);
+
+
+</%init>
+
+
+
+
+<%args>
+$id=>undef
+$custid
+$create=>undef
+$code=>undef
+$ratio=>undef
+$formatid=>undef
+$credits=>undef
+$activate=>undef
+$deactivate=>undef
+$remove=>undef
+$restore=>undef
+$purge=>undef
+</%args>

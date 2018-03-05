@@ -1,0 +1,138 @@
+<& layout , top=>1 , title=>'webmaster area'  &>
+
+%if($dataok) {
+<& page_part , start=>1 , title=>'Thank you'  &>
+Your link was accepted for review. You will be notified about results.
+Confirmation email was send to you.
+<& page_part , stop=>1 &>
+% } else {
+<&  page_part , start=>1, title=>'Check your data'  &>
+<p>There were problems with your data. Please correct errors 
+<% $errmsg %>
+<form action=add_link.html method=post>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Website:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'site',-size=>30,-value=>$site) %><br>
+<small>site name</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>URL:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'url',-size=>30, -value=>$url) %><br>
+<small>url to link to</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Contact:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'contact',-size=>30, -value=>$contact) %><br>
+<small>contact person</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Email:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>30, -value=>$email) %><br>
+<small>contact email</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Password:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'password',-size=>30, -value=>$password) %><br>
+<small>pick a password</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Verify:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'password2',-size=>30, -value=>$password2) %><br>
+<small>verify your password</small>
+</td>
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Register') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+<& page_part , stop=>1 &>
+%}
+
+<& layout, bottom=>1 &>
+
+<%init>
+my $dataok = 1;
+my $errmsg = "<ul>";
+if($contact eq '') {
+$errmsg .="<li>Contact person not specified";
+$dataok = 0;
+}
+if(!$m->comp('/utils/is-valid-email.fn',email=>$email)) {
+$errmsg .="<li>Email address seems to be incorrect";
+$dataok = 0;
+}
+if( $url !~ /^http:\/\//) {
+$errmsg .="<li>URL must begin with http://";
+$dataok = 0;
+}
+if($password eq '') {
+$errmsg .="<li>Password cannot be empty";
+$dataok = 0;
+}
+if($password ne $password2) {
+$errmsg .="<li>Passwords do not match";
+$dataok = 0;
+}
+if($site eq '') {
+$errmsg .="<li>Site name not specified";
+$dataok = 0;
+}
+
+$errmsg .= "</ul>";
+
+my $now = localtime time;
+if($dataok) {
+open OF , ">>$Gamesite::config{datapath}/link.request";
+print OF join('[]',$site,$contact,$email,$url,$password,$password2,0), "\n";
+close OF;
+
+my $mailmsg =<<EOF;
+Hello $contact,
+You have submited  your site for review 
+as friend link to
+$Gamesite::config{baseurl} , 
+You have entered following data:
+Contact: $contact
+Email: $email
+Sitename: $site
+URL: $url
+Password: $password
+
+Thank your for submitting your site. 
+Your submission will be verified as soon as possible.
+
+If somebody submitted your site without your knowlege, 
+contact webmaster under kpriblouda\@yahoo.com as soon as possible
+Include following information in your abuse report:
+REMOTE_ADDR:  $ENV{'REMOTE_ADDR'}
+TIMESTAMP: $now
+
+Please do not reply to this email directly
+
+EOF
+
+$m->comp('/utils/sendemail', to=>$email, from=>'noreturn@nowhere.net',subject=>'Friend link registration ', body=>$mailmsg);
+
+
+}
+</%init>
+
+<%args>
+$email
+$url
+$password
+$password2
+$contact
+$site
+
+</%args>

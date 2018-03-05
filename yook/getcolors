@@ -1,0 +1,5 @@
+
+<%init>
+$m->comp('/utils/redirect', url=>"http://www.pribluda.de/android/colors");
+
+</%init>

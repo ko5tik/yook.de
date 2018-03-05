@@ -1,0 +1,12 @@
+<%init>
+
+$Admaster::ad->remove_slot($id);
+$m->comp('/utils/redirect',url=>$Admaster::config{baseurl} . "view_slots.html?custid=$custid");
+</%init>
+
+
+
+<%args>
+$id
+$custid
+</%args>

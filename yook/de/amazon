@@ -1,0 +1,42 @@
+<FORM METHOD="get" ACTION="http://www.amazon.de/exec/obidos/external-search?tag=yookde-21">
+<TABLE BORDER="0" CELLPADDING="1" cellspacing="0" BGCOLOR="#000000"><TR><TD>
+<TABLE BORDER="0" CELLPADDING="2" cellspacing="0" align="center" BGCOLOR="#FFFFFF">
+<TR BORDER="0">
+<TD BGCOLOR="<% $Gamesite::config{barcolor} %>" align="RIGHT" valign="middle"><font face="verdana,arial,helvetica" size="-2"><B>Suchen in:</B></font></TD>
+<TD BGCOLOR="<% $Gamesite::config{barcolor} %>" align="left" valign="middle"><font face="verdana,arial,helvetica" size="-2"> 
+<SELECT NAME="index">
+<OPTION VALUE="blended" selected>Alle
+<OPTION VALUE="books-de">Bücher
+<OPTION VALUE="books-de-intl-us">US-Bücher
+<OPTION VALUE="music">Pop-Musik
+<OPTION VALUE="classical-music">Klassik
+<OPTION VALUE="music-tracks">Song-Titel
+<OPTION VALUE="video-dvd-de">DVD & Video
+<OPTION VALUE="dvd-de">DVD
+<OPTION VALUE="vhs-de">Video
+<OPTION VALUE="video-games-de">PC- & Videospiele
+<OPTION VALUE="software-de">Software
+<OPTION VALUE="ce-de">Elektronik & Foto
+</SELECT>
+</font></TD>
+<TR BORDER="0">
+<TD BGCOLOR="<% $Gamesite::config{barcolor} %>" align="RIGHT" valign="middle"><font face="verdana,arial,helvetica" size="-2"><B>Suchbegriffe:</B></font></TD>
+<TD BGCOLOR="<% $Gamesite::config{barcolor} %>" align="left" valign="middle"><font face="verdana,arial,helvetica" size="-2">
+<INPUT TYPE="text" NAME="keyword" SIZE="10" VALUE="">
+<INPUT TYPE="hidden" NAME="tag" VALUE="yookde-21">
+<INPUT TYPE="hidden" NAME="tag-id" VALUE="yookde-21">
+<INPUT TYPE="image" WIDTH="25" HEIGHT="18" BORDER="0" VALUE="Los" NAME="Los" src="/images/los.gif" ALIGN=absmiddle>
+</font></TD>
+</TR>
+<TR>
+<TD COLSPAN="2" VALIGN="top" ALIGN="center" BGCOLOR="#000000">
+<A HREF="http://www.amazon.de/exec/obidos/redirect-home?tag=yookde-21&site=home"><IMG width="126" height="32" SRC="/images/amznlogo.gif" BORDER="0" HSPACE="0" VSPACE="0" ALT="In Partnerschaft mit Amazon.de"></a>
+</TD>
+</TR>
+</TABLE></TD></TR></TABLE>
+</FORM> 
+
+
+
+
+

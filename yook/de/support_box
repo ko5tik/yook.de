@@ -1,0 +1,10 @@
+
+<& ../.utils/sidebox_start, title=>'Problem? Vorschlag?' &>
+<small>
+Haben Sie einen Fehler entdeckt, oder wollen Sie dem Autor etwas mitteilen? Ihre Meinung ist wichtig. Benutzen Sie <a href=<% $Gamesite::config{baseurl} %>de/support.html>diese
+Seite</A>.
+</small>
+<& ../.utils/sidebox_end &>
+<%args>
+$linkprefix=>undef
+</%args>

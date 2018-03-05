@@ -1,0 +1,19 @@
+<%doc>
+<pre>
+<% Data::Dumper->Dump([$Gamesite::linkomatic]) %>
+</pre>
+</%doc>
+<%init>
+
+
+my @ll = $Gamesite::linkomatic->get_link($id);
+$Gamesite::linkomatic->count_in($id) if @ll;
+
+
+$m->comp('/utils/redirect', url=>$Gamesite::config{baseurl} . $page);
+</%init>
+
+<%args>
+$id
+$page=>""
+</%args>

@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'Lines',
+path=>'lines/',
+scores=>$Gamesite::scoredata{lines},
+fieldnames=>[ 'Pos' , 'Name' , 'Points' , 'Turns' , 'Balls' , 'Time spend' , 'Since'], 
+fields=>['name','points','turns','balls','seconds','time','url'], 
+archive=>'lineslite.tar.gz'	
+};
+
+
+</%init>

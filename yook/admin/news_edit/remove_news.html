@@ -1,0 +1,30 @@
+<& ../page_start , title=>'News admin - remove entry' &>
+<dl>
+<dt><b>Headline:</b>
+<dd><% $n->headline %>
+<dt><b>Teaser:</b>
+<dd><% $n->teaser %>
+<dt><b>Contens:</b>
+<dd><% $n->contens %>
+<dt>Timestamp:
+<dd><% scalar localtime $n->timestamp %>
+</dl>
+<hr>
+<ul>
+<li><a href=index.html>No, leave it!</a>
+<li><a href=do_remove?id=<% $id %>&back_uri=<% $back_uri %>>Yes,remove!!!</a>
+</ul>
+<& ../page_end &>
+
+<%init>
+$m->comp('init');
+
+my $n = $NewsEdit::news;
+$n->restore($id);
+</%init>
+
+
+<%args>
+$id
+$back_uri
+</%args>

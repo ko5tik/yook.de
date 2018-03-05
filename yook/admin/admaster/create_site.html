@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Advertising sites</title>
+</head>
+<body bgcolor=white>
+<& menu &>
+<h2>Create advertising site</h2>
+<form action=create_site.html method=post>
+<table border=0>
+<tr valign=baseline>
+<td align=right>
+<b>Site:</b>
+</td>
+<td>
+<% $Admaster::cgi->textfield(-name=>'descr',-size=>40) %>
+</td>
+<tr><td>
+</td>
+<td>
+<% $Admaster::cgi->submit(-value=>'Create') %>
+<% $Admaster::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+
+<hr>
+<h2>Existing sites</h2>
+<& list_sites &>
+
+</body>
+</html>
+<%init>
+if($descr) {
+$Admaster::ad->create_site(descr=>$descr);
+}
+</%init>
+
+<%args>
+$descr=>undef
+</%args>

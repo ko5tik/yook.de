@@ -1,0 +1,8 @@
+<p>
+<center>
+<a href=http://www.yook.de/jump_out?id=71><img src=<% $Gamesite::config{baseurl} %>images/gamez_88x30.gif width=88 height=30 border=0></a>
+</center>
+<br>
+<%args>
+$linkprefix=>undef
+</%args>

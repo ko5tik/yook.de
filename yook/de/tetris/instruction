@@ -1,0 +1,30 @@
+
+<OL>
+<LI>Warten Sie bis der Applet sich geladen hat.
+<LI>Klicken Sie mit der Maus einmal in das Appletinnere, damit der Tastatureinschläge erkennen kann.
+<LI>Klicken Sie auf  "New Game" Taste.
+<LI>Versuchen Sie mit dem Fallenden Blocken die komplete Linien auszufüllen.
+<LI>Spiel ist zu ende, wenn kein Platz für neue Blocke mehr frei ist.
+<li>Vergessen Sie nicht , alle 15 Minuten die Pausen einzulegen. Das 
+kann helfen die gesundheitliche Problme zu verhindern.
+<LI>Vergessen Sie nucht Ihren Namen in das Textfeld einzutragen. Sonst
+werden Sie Ihren Namen nicht in der Bestenliste wiederfinden.
+</OL>
+<H4>Bedienugselemente</H4>
+<UL>
+<LI>"Player:" Textfeld - Tragen Sie Ihren Namen ein, das in der Besteliste ersheinen soll .
+<LI>"New Game" Taste - Startet neues Spiel.
+<LI>"Save score" Taste  - Speichert Ihren Spielergebniss ab. Diese Taste oöfnet ein neues Fenster.
+</UL>
+<h4>Tastaturkontrollen</h4>
+<UL>
+<LI>Links- und Rechtspfeile bewegen der Block.
+<LI>Pfeil nach oben änder die Farbenreihenfolge.
+<LI>Pfeil nach unten lässt das Block fallen.
+<LI>Plustaste erhöht der Spiellevel.
+<LI>"P" - Pausentaste.
+</UL>
+<P>Auf der rechten Seite können Sie Ihr Puktezahl sehen, bestes Punktezahl, aktuelles Spiellevel und Farbenvorschau für das nächstes Block.
+<P>Sie können das Spiel auch Off-line Spielen. Die Intenetverbindung ist nur für die Spielergebnissübertragung notwendig
+<& ../../page_part, stop=>1 , linkprefix=>'../../'&>
+

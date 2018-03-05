@@ -1,0 +1,18 @@
+<SCRIPT language="javascript">
+
+    <!--
+     function openchat()
+     {
+        window.name="masterWindow";
+        chatwin = window.open("","chatWindow","toolbar=0,location=0,menubar=0,width=530,height=450,resizable=0");
+        chatwin.location.href = "http://yook.community.everyone.net/community/scripts/chatFrameset.pl?NodeID=91598";
+        chatwin.focus();
+     }
+    //-->
+</SCRIPT>
+<& .utils/sidebox_start , title=>'Community@Yook' &>
+
+<b><a href="javascript: openchat()" >Chatroom</a></b><br>
+<a href=http://yook.community.everyone.net/community/scripts/community_directory.pl>Message boards</a>
+
+<& .utils/sidebox_end &>

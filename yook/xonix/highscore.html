@@ -1,0 +1,11 @@
+<& ../templates/highscore.tmpl , gamedata=>$dd, from=>$from, to=>$to &>
+
+
+<%init>
+my $dd = $m->comp('game_data');
+</%init>
+
+<%args>
+$from=>1
+$to=>20
+</%args>

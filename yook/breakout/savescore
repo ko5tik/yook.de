@@ -1,0 +1,46 @@
+
+<%init>
+
+
+my $now = time;
+(my $name , my $score , my $level ) = split(/\[\]/,$Gamesite::scoredata{breakout}->decrypt_score($scoredata));
+
+$name = substr $name , 0, 30;# trim it ...
+#check for sanity
+if($level < 1 || $score <=0 ) {
+# somebody had cheatet ... reject this highscore.
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}rejected.html");
+return;
+} 
+
+
+
+#ok, highscore is sane -> save it
+my $globalpos;
+my $dailypos = -1;
+my $positions = $Gamesite::scoredata{breakout}->put_score(name=>$name,points=>$score,level=>$level,'time'=>$now,url=>$Gamesite::userdata->{url});
+$Gamesite::scoredata{breakout}->cleanup_highscore;
+
+#check whether the user beat own personal highscore
+if($Gamesite::userdata->{breakout_highest} < $score) {
+# he did it ...
+my $c =  Apache2::Cookie->new($r,
+                     -name=>'breakout_highest',
+	 	     -expires=>'+1y',
+		     -value=>join('[]',$score,$now),
+		     -path=>'/');
+$c->bake($r);
+
+}
+#time to redirect where appropriate
+
+
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}breakout/achieved.html?global=$positions->{global}&daily=$positions->{daily}");
+
+
+
+</%init>
+
+<%args>
+$scoredata=>undef
+</%args>

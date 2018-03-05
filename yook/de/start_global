@@ -1,0 +1,8 @@
+
+<& ../page_part , start=>1 , title=>'Ewige Bestenliste' , linkprefix=>$linkprefix &>
+Diese Liste beinhaltet 200 beste Spielergebnisse die je erzielt wurden. Falls Sie Ihre Name hier nicht finden können, schauen Sie im <a href=todayscore.html>heutigen Bestenliste</a>.
+
+
+<%args>
+$linkprefix=>undef
+</%args>

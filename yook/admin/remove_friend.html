@@ -1,0 +1,37 @@
+<html>
+<head>
+
+<title>
+yook - friends
+</title>
+</head>
+<body bgcolor=white >
+<h2>Linkomatic admin</h2>
+<& admin_menu &>
+
+Do you wish to remove following friend link:
+<ul>
+<li><a href=<%$fr[4] %>> <%$fr[1]%></a> 
+<li>Click in: <b><%$fr[6]%></b>
+<li>Click out: <b><% $fr[7]%></b>
+
+</ul>
+<a href=remove_friend.html?id=<% $id %>&confirm=1>Yes, remove it!!!</a>
+</body>
+</html>
+
+<%init>
+my @fr = $Gamesite::linkomatic->get_link($id);
+
+
+if($confirm) {
+$Gamesite::linkomatic->remove_link(scalar $id);
+$m->comp('/utils/redirect' , url=>$Gamesite::config{baseurl} . "/admin/friends.html");
+}
+
+</%init>
+
+<%args>
+$id
+$confirm=>undef
+</%args>

@@ -1,0 +1,31 @@
+<html>
+<head>
+
+<title>
+Java sandbox - advertising system
+</title>
+</head>
+<body bgcolor=white >
+<h2>Advertising system</h2>
+<a href=ads.html>Advertising settings</a>
+<form action=save_ad.html method=post>
+<b>Create new advertising slot</b>
+<% $Gamesite::cgi->hidden(-name=>'ad' , -value=>$ad) %>
+<% $Gamesite::cgi->textarea(-name=>'adcode', rows=>7, cols=>60, -value=>$a) %><br>
+<% $Gamesite::cgi->submit(-value=>'Change') %>
+<% $Gamesite::cgi->reset %>
+</form>
+<hr>
+<& "../../yook.config/.advert/$ad.ad" &>
+</body>
+</html>
+
+
+<%init>
+my $a = $m->scomp("../../yook.config/.advert/$ad.ad");
+</%init>
+
+
+<%args>
+$ad
+</%args>

@@ -1,0 +1,12 @@
+<& .utils/headline , title=>'Disclaimer'  &>
+
+<p>Author of these games is not responsible for 
+whatever harm may arise from use or unability to use 
+of these games.
+<p>If you see a problem, or have something to say to author
+of this site, use <a href=<% $Gamesite::config{baseurl} %>support.html>this page</a>
+
+
+<%args>
+$linkprefix=>undef
+</%args>

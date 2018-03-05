@@ -1,0 +1,10 @@
+<& page_part , start=>1 , title=>"Congratulation $Gamesite::userdata->{nickname}" , linkprefix=>$linkprefix&>
+<p>You highscore was saved. Your rating is  <b>#<% $global %></b> in all times highscore list , and <b>#<% $daily %></b> today.
+<& page_part , stop=>1, linkprefix=>$linkprefix &>
+
+
+<%args>
+$daily
+$global
+$linkprefix=>undef
+</%args>

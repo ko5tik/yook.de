@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="31f76240-c6ca-44e9-8ff1-91153f516d43" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/about.html" afterPath="$PROJECT_DIR$/about.html" />
+      <change beforePath="$PROJECT_DIR$/achieved_box" afterPath="$PROJECT_DIR$/achieved_box" />
+      <change beforePath="$PROJECT_DIR$/add_link.html" afterPath="$PROJECT_DIR$/add_link.html" />
+      <change beforePath="$PROJECT_DIR$/advertise.html" afterPath="$PROJECT_DIR$/advertise.html" />
+      <change beforePath="$PROJECT_DIR$/autohandler" afterPath="$PROJECT_DIR$/autohandler" />
+      <change beforePath="$PROJECT_DIR$/bannerco_box" afterPath="$PROJECT_DIR$/bannerco_box" />
+      <change beforePath="$PROJECT_DIR$/bottom_box" afterPath="$PROJECT_DIR$/bottom_box" />
+      <change beforePath="$PROJECT_DIR$/breakout/game_box" afterPath="$PROJECT_DIR$/breakout/game_box" />
+      <change beforePath="$PROJECT_DIR$/breakout/savescore" afterPath="$PROJECT_DIR$/breakout/savescore" />
+      <change beforePath="$PROJECT_DIR$/colors/game_box" afterPath="$PROJECT_DIR$/colors/game_box" />
+      <change beforePath="$PROJECT_DIR$/colors/savescore" afterPath="$PROJECT_DIR$/colors/savescore" />
+      <change beforePath="$PROJECT_DIR$/colors/short_desc" afterPath="$PROJECT_DIR$/colors/short_desc" />
+      <change beforePath="$PROJECT_DIR$/community_box" afterPath="$PROJECT_DIR$/community_box" />
+      <change beforePath="$PROJECT_DIR$/de/breakout/game_box" afterPath="$PROJECT_DIR$/de/breakout/game_box" />
+      <change beforePath="$PROJECT_DIR$/de/breakout/savescore" afterPath="$PROJECT_DIR$/de/breakout/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/colors/savescore" afterPath="$PROJECT_DIR$/de/colors/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/colors/short_desc" afterPath="$PROJECT_DIR$/de/colors/short_desc" />
+      <change beforePath="$PROJECT_DIR$/de/layout" afterPath="$PROJECT_DIR$/de/layout" />
+      <change beforePath="$PROJECT_DIR$/de/left_menu" afterPath="$PROJECT_DIR$/de/left_menu" />
+      <change beforePath="$PROJECT_DIR$/de/lines/game_box" afterPath="$PROJECT_DIR$/de/lines/game_box" />
+      <change beforePath="$PROJECT_DIR$/de/lines/savescore" afterPath="$PROJECT_DIR$/de/lines/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/missile/savescore" afterPath="$PROJECT_DIR$/de/missile/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/moonraid/savescore" afterPath="$PROJECT_DIR$/de/moonraid/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/navig_box" afterPath="$PROJECT_DIR$/de/navig_box" />
+      <change beforePath="$PROJECT_DIR$/de/recommend.html" afterPath="$PROJECT_DIR$/de/recommend.html" />
+      <change beforePath="$PROJECT_DIR$/de/samegame/game_box" afterPath="$PROJECT_DIR$/de/samegame/game_box" />
+      <change beforePath="$PROJECT_DIR$/de/samegame/savescore" afterPath="$PROJECT_DIR$/de/samegame/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/tetris/game_box" afterPath="$PROJECT_DIR$/de/tetris/game_box" />
+      <change beforePath="$PROJECT_DIR$/de/tetris/game_data" afterPath="$PROJECT_DIR$/de/tetris/game_data" />
+      <change beforePath="$PROJECT_DIR$/de/tetris/savescore" afterPath="$PROJECT_DIR$/de/tetris/savescore" />
+      <change beforePath="$PROJECT_DIR$/de/tetris/short_desc" afterPath="$PROJECT_DIR$/de/tetris/short_desc" />
+      <change beforePath="$PROJECT_DIR$/de/tetris/title" afterPath="$PROJECT_DIR$/de/tetris/title" />
+      <change beforePath="$PROJECT_DIR$/de/usage" afterPath="$PROJECT_DIR$/de/usage" />
+      <change beforePath="$PROJECT_DIR$/de/xonix/game_box" afterPath="$PROJECT_DIR$/de/xonix/game_box" />
+      <change beforePath="$PROJECT_DIR$/de/xonix/savescore" afterPath="$PROJECT_DIR$/de/xonix/savescore" />
+      <change beforePath="$PROJECT_DIR$/disclaimer" afterPath="$PROJECT_DIR$/disclaimer" />
+      <change beforePath="$PROJECT_DIR$/dispatch_link" afterPath="$PROJECT_DIR$/dispatch_link" />
+      <change beforePath="$PROJECT_DIR$/dispatch_news" afterPath="$PROJECT_DIR$/dispatch_news" />
+      <change beforePath="$PROJECT_DIR$/edit_link.html" afterPath="$PROJECT_DIR$/edit_link.html" />
+      <change beforePath="$PROJECT_DIR$/email_box" afterPath="$PROJECT_DIR$/email_box" />
+      <change beforePath="$PROJECT_DIR$/end_global" afterPath="$PROJECT_DIR$/end_global" />
+      <change beforePath="$PROJECT_DIR$/end_today" afterPath="$PROJECT_DIR$/end_today" />
+      <change beforePath="$PROJECT_DIR$/everyone_box" afterPath="$PROJECT_DIR$/everyone_box" />
+      <change beforePath="$PROJECT_DIR$/form_start" afterPath="$PROJECT_DIR$/form_start" />
+      <change beforePath="$PROJECT_DIR$/form_stop" afterPath="$PROJECT_DIR$/form_stop" />
+      <change beforePath="$PROJECT_DIR$/friends.html" afterPath="$PROJECT_DIR$/friends.html" />
+      <change beforePath="$PROJECT_DIR$/game_teaser" afterPath="$PROJECT_DIR$/game_teaser" />
+      <change beforePath="$PROJECT_DIR$/gamez_box" afterPath="$PROJECT_DIR$/gamez_box" />
+      <change beforePath="$PROJECT_DIR$/get_user_data" afterPath="$PROJECT_DIR$/get_user_data" />
+      <change beforePath="$PROJECT_DIR$/highscore_box" afterPath="$PROJECT_DIR$/highscore_box" />
+      <change beforePath="$PROJECT_DIR$/highscore_list" afterPath="$PROJECT_DIR$/highscore_list" />
+      <change beforePath="$PROJECT_DIR$/hitbox_code" afterPath="$PROJECT_DIR$/hitbox_code" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/jump_in" afterPath="$PROJECT_DIR$/jump_in" />
+      <change beforePath="$PROJECT_DIR$/jump_out" afterPath="$PROJECT_DIR$/jump_out" />
+      <change beforePath="$PROJECT_DIR$/layout" afterPath="$PROJECT_DIR$/layout" />
+      <change beforePath="$PROJECT_DIR$/left_menu" afterPath="$PROJECT_DIR$/left_menu" />
+      <change beforePath="$PROJECT_DIR$/lines/game_box" afterPath="$PROJECT_DIR$/lines/game_box" />
+      <change beforePath="$PROJECT_DIR$/lines/savescore" afterPath="$PROJECT_DIR$/lines/savescore" />
+      <change beforePath="$PROJECT_DIR$/lines/short_desc" afterPath="$PROJECT_DIR$/lines/short_desc" />
+      <change beforePath="$PROJECT_DIR$/local_menu" afterPath="$PROJECT_DIR$/local_menu" />
+      <change beforePath="$PROJECT_DIR$/meta" afterPath="$PROJECT_DIR$/meta" />
+      <change beforePath="$PROJECT_DIR$/missile/savescore" afterPath="$PROJECT_DIR$/missile/savescore" />
+      <change beforePath="$PROJECT_DIR$/moonraid/savescore" afterPath="$PROJECT_DIR$/moonraid/savescore" />
+      <change beforePath="$PROJECT_DIR$/navig_box" afterPath="$PROJECT_DIR$/navig_box" />
+      <change beforePath="$PROJECT_DIR$/news.html" afterPath="$PROJECT_DIR$/news.html" />
+      <change beforePath="$PROJECT_DIR$/page_part" afterPath="$PROJECT_DIR$/page_part" />
+      <change beforePath="$PROJECT_DIR$/perllib/Highscore.pm" afterPath="$PROJECT_DIR$/perllib/Highscore.pm" />
+      <change beforePath="$PROJECT_DIR$/preferences_box" afterPath="$PROJECT_DIR$/preferences_box" />
+      <change beforePath="$PROJECT_DIR$/privacy.html" afterPath="$PROJECT_DIR$/privacy.html" />
+      <change beforePath="$PROJECT_DIR$/recommend.html" afterPath="$PROJECT_DIR$/recommend.html" />
+      <change beforePath="$PROJECT_DIR$/recommend_box" afterPath="$PROJECT_DIR$/recommend_box" />
+      <change beforePath="$PROJECT_DIR$/register.html" afterPath="$PROJECT_DIR$/register.html" />
+      <change beforePath="$PROJECT_DIR$/rejected.html" afterPath="$PROJECT_DIR$/rejected.html" />
+      <change beforePath="$PROJECT_DIR$/samegame/game_box" afterPath="$PROJECT_DIR$/samegame/game_box" />
+      <change beforePath="$PROJECT_DIR$/samegame/savescore" afterPath="$PROJECT_DIR$/samegame/savescore" />
+      <change beforePath="$PROJECT_DIR$/scorebox" afterPath="$PROJECT_DIR$/scorebox" />
+      <change beforePath="$PROJECT_DIR$/search_box" afterPath="$PROJECT_DIR$/search_box" />
+      <change beforePath="$PROJECT_DIR$/setup.html" afterPath="$PROJECT_DIR$/setup.html" />
+      <change beforePath="$PROJECT_DIR$/show_news.html" afterPath="$PROJECT_DIR$/show_news.html" />
+      <change beforePath="$PROJECT_DIR$/start_global" afterPath="$PROJECT_DIR$/start_global" />
+      <change beforePath="$PROJECT_DIR$/start_today" afterPath="$PROJECT_DIR$/start_today" />
+      <change beforePath="$PROJECT_DIR$/store_box" afterPath="$PROJECT_DIR$/store_box" />
+      <change beforePath="$PROJECT_DIR$/support.html" afterPath="$PROJECT_DIR$/support.html" />
+      <change beforePath="$PROJECT_DIR$/support_box" afterPath="$PROJECT_DIR$/support_box" />
+      <change beforePath="$PROJECT_DIR$/tetris/game_box" afterPath="$PROJECT_DIR$/tetris/game_box" />
+      <change beforePath="$PROJECT_DIR$/tetris/game_data" afterPath="$PROJECT_DIR$/tetris/game_data" />
+      <change beforePath="$PROJECT_DIR$/tetris/index.html" afterPath="$PROJECT_DIR$/tetris/index.html" />
+      <change beforePath="$PROJECT_DIR$/tetris/instruction" afterPath="$PROJECT_DIR$/tetris/instruction" />
+      <change beforePath="$PROJECT_DIR$/tetris/meta" afterPath="$PROJECT_DIR$/tetris/meta" />
+      <change beforePath="$PROJECT_DIR$/tetris/savescore" afterPath="$PROJECT_DIR$/tetris/savescore" />
+      <change beforePath="$PROJECT_DIR$/tetris/short_desc" afterPath="$PROJECT_DIR$/tetris/short_desc" />
+      <change beforePath="$PROJECT_DIR$/tetris/title" afterPath="$PROJECT_DIR$/tetris/title" />
+      <change beforePath="$PROJECT_DIR$/top_menu" afterPath="$PROJECT_DIR$/top_menu" />
+      <change beforePath="$PROJECT_DIR$/usage" afterPath="$PROJECT_DIR$/usage" />
+      <change beforePath="$PROJECT_DIR$/wasted_money_box" afterPath="$PROJECT_DIR$/wasted_money_box" />
+      <change beforePath="$PROJECT_DIR$/webmaster.html" afterPath="$PROJECT_DIR$/webmaster.html" />
+      <change beforePath="$PROJECT_DIR$/webmaster/clean/clean.html" afterPath="$PROJECT_DIR$/webmaster/clean/clean.html" />
+      <change beforePath="$PROJECT_DIR$/webmaster/index.html" afterPath="$PROJECT_DIR$/webmaster/index.html" />
+      <change beforePath="$PROJECT_DIR$/webmaster/meta_gen/lib/MetaMaster.pm" afterPath="$PROJECT_DIR$/webmaster/meta_gen/lib/MetaMaster.pm" />
+      <change beforePath="$PROJECT_DIR$/webmaster_box" afterPath="$PROJECT_DIR$/webmaster_box" />
+      <change beforePath="$PROJECT_DIR$/webmaster_login" afterPath="$PROJECT_DIR$/webmaster_login" />
+      <change beforePath="$PROJECT_DIR$/welcome.html" afterPath="$PROJECT_DIR$/welcome.html" />
+      <change beforePath="$PROJECT_DIR$/xonix/game_box" afterPath="$PROJECT_DIR$/xonix/game_box" />
+      <change beforePath="$PROJECT_DIR$/xonix/savescore" afterPath="$PROJECT_DIR$/xonix/savescore" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="calendar" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.utils/calendar">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="66" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layout">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lines/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="highscore.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lines/highscore.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_data" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lines/game_data">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navig_box" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/navig_box">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page_part" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page_part">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1920" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yook" type="462c0819:PsiDirectoryNode" />
+              <item name="lines" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="31f76240-c6ca-44e9-8ff1-91153f516d43" name="Default" comment="" />
+      <created>1518349928258</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518349928258</updated>
+      <workItem from="1518349930035" duration="4558000" />
+      <workItem from="1518373696660" duration="2624000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7182000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1920" height="1055" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25268242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.utils/calendar">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="66" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/navig_box">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_part">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.utils/calendar">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.#index.html.1.12" />
+    <entry file="file://$PROJECT_DIR$/page_part">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="66" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/navig_box">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layout">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lines/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lines/highscore.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lines/game_data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

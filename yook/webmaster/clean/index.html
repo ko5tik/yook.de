@@ -1,0 +1,23 @@
+<& ../../layout , top=>1 , title=>'HTML code cleaner' , linkprefix=>'../../',
+path=>'webmaster/clean/' &>
+
+<& ../../page_part, title=>'Clean your HTML', start=>1 &>
+
+<& url_form &>
+
+<& ../../page_part, title=>'Explanations' , start=>1 &>
+<p>Whether you use visual HTML editors, or notepad. You HTML code can contain
+unnecessary stuff: unneeded meta tags, excess spaces, default values in HTML elements, color specifications that are too long etc.
+<p>This stuff makes your page bigger, without serving
+any real puprose (whitespaces may add readability to your HTML code, 
+but web browser are not humans...) Bigger pages take longer to load, 
+thus making your surfers  impatient, increasing IP traffic of your webserwer,
+and wasting precious bandwidth of its internet connection.
+<p>Shrinking your page size by 10% means smaller bills and 
+faster website.
+<& ../../page_part, title=>'Feedback' , start=>1 &>
+<p>Your feedback is appreciated. If you have found a problem, or
+ideas how this service can be made better, use <a href=<% $Gamesite::config{baseurl} %>support.html>this form</a> to send message to webmaster.
+
+
+<& ../../layout, bottom=>1, linkprefix=>'../../',path=>'webmaster/clean/'  &>

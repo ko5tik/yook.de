@@ -1,0 +1,17 @@
+<& ../.utils/headline , title=>'Letzte Meldungen' , link_name=>'alle Meldungen', url=>"$Gamesite::config{baseurl}de/news.html" &>
+<dl>
+%for( 1..$amount) { last unless $n->restore_next;
+<dt><b> <% $n->headline %></b>
+<dd><% $n->teaser %><br>
+<small><%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($n->timestamp) %></small> - <a href=<% $Gamesite::config{baseurl}%>de/show_news.html?id=<% $n->id %>><b>read on</b></a>
+%}
+</dl>
+<%init>
+my $n = $Gamesite::news_de;
+$n->restore_where('','timestamp desc');
+
+</%init>
+
+<%args>
+$amount=>2
+</%args>

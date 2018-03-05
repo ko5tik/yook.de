@@ -1,0 +1,21 @@
+<& ../page_part , title=>'SameGame instructions' , start=>1 , linkprefix=>'../'&>
+
+<b>How to play SameGame</b>
+<p>Game goal is to remove all color tiles from the field.
+You can remove connected groups of the same color tiles. 
+If you place mouse upon such group it will be lit, and 
+text under "New Game" button will display score you'll get for removing 
+this group. (The more tiles, the more points you will get).
+<p>There is also possibility to remove single tiles by using <b>"Bomb"</b>.
+You can see amount of remaining bombs on the right panel. To use bomb on a 
+single tile hold <b>"Control"</b>-Button and then klick with the mouse
+on [un]desired tile.
+<p>Black squares serve as <b>"joker"</b> tiles. They connect different groups of tiles.
+<p>On the start of the game you get 15 bombs (5 additional bombs on each 
+new level) and 15 joker tiles (every next level one joker tile less).
+<p>You will receive bonus points for every completed level.
+When the game is over, your scores will be saved into highscore list.
+
+<p>You do not have to stay online during the game. You can  disconnect from internet after complete page loading and play eintirely offline. Online connection is needed only to submit highscores.
+
+<& ../page_part, stop=>1 &>

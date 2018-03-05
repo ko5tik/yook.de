@@ -1,0 +1,87 @@
+<& layout , top=>1 , title=>'personal setup' &>
+%if(defined $nickname && defined $url) {
+<& page_part , title=>'Preferences saved' , start=>1 &>
+<p>Your preferences were saved. 
+
+
+<& page_part , stop=>1 &>
+%}
+
+<& page_part , title=>'About preferences' , start=>1 &>
+
+<dl>
+<dt><b>Why save preferences?</b>
+<dd>
+You can save player name and your personal highscores on your machine
+in a cookie. This eliminates need to enter your nickname  for every game.
+You will also get personal greeting on every page.
+<dt><b>What about privacy?</b>
+<dd>All data you have entered will be stored on your computer. 
+This data is something you will have to enter for every single game.
+So, saving preferences does not breach your privacy.
+</dl>
+<p>To be able to save preferences, you must setup your browser to accept 
+cookies. Consult your system documentation on how to do this.
+
+<& page_part , stop=>1 &>
+
+
+<& form_start , title=>'Your preferences', action=>'setup.html'  &>
+<tr valign=baseline>
+<td align=right>
+<small>
+<b>nickname:</b>
+</small>
+</td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'nickname',-value=>$Gamesite::userdata->{nickname}, -size=>30 , -maxlength=>20) %>
+</td>
+<tr valign=baseline>
+<td align=right>
+<small>
+<b>homepage:</b>
+</small>
+</td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'url',-value=>$Gamesite::userdata->{url}, -size=>30 , -maxlength=>100) %><br>
+<small>Use full specified url, or email address ( url starts with <b>http://</b>, and email address starts with <b>mailto:</b>)<small>
+</td>
+<tr>
+<td>
+</td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Setup') %>
+<% $Gamesite::cgi->reset %>
+</td>
+<& form_stop  &>
+
+<& layout , bottom=>1 &>
+
+
+<%init>
+
+
+if(defined $nickname  && defined $url) {
+$Gamesite::userdata->{nickname} = substr $nickname, 0,20;
+$Gamesite::userdata->{url} = $url;
+
+#Apache::Cookie->set(-value=>join('[]', 'nickname' , $nickname ,'url',  $url),
+#		    -expires=>'+1y',
+#		    -name=>'general_setup',
+#		    -path=>'/');
+
+$m->comp('/utils/set_cookie',
+	value=>join('[]', 'nickname' , $nickname ,'url',  $url),
+	expires=>'+1y',
+ 	name=>'general_setup',
+	path=>'/');
+
+}
+$url = $Gamesite::userdata->{url} if $Gamesite::userdata->{url};
+$nickname = $Gamesite::userdata->{nickname} if $Gamesite::userdata->{nickname};
+</%init>
+
+<%args>
+$nickname=>undef
+$url=>undef
+</%args>

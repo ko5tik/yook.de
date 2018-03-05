@@ -1,0 +1,28 @@
+<& ../layout , top=>1 , title=>$gamedata->{title} . ' today scores', linkprefix=>$linkprefix , path=>$gamedata->{path}&>
+
+
+<& ../start_today , linkprefix=>$linkprefix &>
+
+<& ../highscore_list ,
+scores=>$gamedata->{scores},
+fieldnames=>$gamedata->{fieldnames},
+fields=>$gamedata->{fields}, 
+linkprefix=>$linkprefix, 
+pagename=>'todayscore.html',
+from=>$from,
+to=>$to,
+today=>1 &>
+
+<& ../end_today , linkprefix=>$linkprefix &>
+
+<& ../layout, bottom=>1 , linkprefix=>$linkprefix ,path=>$gamedata->{path}&>
+
+
+
+
+<%args>
+$linkprefix=>'../'
+$gamedata
+$from=>1
+$to=>20
+</%args>

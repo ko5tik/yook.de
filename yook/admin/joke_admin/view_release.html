@@ -1,0 +1,29 @@
+<& ../page_start , title=>'Release from ' . $tt  &>
+
+
+%while ( $j->restore_next) {
+<hr>
+[<a href=edit_joke.html?id=<% $j->id %>>edit</a>]-[deactivate]-[remove]
+<hr>
+<pre>
+<% $j->joke %>
+</pre>
+
+%}
+
+<& ../page_end &>
+
+
+<%init>
+my $j = $Gamesite::jokes;
+my $ee = $id + 86400;
+
+my $tt = localtime $ee;
+
+$j->restore_where("status=1 and kind=$kind and date < $ee and date > $id" , "date desc");
+
+</%init>
+<%args>
+$id
+$kind
+</%args>

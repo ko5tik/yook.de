@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'Moonraid',
+path=>'moonraid/',
+scores=>$Gamesite::scoredata{moonraid},
+fieldnames=>[ 'Pos' , 'Name' , 'Points' , 'Level'  , 'Since'], 
+fields=>['name','points','level','time','url'],   
+archive=>'moonraidlite.tar.gz'   
+};
+
+
+</%init>

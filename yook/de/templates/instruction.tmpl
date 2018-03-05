@@ -1,0 +1,16 @@
+<& ../layout , top=>1 , title=>$gamedata->{title} . ' instructions' , linkprefix=>$linkprefix , path=>$gamedata->{path}, target=>'_top'&>
+
+
+<& ../../.utils/headline , title=>$gamedata->{title} . ' instructions' , start=>1 , linkprefix=>$linkprefix, link_name=>'play game', url=>'./'&>
+
+
+<& '../' . $gamedata->{path} . 'instruction' &>
+
+<& ../disclaimer , linkprefix=>$linkprefix&>
+
+<& ../layout, bottom=>1 , linkprefix=>'../' ,path=>$gamedata->{path}&>
+
+<%args>
+$gamedata
+$linkprefix=>'../'
+</%args>

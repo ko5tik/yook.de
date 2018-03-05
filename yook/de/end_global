@@ -1,0 +1,9 @@
+<p>
+<center>
+<a href=todayscore.html>Heutige Bestenliste</a>
+</center>
+<& ../page_part , stop=>1 , linkprefix=>$linkprefix  &>
+
+<%args>
+$linkprefix=>undef
+</%args>

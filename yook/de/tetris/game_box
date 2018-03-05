@@ -1,0 +1,27 @@
+<center>
+<!--
+<applet codebase=. code=tetris.class  align="center"
+alt="If your browser vould support java 1.1 you would be able to play a cool game" width=300 height=400>
+If your browser would support java 1.1 , you will see cool applet here.
+
+<param name=highscore value="<% $topscore %>">
+<param name=player value="<% $player %>">
+
+</applet>
+-->
+</center>
+<BR>
+<p>
+Diese Spiel wurde wegen der &Uuml;berpr&uuml;¼fung der Forderungen von Elorg Inc
+tempor&auml;r aus dem Betreieb genommen. 
+</p>
+<p>
+Falls sie sich wundern das immer neue Higscore-Werte dazu kommen, handelt es sich
+um die im Umlauf befindliche Kopien dieses Spiels.
+</p>
+
+
+<%args>
+$player=>undef
+$topscore=>undef
+</%args>

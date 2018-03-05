@@ -1,0 +1,17 @@
+<dl>
+<form method=get action=<% $target %>>
+<dt><b>URL to process:</b>
+<dd><% $cgi->textfield(-name=>'url', -value=>$url, -size=>40) %><br>
+<small><i>Enter <b>complete</b> URL of page you want to optimize</i></small>
+
+<p>
+<dd><% $cgi->submit(-value=>'Clean it') %> <% $cgi->reset %>
+</form>
+</dl>
+<%init>
+my $cgi = $Gamesite::cgi;
+</%init>
+<%args>
+$target=>'clean.html'
+$url=>'http://'
+</%args>

@@ -1,0 +1,12 @@
+<%init>
+
+my @ll = $Gamesite::linkomatic->get_link($id);
+$Gamesite::linkomatic->count_out($id) if @ll;
+$m->comp('/utils/redirect', url=>$ll[4]);
+
+</%init>
+
+
+<%args>
+$id
+</%args>

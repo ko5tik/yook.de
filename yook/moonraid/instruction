@@ -1,0 +1,27 @@
+<P>Fly with your ship through gates and zap all the aliens with your laser. Avoid collision with gates and aliens and keep an eye on the fuel amount (&nbsp;you will get extra fuel if you fly between the gates&nbsp;) and laser temperature. You can avoid collisions by flying higher, but in this case you will not get any fuel and cannot hit the aliens. Head-up display will dim if you are too high.
+    <P>You will need java 1.1 enabled in your browser to play this game (&nbsp;Netscape 4.06 and up is fine&nbsp;). You will also need fast machine to handle all the animation.
+<P>Use following keys to steer the ship:
+<UL>
+<LI>Arrow keys - moves ship left, right, up and down. 
+<LI>Space - shoot.
+<LI>S - toggle sound.
+<LI>P - pause game.
+</UL>
+<P>When your last life is out, you will see highscore submission panel. Enter your
+name there , and press "Save Score" button to submit your achievement into hall of
+fame (&nbsp;it will open new browser window, where you will see your placement&nbsp;). Press "Play again" button to start a new game. Since Netscape likes to take 
+input focus away from applets, you will have to click with a mouse inside applet.
+Press "Show score" button to see highscore list.
+<P>Extra ships are available at 20000 and 50000 points. Then every 50000. <B>Good luck!</B>
+<H3>Known problems</H3>
+<UL>
+<LI>Netscape is known to take away input focus from the applets. So if applet does
+not react to keyboard you will have to click with the mouse inside the applet. If you
+encounter other problems during the game please send report to <A href="mailto:kpriblouda@yahoo.com?subject=moonraid game feedback">kpriblouda@yahoo.com</A>
+<LI>Java 1.1.6 and up is needed to play this.
+<LI>Apple versions of netscape do not like java 1.1 very much.
+</UL>
+
+
+<& ../page_part, stop=>1 &>
+

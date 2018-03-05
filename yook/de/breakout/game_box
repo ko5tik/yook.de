@@ -1,0 +1,17 @@
+<center>
+<applet code="JavaNoid.class" width="460" height="345" archive="breakout_de.jar">
+Schalten Sie die Java-UNterstützung an um das Spiel zu spielen.
+
+<param name=highscore value="<% $topscore %>">
+<param name=player value="<% $player %>">
+
+</applet>
+</center>
+<BR>
+
+
+
+<%args>
+$player=>undef
+$topscore=>undef
+</%args>

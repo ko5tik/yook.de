@@ -1,0 +1,35 @@
+<& ../page_start , title=>'New jokes' &>
+<form action=process_jokes method=post>
+<% $Gamesite::cgi->hidden(-name=>'kind' , -value=>$kind ) %>
+<% $Gamesite::cgi->hidden(-name=>'status' , -value=>0 ) %>
+%while($j->restore_next) {
+<hr>
+<% $Gamesite::cgi->popup_menu(-name=>'jid.'.$j->id, '-values'=> [qw ( accept  remove  delay )] , -labels=>{'accept'=>'Accept','remove'=>'Remove', 'delay'=>'Delay'} , -default=>'delay') %>
+[<a href=edit_joke.html?id=<% $j->id %>>Edit</a>]
+<hr>
+<pre>
+<% $j->joke %>
+</pre>
+
+<small>
+<dl>
+<dt><b>Told by:</b>
+<dd><% $j->teller %> / <% $j->teller_email %> / <% $j->teller_url %>
+<dt><b>Told at:</b>
+<dd><% scalar localtime $j->date %>
+</dl>
+</small>
+%}
+<hr>
+<% $Gamesite::cgi->submit %> <% $Gamesite::cgi->reset %>
+</form>
+<& ../page_end &>
+
+<%init>
+my $j = $Gamesite::jokes;
+$j->restore_where("status=0 and kind=$kind","date desc");
+</%init>
+<%args>
+$kind=>0
+</%args>
+

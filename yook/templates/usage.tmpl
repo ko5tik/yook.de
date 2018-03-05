@@ -1,0 +1,13 @@
+<& ../layout , top=>1 , title=>$gamedata->{title} . ' usage conditions' , linkprefix=>$linkprefix , path=>$gamedata->{path}, target=>'_top'&>
+
+<& ../usage , linkprefix=>$linkprefix , archive=>$gamedata->{archive} &>
+
+<& ../disclaimer , linkprefix=>$linkprefix&>
+
+<& ../layout, bottom=>1 , linkprefix=>$linkprefix ,path=>$gamedata->{path}&>
+
+
+<%args>
+$gamedata
+$linkprefix=>'../' 
+</%args>

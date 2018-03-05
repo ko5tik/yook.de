@@ -1,0 +1,17 @@
+
+<%init>
+$Tetris::scoredata = $Gamesite::scoredata{tetris}->get_top_scores;
+
+$Tetris::scoredata->{person} = $Gamesite::userdata->{tetris_highest};
+return $Tetris::scoredata;
+</%init>
+
+<%once>
+{
+package Tetris;
+use vars qw( $scoredata );
+
+$Tetris::scoredata = { age=>0 };
+
+}
+</%once>

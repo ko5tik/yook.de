@@ -1,0 +1,39 @@
+<& ../.utils/headline , title=>'Current issues' &>
+<p>
+<table width=100%>
+<tr valign=top>
+<td>
+<ul>
+<li><a href=j/<% $lj %>>Jokes</a> 
+<small>(<% $dj %>)</small>
+%if(defined $lt ) {
+<li><a href=t/<% $lt %>>Tales</a>
+<small>(<% $dt %>)</small>
+%}
+</ul>
+</td>
+<td>
+<ul>
+<li><a href=telljoke.html>Submit joke</a>
+<li><a href=telltale.html>Tell tale</a>
+</ul>
+
+</td>
+</table>
+
+
+<%init>
+my $dd = time;
+
+
+my $j = $Gamesite::jokes;
+my $dates = $j->get_release_dates(&Joke::JOKE,&Joke::ACCEPTED);
+
+my $lj = POSIX::strftime "%Y%m%d", (localtime $dates->[0]);
+my $dj =  POSIX::strftime "%d %B %Y", localtime($dates->[0]);
+
+$dates = $j->get_release_dates(&Joke::TALE,&Joke::ACCEPTED);
+
+my $lt =  POSIX::strftime "%Y%m%d", (localtime $dates->[0]);
+my $dt  =  POSIX::strftime "%d %B %Y", localtime($dates->[0]);
+</%init>

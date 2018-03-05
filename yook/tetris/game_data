@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'Stakan',
+path=>'tetris/',
+scores=>$Gamesite::scoredata{tetris},
+fieldnames=>[ 'Pos' , 'Name' , 'Points' , 'Level'  , 'Since'], 
+fields=>['name','points','level','time','url'],
+archive=>'tetrislite.tar.gz'   
+};
+
+
+</%init>

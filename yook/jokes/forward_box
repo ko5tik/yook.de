@@ -1,0 +1,26 @@
+<form action=<% $Gamesite::config{baseurl}%>jokes/forward_joke.html method=post>
+<% $Gamesite::cgi->hidden(-name=>'uri' , -value=>$uri) %>
+<& ../.utils/surround_start , width=>"100%" &>
+<table border=0 cellpadding=5 cellspacing=1 width="100%">
+<tr align=center>
+<td bgcolor=<% $Gamesite::config{menubg} %>>
+<b>Send it to a friend</b>
+</td>
+<td bgcolor=white align=center>
+Email address:
+<% $Gamesite::cgi->textfield(-name=>'email' , -size=>20, -value=>$email) %> <% $Gamesite::cgi->submit(-value=>'Send message') %>
+</td>
+<tr>
+<td colspan=2 bgcolor=white>
+This email adress will be kept private and will not be used
+to send unsolicited email messages to your friend.
+</td>
+</table>
+<& ../.utils/surround_end &>
+
+</form>
+
+<%args>
+$uri=>$r->uri
+$email=>undef
+</%args>

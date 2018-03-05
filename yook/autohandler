@@ -1,0 +1,12 @@
+
+
+<%init>
+
+$m->comp('../yook.config/init');
+
+#retrieve userdata from a cookie
+$Gamesite::userdata = $m->comp('get_user_data');
+#r->header_out('Window-Target'=>'_top');
+$m->call_next;
+
+</%init>

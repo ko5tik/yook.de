@@ -1,0 +1,20 @@
+<%init>
+
+$m->comp('init');
+my $n = $NewsEdit::news;
+
+$n->clear;
+$n->data({id=>0,timestamp=>time,headline=>$headline,teaser=>$teaser,contens=>$contens});
+
+$n->save;
+
+$m->comp('/utils/redirect',url=>$NewsEdit::base . $back_uri);
+</%init>
+
+
+<%args>
+$back_uri=>undef
+$headline=>undef
+$teaser=>undef
+$contens=>undef
+</%args>

@@ -1,0 +1,108 @@
+<P>Use paddle to bounce ball back at the blocks. You can use either arrow keys 
+or mouse to do this. Hit SPACE or click mouse to launch ball or to fire a missile. Use "P" to pause game. Mouse cursor must be inside playing field 
+to steer the paddle. 
+<p>Every block broken out gives you 10 points and bonus.  The longer ball bouncess off other blocks and not off paddle, the bigger is this bonus. 
+<p>Extra balls are available at 2000 points, at 5000 points and then every 5000 points. 
+
+
+<P>When your last ball is lost, you will see highscore submission panel. Enter your
+name there , and press "Save Score" button to submit your achievement into hall of
+fame (&nbsp;it will open new browser window, where you will see your placement&nbsp;).
+
+<P>You will need java 1.1 enabled in your browser to play this game (&nbsp;Netscape 4.06 and up is fine&nbsp;).
+<& ../page_part , stop=>1 &>
+<& ../page_part , start=>1, title=>'Powerups & paddles' &>
+
+
+<table>
+<tr valign=top>
+<td>
+<img src=paddle.gif border=0 width=37 height=10>
+</td>
+<td>
+Ordinary paddle. 
+</td>
+<tr valign=top>
+<td>
+<img src=paddle_w.gif border=0 width=50 height=10>
+</td>
+<td>
+Wide paddle. 
+</td>
+<tr valign=top>
+<td>
+<img src=paddle_f.gif border=0 width=37 height=10>
+</td>
+<td>
+Fire paddle. You can click the mouse or press space to fire missiles
+</td>
+<tr valign=top>
+<td>
+<img src=paddle_s.gif border=0 width=37 height=10>
+</td>
+<td>
+Sticky paddle. Ball remains glued to the paddle. Click the mouse or hit SPACE to launch ball.
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_cy.gif border=0 width=13 height=11>
+</td>
+<td>
+Multiple balls.
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_g.gif border=0 width=13 height=11>
+</td>
+<td>
+Gives sticky paddle.
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_gr.gif border=0 width=13 height=11>
+</td>
+<td>
+Gives bottom bounce. Ball bounces off bottom, so you cannot lose it. Bounce line color changes from green to yellow and red before disappearing.
+
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_m.gif border=0 width=13 height=11>
+</td>
+<td>
+Gives wide paddle. 
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_r.gif border=0 width=13 height=11>
+</td>
+<td>
+Gives fire paddle. 
+</td>
+
+<tr valign=top>
+<td>
+<img src=pill_y.gif border=0 width=13 height=11>
+</td>
+<td>
+Gives you 100 points bonus and reverts paddle to normal. 
+</td>
+</table>
+
+<H3>Known problems</H3>
+<UL>
+<LI>Netscape is known to take away input focus from the applets. So if applet does
+not react to keyboard you will have to click with the mouse inside the applet. If you
+encounter other problems during the game please send report to <A href="mailto:kpriblouda@yahoo.com?subject=moonraid game feedback">kpriblouda@yahoo.com</A>
+<LI>Java 1.1.6 and up is needed to play this.
+<LI>Apple versions of netscape do not like java 1.1 very much.
+</UL>
+
+
+<& ../page_part, stop=>1 &>
+

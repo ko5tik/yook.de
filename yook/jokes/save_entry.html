@@ -1,0 +1,35 @@
+<& ../layout, top=>1 , title=>'Submission accepted', path=>'jokes/' &>
+<%doc>
+<pre>
+<% Data::Dumper->Dump([\%ENV]) %>
+</pre>
+</%doc>
+<& ../.utils/headline , title=>'Submission accepted' &>
+<p>Your submission is accepted. It will appear in the next release.
+<& ../layout, bottom=>1 ,  path=>'jokes/' &>
+
+<%init>
+my $j = $Gamesite::jokes;
+#$content =~ s/'/''/g;
+#$source =~s/'/''/g;
+#$name =~ s/'/''/g;
+$email = '' unless $m->comp('/utils/is-valid-email.fn',email=>$email);
+#$url =~s/'/''/g;
+$j->clear;
+
+my @parts = split(/\./,$ENV{REMOTE_ADDR});
+my $ip = $parts[0] << 24 | $parts[1] << 16 | $parts[2] << 8 | $parts[3] ;
+$j->data({id=>0,joke=>$content, kind=>$kind, status=>0,note=>0,voters=>0,date=>time,ip=>$ip, teller=>$name, teller_url=>$url, teller_email=>$email});
+
+$j->insert;
+
+</%init>
+
+<%args>
+$kind=>undef
+$content=>undef
+$source=>undef
+$name=>undef
+$email=>undef
+$url=>undef
+</%args>

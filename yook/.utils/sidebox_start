@@ -1,0 +1,15 @@
+<p>
+<& surround_start , width=>'100%'&>
+<table border=0 cellpadding=3 cellspacing=1 width="100%">
+<tr>
+<td bgcolor=<% $Gamesite::config{menubg}%> align=center>
+<b><% $title %></b>
+</td>
+<tr>
+<td  bgcolor=<% $Gamesite::config{barcolor} %> >
+
+
+<%args>
+$title
+</%args>
+

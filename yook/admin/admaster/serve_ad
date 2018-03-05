@@ -1,0 +1,16 @@
+<%doc>
+this component fetches specified amount of ads in specifed format
+</%doc>
+<%init>
+if($m->current_comp->first_time) {
+	$m->comp('init/init');
+}
+
+return $Admaster::ad->serve_ads('format'=>$formatid,amount=>$amount);
+
+</%init>
+
+<%args>
+$formatid
+$amount=>1
+</%args>

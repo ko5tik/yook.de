@@ -1,0 +1,142 @@
+<& layout , top=>1 , title=>'webmaster area'  &>
+
+%if($loginok) {
+<&  page_part , start=>1, title=>'Edit site info'  &>
+Change of URL or site name must be approwed. Please allow 1-2 days
+for processing.
+%if($failmsg ne '') {
+<p>There were errors, your site information was not changed:
+<font color=red>
+<ul>
+<% $failmsg %>
+</ul>
+</fon>
+%}
+<form action=edit_link.html method=post>
+<% $Gamesite::cgi->hidden(-name=>'id', -value=>$id) %>
+<% $Gamesite::cgi->hidden(-name=>'action', -value=>'edit') %>
+<% $Gamesite::cgi->hidden(-name=>'password', -value=>$password) %>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Website:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'site',-size=>30, -value=>$ll->{title}) %><br>
+<small>site name</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>URL:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'url',-size=>30 , -value=>$ll->{url}) %><br>
+<small>url to link to</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Contact:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'contact',-size=>30 , -value=>$ll->{contact}) %><br>
+<small>contact person</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Email:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>30 , -value=>$ll->{email}) %><br>
+<small>contact email</small>
+</td>
+<tr valign=baseline>
+<td align=right><b> New password:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'newpassword',-size=>30) %><br>
+<small>pick a password - leave empty if no changes</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Verify:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'newpassword2',-size=>30) %><br>
+<small>verify your password - leave empty if no changes</small>
+</td>
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Change') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+
+
+<& page_part , stop=>1 &>
+
+% } else {
+<&  page_part , start=>1, title=>'Login failed'  &>
+System could not authenticate you. Please try again.
+<& page_part , stop=>1 &>
+
+<& webmaster_login &>
+%}
+
+<& layout, bottom=>1 &>
+
+<%init>
+my $loginok = 0;
+
+
+my $ll = $Gamesite::linkomatic->get_link($id);
+#check whether login was OK
+$loginok = 1 if($ll->{password} eq $password);
+
+
+my $failmsg;
+if($action eq 'edit' && $loginok) {
+# change it ...
+my $do_change = 0;
+
+
+  if($newpassword ne '') {
+    if($newpassword eq $newpassword2  ) {
+	$do_change = 1;
+    	$ll->{password} = $newpassword;
+    } else {
+ 	$do_change = 0;
+	$failmsg = "<li>Passwords do not match";
+    }
+  }
+
+  if($site ne $ll->{title} || $url ne $ll->{url}) {
+	open OF , ">>" . $Gamesite::config{datapath} . "/link.change";
+	print OF join('[]' , $ll->{id} , $site , $url ) , "\n";
+	close OF;
+  } 
+  # rest can be changed safely
+  {
+	if($contact eq '') {
+	    $do_change=0;
+	    $failmsg .= "<li>Contact cannot be empty";
+	} else {
+	    $ll->{contact}= $contact;
+	}
+	last unless $do_change;
+	if(!$m->comp('/utils/is-valid-email.fn',email=>$email)) {
+	    $do_change = 0;
+	    $failmsg .= "<li>Email is not correct";
+	} else {
+	    $ll->{email} = $email;
+	}
+
+  }
+  if($do_change) {
+	$Gamesite::linkomatic->update_link($ll);
+  }
+}
+</%init>
+
+<%args>
+$action=>undef
+$id=>undef
+$password=>undef
+
+$site=>undef
+$url=>undef
+$contact=>undef
+$email=>undef
+$newpassword=>undef
+$newpassword2=>undef
+</%args>

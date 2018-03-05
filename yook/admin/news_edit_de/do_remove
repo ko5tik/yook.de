@@ -1,0 +1,17 @@
+<%init>
+
+$m->comp('init');
+my $n = $NewsEdit::news;
+
+$n->delete($id);
+
+
+$m->comp('/utils/redirect',url=>$NewsEdit::base . $back_uri);
+</%init>
+
+
+<%args>
+$id
+$back_uri
+
+</%args>

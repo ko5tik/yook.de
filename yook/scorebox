@@ -1,0 +1,53 @@
+<small>
+<ul>
+<li><a href=<%$path%>highscore.html>Best player</a>:
+<b>
+%if($scoredata->{global}->{url} ne '') {
+<a href=<%$scoredata->{global}->{url}%>><% $scoredata->{global}->{name} %></a>
+%} else {
+<% $scoredata->{global}->{name} %>\
+%}
+</b><br>
+(<% $scoredata->{global}->{points} %> points
+<%doc>
+,
+since <%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($scoredata->{global}->{timestamp}) %>
+</%doc>
+)
+
+
+
+<li><a href=<% $path %>todayscore.html>Best today</a>:
+<b>
+%if($scoredata->{today}->{url} ne'') {
+<a href=<%$scoredata->{today}->{url}%>><% $scoredata->{today}->{name} %></a>
+%} else {
+<% $scoredata->{today}->{name} %>\
+%}
+</b><br>
+(<% $scoredata->{today}->{points} %> points
+<%doc>
+,
+since <%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($scoredata->{today}->{timestamp}) %>
+</%doc>
+)
+
+<li>Your best result:<br>
+%if($scoredata->{person}) {
+<%$scoredata->{person}%> points
+%} else {
+unknown
+%}
+</ul>
+This game was played <b><% $scoredata->{count} %></b> times.
+</small>
+
+
+
+<%init>
+my $scoredata = $m->comp( $path .'/top_scores');
+</%init>
+
+<%args>
+$path
+</%args>

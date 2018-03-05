@@ -1,0 +1,29 @@
+<& ../page_start , title=>'News admin - new entry' &>
+<dl>
+<dt><b>Headline:</b>
+<dd><% $headline %>
+<dt><b>Teaser:</b>
+<dd><% $teaser %>
+<dt><b>Contens:</b>
+<dd><% $contens %>
+</dl>
+<form method=post action=save_news>
+<& /utils/preserve_args , data=>\%ARGS &>
+<% $NewsEdit::cgi->submit(-value=>'Save') %> <% $NewsEdit::cgi->reset %>
+</form>
+
+<& ../page_end &>
+
+
+<%init>
+$m->comp('init');
+
+
+</%init>
+<%args>
+$action=>'new'
+$back_uri=>undef
+$headline=>undef
+$teaser=>undef
+$contens=>undef
+</%args>

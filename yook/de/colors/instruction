@@ -1,0 +1,31 @@
+
+<OL>
+<li>Entspannen Sie sich.
+<LI>Warten Sie bis der Applet sich geladen hat.
+<LI>Klicken Sie mit der Maus einmal in das Appletinnere, damit der Tastatureinschläge erkennen kann.
+<LI>Klicken Sie auf  "New Game" Taste.
+<LI>Versuchen Sie die gleiche Farben  in den Zellen auf der geraden Linien zu zu plazieren (3 Zellen und länger). Solche Zellen werden entfernt, und Punkte werden gutgeschrieben.
+<LI>Das Spiel ist zu ende, wenn kein Platz mehr für neue Blocke frei ist.
+<li>Vergessen Sie nicht , alle 15 Minuten die Pausen einzulegen. Das 
+kann helfen die gesundheitliche Problme zu verhindern.
+<LI>Vergessen Sie nucht Ihren Namen in das Textfeld einzutragen. Sonst
+werden Sie Ihren Namen nicht in der Bestenliste wiederfinden.
+</OL>
+<H4>Bedienugselemente</H4>
+<UL>
+<LI>"Player:" Textfeld - Tragen Sie Ihren Namen ein, das in der Bestenliste ersheinen soll .
+<LI>"New Game" Taste - Startet ein neues Spiel.
+<LI>"Save score" Taste  - Speichert Ihren Spielergebniss ab. Diese Taste öfnet ein neues Fenster.
+</UL>
+<h4>Tastaturkontrollen</h4>
+<UL>
+<LI>Links- und Rechtspfeile bewegen den Block.
+<LI>Pfeil nach oben ändert die Farbenreihenfolge.
+<LI>Pfeil nach unten läßt den Block fallen.
+<LI>Plustaste erhöht den Spiellevel.
+<LI>"P" - Pausentaste.
+</UL>
+<P>Auf der rechten Seite können Sie Ihre Puktzahl sehen, bestes Punktzahl, aktuelles Spiellevel und Farbenvorschau für den nächsten Block.
+<P>Sie können das Spiel auch Off-Line Spielen. Die Internetverbindung ist nur für die Spielergebnissübertragung notwendig
+
+<& ../../page_part, stop=>1 &>

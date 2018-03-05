@@ -1,0 +1,13 @@
+<& page_part , start=>1, title=>$title &>
+<form action=<% $action %> method=<%$method%>>
+<table border=0 cellpadding=0 cellspacing=8>
+
+
+
+
+<%args>
+$action
+$linkprefix=>undef
+$title=>undef
+$method=>'get'
+</%args>

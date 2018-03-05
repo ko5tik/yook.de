@@ -1,0 +1,29 @@
+<& ../layout , top=>1 , title=>'Yook jokes' , path=>'jokes/'&>
+
+<& ../.utils/headline , title=>'Thank you for voting' &>
+<p>Your vote has been recorded.
+<& ../layout ,  bottom=>1 , path=>'jokes/'&>
+
+<%init>
+my $j = $Gamesite::jokes;
+
+my $ed = $rel + 86400;
+$j->restore_where("kind=$kind and date < $ed and date > $rel and status=". &Joke::ACCEPTED);
+
+while($j->restore_next) {
+
+if(defined $ARGS{'jid.'. $j->id}) {
+
+$j->voters($j->voters + 1);
+$j->note($j->note +  $ARGS{'jid.'. $j->id});
+$j->save;
+}
+}
+
+
+</%init>
+
+<%args>
+$rel=>0
+$kind=>0
+</%args>

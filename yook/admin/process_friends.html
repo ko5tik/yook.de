@@ -1,0 +1,100 @@
+<pre>
+
+</pre>
+<%init>
+
+open LF , "$Gamesite::config{'datapath'}/link.request";
+my @log = <LF>;
+chop @log;
+my @ll;
+close LF;
+
+
+open LF  , ">$Gamesite::config{'datapath'}/link.request";
+
+my @acc;
+my $ll;
+foreach my $pos (1 .. (scalar @log )) {
+
+ (my $title, my $contact , my $email , my $url , my $passwd,undef,my $site) = split(/\[\]/,$log[$pos-1]); 
+
+  if($ARGS{"sid.$pos"} eq 'accept') {
+my $linkurl = $Gamesite::config{baseurl};
+$linkurl .= "de" if $site == 1;
+
+  #accept it
+	my $lid = $Gamesite::linkomatic->add_link($title,$contact,$email,$url,$passwd,$site);
+my $mailmsg =<<EOF;
+Hello $contact,
+Your site at:
+$url
+was accepted as link partner of
+$linkurl
+
+Your site id is $lid
+PLease contact webmaster if you like to change your site information.
+
+
+Use folowing URL to link to Java sandbox:
+$linkurl/jump_in?id=$lid
+
+Placement instructions:
+
+You must place link to
+$linkurl/jump_in?id=$lid
+at least on the page you registered to be 
+linked back.
+
+You may place text link on as many pages as
+you will. The more traffic you send, 
+the better will be your position in a friends ranking.
+
+
+Shall your traffic grow every day ...
+
+regards,
+
+Konstantin Pribluda.
+
+EOF
+    $m->comp('/utils/sendemail', to=>$email, from=>'noreturn@nowhere.net',subject=>'Friend link accepted ', body=>$mailmsg);
+
+
+  } elsif($ARGS{"sid.$pos"} eq 'decline') {
+  #decline it
+
+my $mailmsg =<<EOF;
+Hello $contact,
+Your site
+$url
+was declined as link partner of
+$Gamesite::config{baseurl}
+
+This happened either because to inappropriate content, 
+or wrong URL.
+
+If you believe that your URL was wrong, you may resubmitt 
+your site again.
+
+regards,
+
+Konstantin Pribluda
+
+EOF
+
+    $m->comp('/utils/sendemail', to=>$email, from=>'noreturn@nowhere.net',subject=>'Friend link declined', body=>$mailmsg);
+
+  } else {
+  #preserve it
+   print LF $log[$pos-1] , "\n";
+  }
+
+}
+close LF;
+
+
+
+</%init>
+
+
+

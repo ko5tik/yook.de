@@ -1,0 +1,28 @@
+<& .utils/sidebox_start , title=>$title &>
+<small>
+%if($Gamesite::userdata->{nickname}) {
+<a href=<%$linkprefix%>setup.html>change preferences</a>
+%} else {
+<a href=<%$linkprefix%>setup.html>setup personal preferences</a>
+%}
+</small>
+<& .utils/sidebox_end &>
+
+
+<%init>
+my $title = "Welcome ";
+if($Gamesite::userdata->{nickname}) { 
+  if($Gamesite::userdata->{url}) {
+	$title .= "<a href=$Gamesite::userdata->{url}>$Gamesite::userdata->{nickname}</a>";
+} else {
+$title .= $Gamesite::userdata->{nickname};
+   }
+} else {
+  $title .= "stranger";
+}
+
+</%init>
+<%args>
+$linkprefix=>undef
+$target=>undef
+</%args>

@@ -1,0 +1,17 @@
+<& ../page_start , title=>'Active releases' &>
+<ul>
+%foreach( @$dates) {
+<li><a href=view_release.html?kind=<%$kind %>&id=<% $_ %>><% scalar localtime $_ %></a>
+%}
+</ul>
+<& ../page_end &>
+
+
+<%init>
+my $j = $Gamesite::jokes;
+my $dates = $j->get_release_dates($kind,1);
+</%init>
+
+<%args>
+$kind=>1
+</%args>

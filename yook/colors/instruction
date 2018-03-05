@@ -1,0 +1,33 @@
+
+<H4>Game instructions</H4> 
+<OL>
+<li>Relax.
+<LI>Wait till applet downloads completely.
+<LI>Click with the mouse inside aplpet, that it can become keyboard focus.
+<LI>Click on the "New Game" button.
+<LI>Try to arrange falling color blocks in lines of three and more of the same color. Such blocks will be removed , and you will get points.
+<LI>Stay alive as long as possible and try to beat  highscore.
+<li>Every 15 minutes, pause game and make some hand exercices to prevent
+capral tunel syndrom. Your medical insurance company will thank you for this.
+<LI>Do not forget to enter your nickname into text field.
+</OL>
+<H4>Game controls</H4>
+<UL>
+<LI>"Player:" text field - Enter your nickname here for the highscores list.
+<LI>"New Game" button - press to start new game.
+<LI>"Save score" button  - press to save your current score. This button will open new window and display your achievements.
+</UL>
+<h4>Keyboard controls</h4>
+<UL>
+<LI>Left and right buttons move tile as expected.
+<LI>Up arrow rorates colors inside the tile.
+<LI>Down arrow or space  drop the tile.
+<LI>Plus ( + ) button advances level.
+<LI>"P"  pauses the game.
+</UL>
+<P>On the right side you can see your current score, cureent highscore and 
+actual level. There is also preview box for the colors of the next tile.
+<P>You do not have to stay online during the game. Internet connection is required only to submit highscores.
+
+
+<& ../page_part, stop=>1 &>

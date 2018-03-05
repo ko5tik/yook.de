@@ -1,0 +1,19 @@
+<center>
+<applet codebase=. code=colors.class  align="center"
+alt="If your browser vould support java 1.1 you would be able to play a cool game" width=350 height=395>
+If your browser would support java 1.1 , you will see cool applet here.
+
+<param name=highscore value="<% $topscore %>">
+<param name=player value="<% $player %>">
+
+</applet>
+</center>
+<BR>
+
+Got android phone? This game is available for android. <a href="http://www.yook.de/getcolors/">Get it now</a>
+
+
+<%args>
+$player=>undef
+$topscore=>undef
+</%args>

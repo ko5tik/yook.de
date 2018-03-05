@@ -1,0 +1,40 @@
+<& ../layout , top=>1 , title=>$gamedata->{title} , linkprefix=>'../' , path=>$gamedata->{path} , target=>'_blank'&>
+
+<& '../' . $gamedata->{path} . 'game_box', player=>$Gamesite::userdata->{nickname} , topscore=>$scoredata->{global}->{points}  &>
+
+<& ../page_part , title=>'Game instructions' , start=>1 , linkprefix=>'../'&>
+<ul>
+<li><a href=instruction.html>Game instructions</a> [new window]<br>
+Please read them before playing game.
+%if($gamedata->{archive}) {
+<li><a href=usage.html>Usage conditions and download</a> [new window]
+%}
+</ul>
+
+
+<& ../page_part , title=>'Recommend it' , start=>1 ,linkprefix=>'../'&>
+<form action=<% $Gamesite::config{baseurl} %>recommend.html>
+<table border=0 width="100%">
+<tr>
+<td width="50%">
+Like this game? Tell your friends about. Enter email address in the field and press the 'Enter' button.
+</td>
+<td width="50%" align=center>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>20) %>
+</td>
+</table>
+</form>
+
+ 
+
+<& ../disclaimer , linkprefix=>'../'&>
+
+
+<& ../layout, bottom=>1 , linkprefix=>'../' ,path=>$gamedata->{path}&>
+
+<%args>
+$gamedata
+$scoredata
+$linkprefix=>'../'
+$is_downloadable=>1
+</%args>

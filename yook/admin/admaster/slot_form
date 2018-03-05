@@ -1,0 +1,80 @@
+<form action=<% $action %> method=<% $method %>>
+%if($custid) {
+<% $Admaster::cgi->hidden(-name=>'custid',-value=>$custid) %>
+%}
+%if($id) {
+<% $Admaster::cgi->hidden(-name=>'id',-value=>$id) %>
+%}
+<table>
+<tr valign=baseline>
+<td align=right>
+<b>Format:</b>
+</td>
+<td>
+<% $Admaster::cgi->popup_menu(-name=>'formatid' , '-values'=>\@formatvalues , -labels=>\%formatlabels,-default=>$formatid) %>
+</td>
+<tr valign=top>
+<td align=right>
+<b>HTML Code:</b>
+</td>
+<td>
+<% $Admaster::cgi->textarea(-name=>'code',-rows=>10, -columns=>50, -value=>$code) %>
+</td>
+<tr valign=baseline>
+<td align=right>
+<b>Credits:</b>
+</td>
+<td>
+<% $Admaster::cgi->textfield(-name=>'credits', -size=>10, -value=>$credits) %>
+</td>
+<tr valign=baseline>
+<td align=right>
+<b>Ratio:</b>
+</td>
+<td>
+<% $Admaster::cgi->textfield(-name=>'ratio', -size=>10, -value=>$ratio) %>
+</td>
+<%doc>
+<tr valign=baseline>
+<td align=right>
+<b>Jump URL:</b>
+</td>
+<td>
+<% $Admaster::cgi->textfield(-name=>'jumpurl', -size=>50, -value=>$jumpurl) %>
+</td>
+</%doc>
+<tr>
+<td>&nbsp;</td>
+<td>
+<% $Admaster::cgi->submit(-value=>'Create') %>
+<% $Admaster::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+
+<%init>
+my $formats = $Admaster::ad->get_formats;
+
+my @formatvalues;
+my %formatlabels;
+foreach(@$formats) {
+push @formatvalues, $_->[0];
+$formatlabels{$_->[0]} = $_->[1];
+}
+
+
+</%init>
+
+
+<%args>
+$action
+$id=>undef
+$method=>'post'
+$custid=>undef
+$slotid=>undef
+$code=>undef
+$ratio=>undef
+$credits=>undef
+$jumpurl=>undef
+$formatid=>undef
+</%args>

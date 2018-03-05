@@ -1,0 +1,26 @@
+<form method="post" action="http://yook.search.everyone.net/search/search/SearchResults" target="newwindow">
+<& .utils/sidebox_start, title=>'Search@Yook' &>
+<small>
+<select name="e.searchNID" size="1">
+<option value=825316>MP3</option>
+<option value=825326>Media</option>
+<option value=825317>Shareware</option>
+<option value=825323>Computers</option>
+<option value=825322>Usenet</option>
+<option value=825318>Health</option>
+<option value=825325>Politics</option>
+<option value=825324>Employment</option>
+<option value=825319>Sports</option>
+<option value=825320>Kids</option>
+<option value=825328>Business</option>
+<option value=825329>Education</option>
+<option value=825327>Sciences</option>
+<option value=825321>Entertainment</option>
+<option value=825315 selected>The Web</option>
+</select><br>
+<input type="text" size="12" name="e.searchQuery" value="">
+<input type="submit" name="e.newSearch" value="Go">
+</small>
+<& .utils/sidebox_end &>
+</form>
+

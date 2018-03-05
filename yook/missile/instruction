@@ -1,0 +1,16 @@
+
+
+<p>
+Your objective is to protect your bases against ballistic missile assault.
+Red missiles are conventional, but magenta ones have multiple warheads.
+<p>You can launch interceptor missiles by clicking with the mouse on the desired position. To achieve a kill of incoming missile, you have to launch interceptor so that missile head has contact with white explosion area.
+<p>You will get 10 points for any normal missile, 20 points for every  multi-warhead missile and every interceptor missile will cost you one point. Additionaly, if you can intercept all missiles on given level you will get bonus points.
+
+<p>Use <b>"P"</b>-key on your keyboard to pause your game.
+
+<p>Do not forget to save your achievements in highcore list after the game end.
+
+
+<P>You do not have to stay online during the game. Internet connection is required only to submit highscores.
+
+<& ../page_part, stop=>1 &>

@@ -1,0 +1,35 @@
+<html>
+<head>
+
+<title>
+Java sandbox - advertising system
+</title>
+</head>
+<body bgcolor=white >
+<h2>Advertising system</h2>
+<& admin_menu &>
+<form action=add_slot.html method=post>
+<b>Create new advertising slot</b>
+
+<% $Gamesite::cgi->textarea(-name=>'adcode', rows=>7, cols=>60) %><br>
+<% $Gamesite::cgi->submit(-value=>'Create') %>
+<% $Gamesite::cgi->reset %>
+</form>
+<hr>
+<H2>Existing slots</h2>
+%foreach(@ads) { my @ad = split /\[\]/;
+<& "../../yook.config/.advert/$ad[0].ad" &>
+<hr>
+[ <a href=edit_ad.html?ad=<%$ad[0]%>>edit</a> ][<a href=remove_ad.html?ad=<%$ad[0]%>>remove</a>]
+<hr>
+%}
+</body>
+</html>
+
+
+<%init>
+open IF ,"$Gamesite::config{adpath}/adindex";
+my @ads = <IF>;
+
+
+</%init>

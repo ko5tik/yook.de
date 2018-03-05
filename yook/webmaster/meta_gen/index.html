@@ -1,0 +1,22 @@
+<& ../../layout , top=>1 , title=>'meta tag generator' , linkprefix=>'../../',
+path=>'webmaster/meta_gen/' &>
+
+<& ../../page_part, title=>'Generate meta tags', start=>1 &>
+<& url_form &>
+
+<& ../../page_part, title=>'Explanations' , start=>1 &>
+<p>Search engine guts are close guarded secret. Nobody can say for sure
+that he knows how they select pages based on user query (except for
+Search engine developers, but they will not say us anything).
+<p>From logical point of view, meta tags are important for search engine 
+position. Your documents are indexed based on their contens. There is a ground to believe, that search engines will also look inside your
+document, to determine whether your meta tags correspond to your content.
+<p>This tool will fetch your page, like search engine does, parse it and build
+a list of keywords based on amount of occurences inside your page.
+<p>This way you can build effective meta tags based on content of your page.
+
+<& ../../page_part, title=>'Feedback' , start=>1 &>
+<p>Your feedback is appreciated. If you gave to report problem, or have
+idea how this service can be made better, use <a href=<% $Gamesite::config{baseurl} %>support.html>this form</a> to send message to webmaster.
+
+<& ../../layout, bottom=>1, linkprefix=>'../../' &>

@@ -1,0 +1,30 @@
+<& page_start , title=>'Linkomatic admin' &>
+
+
+<table border=0 cellpadding=2 cellspacing=0>
+<tr>
+<td><b>Pos.</b> </td><td> <b>Friend</b></td><td> <b>In</b> </td><td> <b>Out</b> </td><td><b>Impressions</b></td><td><b>Contact</b></td>
+<td><b>Site</b></td>
+<td><b>Actions</b></td>
+%for(0..(scalar @$ary -1)) {
+<tr bgcolor=<% $bgcolor[$_ % 2] %>><td align=right><% $_%>.</td><td><a href=<%$ary->[$_-1]->[4] %>> <%$ary->[$_-1]->[1]%></a> </td><td><%$ary->[$_-1]->[6]%> </td><td><% $ary->[$_-1]->[7] %></td><td><%$ary->[$_-1]->[8]%></td><td><a href=mailto:<% $ary->[$_-1]->[3] %>><% $ary->[$_-1]->[2] %></a></td>
+<td>
+%if( $ary->[$_-1]->[9] == 1) {
+german
+%} else {
+english
+%}
+</td>
+<td><a href=remove_friend.html?id=<% $ary->[$_-1]->[0] %>>remove</a></td>
+%}
+
+</table>
+
+<& page_end &>
+
+<%init>
+my $ary = $Gamesite::linkomatic->get_links;
+
+my @bgcolor = ( '#eeeeee', 'white' );
+
+</%init>

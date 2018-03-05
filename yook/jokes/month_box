@@ -1,0 +1,54 @@
+
+<table width=100%>
+<tr valign=top>
+<td align=center>
+<b>Jokes</b>
+</td>
+<td align=center>
+<b>Tales</b>
+</td>
+<tr>
+<td align=center>
+<& ../.utils/calendar , days_linked=>\@jdays , link_prefix=>'j/', headcolor=>$Gamesite::config{menubg}, month=>$month &>
+</td>
+<td align=center>
+<& ../.utils/calendar , days_linked=>\@tdays , link_prefix=>'t/', headcolor=>$Gamesite::config{menubg} , month=>$month&>
+</td>
+</table>
+<%doc>
+<pre>
+<% Data::Dumper->Dump([\@jdays] ) %>
+</pre>
+</%doc>
+<%init>
+my $dd = time;
+my $j = $Gamesite::jokes;
+
+(undef,undef,undef,my $day , undef, my $year,undef,undef,undef) = localtime;
+
+my $ms = mktime(0,0,0,1,$month,$year,0,0,0);
+my $me = mktime(0,0,0,1,$month + 1,$year,0,0,0);
+
+
+my $jdates = $j->get_release_dates(&Joke::JOKE, &Joke::ACCEPTED,$ms,$me);
+my $tdates = $j->get_release_dates(&Joke::TALE, &Joke::ACCEPTED,$ms,$me);
+
+
+my @jdays;
+my @tdays;
+my $qq;
+foreach(@$jdates) {
+(undef,undef,undef,$qq,undef,undef,undef,undef,undef) = localtime($_);
+$jdays[$qq] = 1;
+}
+
+foreach(@$tdates) {
+(undef,undef,undef,$qq,undef,undef,undef,undef,undef) = localtime($_);
+$tdays[$qq] = 1;
+}
+
+</%init>
+
+<%args>
+$month
+</%args>

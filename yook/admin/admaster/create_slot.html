@@ -1,0 +1,24 @@
+<% Data::Dumper->Dump([\%ARGS]) %>
+<% Data::Dumper->Dump([\%Admaster::config]) %>
+<%init>
+my @customer = $Admaster::ad->get_customer($custid);
+
+$code =~s/'/''/g;
+
+$Admaster::ad->create_slot(cust_id=>$custid,credits=>$credits,code=>$code,format_id=>$formatid, ratio=>$ratio);
+
+
+$m->comp('/utils/redirect',url=>$Admaster::config{baseurl} . "view_slots.html?custid=$custid");
+</%init>
+
+
+<%args>
+$custid
+$code
+$credits
+$ratio
+$formatid
+</%args>
+
+
+

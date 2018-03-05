@@ -1,0 +1,14 @@
+<%doc>
+<& ../layout , top=>1 , title=>$dd->{title} . ' instructions' , linkprefix=>'../' , path=>$dd->{path}, target=>'_top'&>
+
+<& instruction &>
+
+<& ../disclaimer , linkprefix=>'../'&>
+
+<& ../layout, bottom=>1 , linkprefix=>'../' ,path=>$dd->{path}&>
+</%doc>
+
+<& ../templates/instruction.tmpl , gamedata=>$dd &>
+<%init>
+my $dd = $m->comp('game_data');
+</%init>

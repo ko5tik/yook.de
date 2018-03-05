@@ -1,0 +1,19 @@
+<form action="http://rendsu.net4u.de/regrid.phtml" method="post">
+<table>
+<tr>
+<td><b>Login:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'uid',-size=>20) %>
+</td>
+<tr><td><b>Password:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'pwd',-size=>20) %>    
+</td>
+<tr>
+<td>&nbsp;</td>
+<td>
+<%  $Gamesite::cgi->submit(-name=>'register') %>
+<%  $Gamesite::cgi->reset() %>          
+</td>
+</table>
+</form>

@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'Xonix',
+path=>'xonix/',
+scores=>$Gamesite::scoredata{xonix},
+fieldnames=>[ 'Pos' , 'Name' , 'Points' , 'Level'  , 'Since'], 
+fields=>['name','points','level','time','url'],
+#archive=>'xonixlite.tar.gz'   
+};
+
+
+</%init>

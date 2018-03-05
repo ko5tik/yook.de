@@ -1,0 +1,126 @@
+<%doc>
+extract user data from a cookie - if any :)
+</%doc>
+<%init>
+
+my $userdata;
+my %datahash;
+eval {
+ $userdata = Apache::Cookie->get('general_setup');
+
+
+%datahash = split(/\[\]/,$userdata);
+my $highest;
+my $date;
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('lines_highest'));
+
+$datahash{'lines_highest'} = $highest;
+$datahash{'lines_date'} = $date;
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('tetris_highest'));
+$datahash{'tetris_highest'} = $highest;
+$datahash{'tetris_date'} = $date;
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('colors_highest'));
+$datahash{'colors_highest'} = $highest;
+$datahash{'colors_date'} = $date;
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('moonraid_highest'));
+$datahash{'moonraid_highest'} = $highest;
+$datahash{'moonraid_date'} = $date;
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('missile_highest'));
+$datahash{'missile_highest'} = $highest;
+$datahash{'missile_date'} = $date;
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('samegame_highest'));
+$datahash{'same_highest'} = $highest;
+$datahash{'same_date'} = $date;
+
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('xonix_highest'));
+$datahash{'xonix_highest'} = $highest;
+$datahash{'xonix_date'} = $date;
+
+
+($highest , $date)  = split (/\[\]/,Apache::Cookie->get('breakout_highest'));
+$datahash{'breakout_highest'} = $highest;
+$datahash{'breakout_date'} = $date;
+
+$datahash{'nickname'} = 'Anonymous' unless defined $datahash{'nickname'};
+
+};
+
+if ($@) {
+# newer apache...
+#die "newer version detected... ";
+my %cookies = Apache2::Cookie->fetch;
+
+$userdata = $cookies{'general_setup'};
+
+
+%datahash = split(/\[\]/,$userdata->value) if defined $userdata;
+
+
+my $highest;
+my $date;
+
+if (defined $cookies{'lines_highest'}) {
+  ($highest , $date)  = split (/\[\]/,$cookies{'lines_highest'}->value);
+
+  $datahash{'lines_highest'} = $highest;
+  $datahash{'lines_date'} = $date;
+}
+if(defined $cookies{'tetris_highest'}) {
+  ($highest , $date)  = split (/\[\]/,$cookies{'tetris_highest'}->value);
+  $datahash{'tetris_highest'} = $highest;
+  $datahash{'tetris_date'} = $date;
+}
+
+if(defined $cookies{'colors_highest'}) {
+  ($highest , $date)  = split (/\[\]/,$cookies{'colors_highest'}->value);
+  $datahash{'colors_highest'} = $highest;
+  $datahash{'colors_date'} = $date;
+}
+
+if(defined $cookies{'moonraid_highest'}) {
+   ($highest , $date)  = split (/\[\]/,$cookies{'moonraid_highest'}->value);
+   $datahash{'moonraid_highest'} = $highest;
+   $datahash{'moonraid_date'} = $date;
+}
+
+if(defined $cookies{'missile_highest'}) {
+   ($highest , $date)  = split (/\[\]/,$cookies{'missile_highest'}->value);
+   $datahash{'missile_highest'} = $highest;
+   $datahash{'missile_date'} = $date;
+}
+
+if(defined $cookies{'samegame_highest'}) {
+   ($highest , $date)  = split (/\[\]/,$cookies{'samegame_highest'}->value);
+   $datahash{'same_highest'} = $highest;
+   $datahash{'same_date'} = $date;
+}
+
+if(defined $cookies{'xonix_highest'}) {
+  ($highest , $date)  = split (/\[\]/,$cookies{'xonix_highest'}->value);
+  $datahash{'xonix_highest'} = $highest;
+  $datahash{'xonix_date'} = $date;
+}
+
+if(defined $cookies{'breakout_highest'}) {
+  ($highest , $date)  = split (/\[\]/,$cookies{'breakout_highest'}->value);
+  $datahash{'breakout_highest'} = $highest;
+  $datahash{'breakout_date'} = $date;
+}
+
+$datahash{'nickname'} = 'Anonymous' unless defined $datahash{'nickname'};
+
+
+}
+
+return \%datahash;
+</%init>
+
+
+
+

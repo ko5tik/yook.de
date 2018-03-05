@@ -1,0 +1,23 @@
+<& layout , top=>1 , title=>'yook news',main=>1 , show_email=>1 &>
+%if(!$status) {
+<&  .utils/headline , title=>$n->headline , &>
+<p><% $n->contens %><br>
+<small><%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($n->timestamp) %></small>
+%} else {
+<&  .utils/headline , title=>'not found' , &>
+<p>Requested entry was not found.
+%}
+<& layout , bottom=>1 , main=>1 &>
+
+<%init>
+my $n = $Gamesite::news_en;
+eval {
+$n->restore($id) if $id;
+};
+my $status = $@;
+
+</%init>
+
+<%args>
+$id=>undef
+</%args>

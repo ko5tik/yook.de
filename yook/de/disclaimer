@@ -1,0 +1,12 @@
+<& ../page_part , title=>'Haftungsausschluß' , start=>1, linkprefix=>$linkprefix &>
+
+<p>Sie benutzen diese Seiten ausschliesslich auf eigenes Risiko.
+Der Spielautor übernimmt keine Haftung für jeweilige Schäden, die durch
+Benutzung dieser Webseiten entstehen können.
+<p>Falls Sie ein Problem oder Fehler auf diesen Seiten sehen, oder dem 
+Autor etwas mitteilen möchten, benutzen Sie bitte   <a href=<% $Gamesite::config{baseurl}%>de/support.html>diese Seite</a>
+<& ../page_part, stop=>1 ,linkprefix=>$linkprefix&>
+
+<%args>
+$linkprefix=>undef
+</%args>

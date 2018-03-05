@@ -1,0 +1,4 @@
+AuthName yook.de
+AuthType basic
+AuthUserFile access/yook.de
+require valid-user

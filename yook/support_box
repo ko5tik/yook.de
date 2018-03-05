@@ -1,0 +1,9 @@
+<& .utils/sidebox_start, title=>'Support & Feedback' &>
+
+<small>
+Please <a href=<% $Gamesite::config{baseurl}  %>support.html>report</A> all problems with this site. Your feedback is appreciated.
+</small>
+<& .utils/sidebox_end &>
+<%args>
+$linkprefix=>undef
+</%args>

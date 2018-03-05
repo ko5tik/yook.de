@@ -1,0 +1,245 @@
+<%  $name %><br>
+<%  $score %><br>
+<%  $turns %><br>
+<%  $balls %><br>
+<%  $seconds %><br>
+<%init>
+#decrypt supplied parameter
+my $qq =  pack("H*",$scoredata);
+my $key = "scoreturnsballssecondsa";
+
+my @mask =  split(/ */,$key);
+my @message = split(/ */,$qq);
+
+my $decrypted;
+for my $i ( 0..$#message)  {
+    $decrypted .=  chr(ord($message[$i]) ^ ord($mask[$i % ($#mask+1)]));
+}
+
+my $now = time;
+(my $name , my $score , my $turns , my $balls , my $seconds) = split(/\[\]/,$decrypted);
+
+$name = substr $name , 0, 30;# trim it ...
+#check for sanity
+if($seconds <= 0 || $name eq '' || ($score > $balls * 2)) {
+# somebody had cheatet ... reject this highscore.
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}/lines/rejected.html");
+return;
+} 
+
+
+#ok, highscore is sane -> save it
+my $globalpos = -1;
+my $dailypos = -1;
+
+#my $scoreentry = join('[]', $name , $score , $turns , $balls , $seconds , $now, $Gamesite::userdata->{url} );
+
+open LF , ">" . $Gamesite::config{'datapath'} . "/lines.data.lock" || die $!;
+
+#ask for alarm signal, if we did not get lock for 5 seconds
+
+eval {
+  local $SIG{ALRM} = sub { die "alarm\n" };
+  alarm 5;
+  flock LF, LOCK_EX;
+  alarm 0;
+};
+
+die if $@ && $@ ne "alarm\n";
+
+if($@ eq  "alarm\n") {
+die '<b>Timeout occured while waiting for file lock. Please send this message to
+kpriblouda\@yahoo.com</b>';
+
+}
+
+#create edit version
+my %outdata;
+tie %outdata , 'MLDBM' , $Gamesite::config{'datapath'} . "/lines.data.edit", O_RDWR | O_CREAT , 0644;
+
+#first, adjust game counts
+$outdata{count} = $Gamesite::linesdata{'count'} + 1;
+my $tcount = $Gamesite::linesdata{'todaycount'};
+
+(undef,undef,undef,my $cday,undef,my $cyear,undef,undef,undef) = localtime($now);
+(undef,undef,undef,my $sday,undef,my $syear,undef,undef,undef) = localtime($tcount->{date});
+
+if($cday != $sday || $cyear != $syear) {
+$tcount->{count} = 1;
+$tcount->{date} = $now;
+} else {
+$tcount->{count}++;
+}
+
+$outdata{'todaycount'} = $tcount;
+
+
+my $global = $Gamesite::linesdata{'global_scores'} ;
+
+my $scoreentry =  {  'n'=>$name , 'p'=>$score , 't'=>$turns , 'b'=>$balls , 's'=>$seconds , 'u'=>$Gamesite::userdata->{url}, 'd'=>$now};
+
+my @newary;
+my $scorecount = 0;
+my $saved = 0;
+
+foreach(@$global) {
+  $scorecount++;
+  if($_->{p} < $score && !$saved) {
+    push @newary ,$scoreentry;
+    $globalpos = $scorecount++;   
+    $saved = 1;
+  }
+  last if $scorecount >200;
+  push @newary , $_;
+  
+}
+
+$outdata{'global_scores'} = \@newary;
+
+$global = $Gamesite::linesdata{'daily_scores'} ;
+
+$#newary = -1;
+
+if(scalar @$global == 0) {
+#nothing there
+push  @newary , $scoreentry;
+} else {
+my $first = shift @$global;
+
+(undef,undef,undef,my $sday,undef,my $syear,undef,undef,undef) = localtime($first->{d});
+
+if($cday != $sday || $cyear != $syear) {
+push  @newary , $scoreentry;
+} else {
+if($_->{p} < $score) {
+push @newary ,$scoreentry;
+$dailypos = $scorecount++;
+$saved = 1;
+}
+push  @newary , $first;
+$scorecount++;
+
+foreach(@$global) {
+  $scorecount++;
+  if($_->{p} < $score && !$saved) {
+    push @newary , $scoreentry;
+    $globalpos = $scorecount++;   
+    $saved = 1;
+  }
+  last if $scorecount >200;
+  push @newary , $_;
+}
+}
+}
+
+#everything shall be there, 
+$outdata{'daily_scores'} = \@newary;
+
+untie %outdata;
+
+system("mv $Gamesite::config{'datapath'}/lines.data.edit $Gamesite::config{'datapath'}/lines.data");
+
+#while(<SF>) {
+
+#my @cscore = split /\[\]/;
+
+#if($score > $cscore[1] && !$saved) {
+#$globalpos = $scorecount++;
+#$saved = 1;
+#print OF $scoreentry , "\n";
+#}
+
+#$scorecount++;
+#last if $scorecount > 200;
+#print OF;
+#}
+
+#close SF;
+#close OF;
+#system("mv $Gamesite::config{'datapath'}/lines.global.edit $Gamesite::config{'datapath'}/lines.global");
+#flock LF, LOCK_UN;
+#close LF;
+
+#now go for daily ones ...
+
+#open LF , ">" . $Gamesite::config{'datapath'} . "/lines.daily.lock" || die $!;
+
+#ask for alarm signal, if we did not get lock for 5 seconds
+
+#eval {
+#  local $SIG{ALRM} = sub { die "alarm\n" };
+#  alarm 5;
+#  flock LF, LOCK_EX;
+#  alarm 0;
+#};
+
+#die if $@ && $@ ne "alarm\n";
+
+#if($@ eq  "alarm\n") {
+#die '<b>Timeout occured while waiting for file lock. Please send this message to
+#kpriblouda\@yahoo.com</b>';
+#}
+
+#open SF , "$Gamesite::config{'datapath'}/lines.daily";
+#open OF , ">$Gamesite::config{'datapath'}/lines.daily.edit";
+
+#my $scoresave = <SF>;
+#my @cscore =  split /\[\]/ ,$scoresave;
+# else {
+# if($score > $cscore[1]) {
+#   $saved = 1;
+#   $dailypos = 1;
+#   print OF $scoreentry, "\n";	
+# }
+# print OF $scoresave;
+# while(<SF>) {
+
+#  @cscore = split /\[\]/;
+
+#  if($score > $cscore[1] && !$saved) {
+#  $dailypos = $scorecount++;
+#  $saved = 1;
+#  print OF $scoreentry, "\n";
+#  }
+
+# $scorecount++;
+# print OF;
+# }
+#}
+
+#close SF;
+#close OF;
+#system("mv $Gamesite::config{'datapath'}/lines.daily.edit $Gamesite::config{'datapath'}/lines.daily");
+
+
+
+flock LF, LOCK_UN;
+close LF;
+
+
+
+#check whether the user beat own personal highscore
+if($Gamesite::userdata->{lines_highest} < $score) {
+# he did it ...
+Apache::Cookie->set(-name=>'lines_highest',
+		    -expires=>'+1y',
+		    -value=>join('[]',$score,$now),
+		    -path=>'/');
+
+}
+#time to redirect where appropriate
+
+
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}/lines/achieved.html?global=$globalpos&daily=$dailypos");
+
+
+
+</%init>
+
+<%once>
+use Fcntl ':flock';
+</%once>
+
+<%args>
+$scoredata=>undef
+</%args>

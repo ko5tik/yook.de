@@ -1,0 +1,19 @@
+<& .utils/surround_start , width=>650 , align=>'center' &>
+
+<table border=0 cellpadding=3 cellspacing=1 width="100%"  bgcolor=<% $Gamesite::config{menubg} %>>
+<tr>
+<td align=right bgcolor=<% $Gamesite::config{barcolor} %>>
+<center>
+[<a href=<% $Gamesite::config{baseurl}%>support.html>contact webmaster</a>]
+</center>
+<small>
+<center>
+Yook.de - copyright &copy; by <a href=http://www.pribluda.de>Konstantin Pribluda</a> 1999-2000, all rights reserved
+</center>
+</small>
+</td>
+<td align=center>
+<img src=<% $Gamesite::config{baseurl} %>images/yook80x31.gif width=80 height=31>
+</td>
+</table>
+<& .utils/surround_end &>

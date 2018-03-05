@@ -1,0 +1,149 @@
+<& ../../page_part , start=>1 , title=>'Keywords in your document' &>
+<form method=post action=<% $action %>>
+<dl>
+<dt><b>Document title:</b>
+<dd><% $title %>
+<p>
+<table border=0 cellpadding=4 cellspacing=0 bgcolor=#eeeeee>
+<tr>
+
+<tr><td><b>Keyword:</b></td><td><b>in text:</b></td><td><b>in description:</b></td><td><b>use it</b></td>
+%foreach(sort { $title_keywords{$b} <=> $title_keywords{$a} } keys %title_keywords ) { next if defined $meta_hash{$_};
+<tr align=right>
+<td><% $_ %></td>
+<td><% $text_keywords{$_} || 0 %></td>
+<td><% $description_keywords{$_} || 0 %></td>
+<td>
+<% $cgi->checkbox(-name=>'selected_keyword', -value=>$_ ,-label=>'') %>
+</td>
+%}
+</table>
+<p>
+<dt><b>Keywords:</b>
+<dd>You have defined <b><% scalar @meta_keywords %></b> keywords, with size of <b><% length join(',',@meta_keywords) %></b> bytes. Search engines will use those keywords,
+to select your page as result of user search. Effective amount of keywords is
+believed to be no more than 1024 bytes.
+<p><%  join(', ',@meta_keywords) || "no keywords specified!!!" %>
+
+<p><table border=0 cellpadding=4 cellspacing=0 bgcolor=#eeeeee>
+<tr><td><b>Keyword:</b></td><td><b>in text:</b></td><td><b>in description:</b></td><td><b>in title:</b></td><td><b>Use it</b></td>
+%foreach(@meta_keywords) { next unless $_ ;
+<tr align=right>
+<td><% $_ %></td>
+<td><% $text_keywords{$_} || 0 %></td>
+<td><% $description_keywords{$_} || 0 %></td>
+<td><% $title_keywords{$_} || 0 %></td>
+<td>
+<% $cgi->checkbox(-name=>'selected_meta',-value=>$_ , -checked=>'checked',-label=>'') %>
+</td>
+%}
+</table>
+<p>
+<dt><b>Description:</b>
+<dd>
+Document description is used as preview of your page in search results.
+It's important to catch websurfer attention with it. It has to be informative and no longer that 1024 bytes (your description is <b><% length $description %></b> bytes). Some search engines may also search for keywords in page descriptions.
+<p>
+<% $cgi->textarea(-name=>'description',-value=>$description, -rows=>5, -cols=>40) %>
+<p>
+<table border=0 cellpadding=4 cellspacing=0 bgcolor=#eeeeee>
+<tr>
+
+<tr><td><b>Keyword:</b></td><td><b>in text:</b></td><td><b>in description:</b></td><td><b>use it</b></td>
+%foreach(sort { $description_keywords{$b} <=> $description_keywords{$a} } keys %description_keywords ) { next if defined $meta_hash{$_};
+<tr align=right>
+<td><% $_ %></td>
+<td><% $text_keywords{$_} || 0 %></td>
+<td><% $description_keywords{$_} || 0 %></td>
+<td>
+<% $cgi->checkbox(-name=>'selected_keyword', -value=>$_ ,-label=>'') %>
+</td>
+%}
+</table>
+<p>
+<dt><b>Words used on  your page:</b>
+<dd>You page contains <b><% scalar keys %text_keywords %></b> different words. You may add some or all of those keywords to your meta tag. Checked words are already contained in your "keywords" tag. 
+<p>
+<table border=0 cellpadding=4 cellspacing=0 bgcolor=#eeeeee>
+<tr>
+
+<tr><td><b>Keyword:</b></td><td><b>in text:</b></td><td><b>in description:</b></td><td><b>use it</b></td>
+%foreach(sort { $text_keywords{$b} <=> $text_keywords{$a} } keys %text_keywords ) { next if defined $meta_hash{$_};
+<tr align=right <% %> >
+<td><% $_ %></td>
+<td><% $text_keywords{$_} || 0 %></td>
+<td><% $description_keywords{$_} || 0 %></td>
+<td>
+<% $cgi->checkbox(-name=>'selected_keyword',-checked=>'', -value=>$_ ,-label=>'') %>
+</td>
+%}
+</table>
+<br><br>
+<dt><b>Additional keywords:</b>
+<dd>Specify additional keywords here, separated with comma.
+<p>
+<% $cgi->textfield(-name=>'user_keywords',-size=>50,-maxlength=>500) %>
+</dl>
+<% $cgi->hidden(-name=>'text_keywords',-value=>(join '[]' , %text_keywords ) ) %>
+<% $cgi->hidden(-name=>'locale',-value=>$locale ) %>
+<% $cgi->hidden(-name=>'meta_keywords',-value=>(join '[]', keys %meta_hash) ) %>
+<% $cgi->hidden(-name=>'title' , -value=>$title) %>
+<% $cgi->submit  %> <% $cgi->reset %>
+</form>
+
+
+<%init>
+my %description_keywords;
+my $cgi = $Gamesite::cgi;
+
+use locale;
+my $old_locale = setlocale(LC_CTYPE);
+setlocale(LC_CTYPE,$locale);
+
+my @descwords = split /\W/ , $description;
+
+foreach (@descwords) {
+	next unless $_;
+	$_ = lc $_;
+	if(defined $description_keywords{$_}) {
+	    $description_keywords{$_}++;
+	} else {
+	    $description_keywords{$_} = 1;
+	}
+}
+
+my %meta_hash;
+for (0..( scalar @meta_keywords -1)) {
+$meta_keywords[$_] =~ s/^\s*//; # zap leading ...
+$meta_keywords[$_] =~ s/\s*$//; # ...and trainling spaces
+next unless $_;
+$meta_hash{$meta_keywords[$_]} = 1;
+}
+
+@meta_keywords = sort { $text_keywords{$b} <=> $text_keywords{$a}} @meta_keywords;
+my %title_keywords;
+
+my @tk = split  /\W/ , $title;
+foreach(@tk) {
+	next unless $_;
+	$_ = lc $_;
+	if(defined $title_keywords{$_}) {
+		$title_keywords{$_}++;
+	} else {
+		$title_keywords{$_}++;
+	}
+	
+}
+
+setlocale(LC_CTYPE,$old_locale);
+no locale;
+
+</%init>
+<%args>
+%text_keywords=>undef
+$description=>undef
+$title=>undef
+@meta_keywords=>undef
+$action=>'generate_meta.html'
+$locale=>'C'
+</%args>

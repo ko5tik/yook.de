@@ -1,0 +1,28 @@
+<& ../page_start , title=>'News admin' &>
+
+<& entry_form, target=>'news_preview.html', back_uri=>$r->uri &>
+<hr>
+%while($n->restore_next) {
+<hr>
+[<a href=edit_news.html?id=<% $n->id %>>edit</a>]-[<a href=remove_news.html?id=<% $n->id %>&back_uri=<% $r->uri %>>remove</a>]
+<hr>
+<dl>
+<dt><b>Headline:</b>
+<dd><% $n->headline %>
+<dt><b>Teaser:</b>
+<dd><% $n->teaser %>
+<dt><b>Contens:</b>
+<dd><% $n->contens %>
+<dt>Timestamp:
+<dd><% scalar localtime $n->timestamp %>
+</dl>
+<hr>
+%}
+<& ../page_end &>
+
+<%init>
+$m->comp('init');
+
+my $n = $NewsEdit::news;
+$n->restore_where('','timestamp desc');
+</%init>

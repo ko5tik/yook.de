@@ -1,0 +1,29 @@
+<form action=<% $target %> method=post>
+<% $NewsEdit::cgi->hidden(-name=>'action', -value=>$action) %>
+%if($id) {
+<% $NewsEdit::cgi->hidden(-name=>'id', -value=>$id) %>
+%}
+%if($back_uri) {
+<% $NewsEdit::cgi->hidden(-name=>'back_uri', -value=>$back_uri) %>
+%}
+<dl>
+<dt><b>Headline:</b>
+<dd><% $NewsEdit::cgi->textfield(-name=>'headline',-value=>$headline, -size=>40) %>
+<dt><b>Teaser:</b>
+<dd><% $NewsEdit::cgi->textarea(-name=>'teaser',-value=>$teaser, -size=>40,-rows=>5,-cols=>50) %>
+<dt><b>Contens:</b>
+<dd><% $NewsEdit::cgi->textarea(-name=>'contens',-value=>$contens, -size=>40,-rows=>10,-cols=>50) %>
+<dd><% $NewsEdit::cgi->submit(-value=>'Save') %> <% $NewsEdit::cgi->reset %>
+</dl>
+
+</form>
+
+<%args>
+$target=>'index.html'
+$action=>'new'
+$id=>undef
+$back_uri=>undef
+$headline=>undef
+$teaser=>undef
+$contens=>undef
+</%args>

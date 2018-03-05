@@ -1,0 +1,12 @@
+<%init>
+$NewsEdit::cgi = $Gamesite::cgi;
+$NewsEdit::news = $Gamesite::news_en;
+$NewsEdit::base = $Gamesite::config{server};
+</%init>
+
+<%once>
+{
+ package NewsEdit;
+ use vars qw( $cgi $news $base); 
+}
+</%once>

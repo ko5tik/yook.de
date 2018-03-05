@@ -1,0 +1,64 @@
+<& page_part , title=>'Usage conditions' , start=>1 , linkprefix=>$linkprefix&>
+<p>Your are allowed to use games from this website at your own risk. 
+<p>If you like use some games on your website, you will need to ask
+for my permission. 
+
+<%doc>
+<P>You are allowed to use this game for free on your internet page under
+following conditions:
+<OL>
+<li>You accept terms of this license.
+<LI>Your page is not originated from ".gov" and ".mil" domains.
+<li>There is no warranty, and game is provided "as is".
+<li>In no event shall author be liable for any damages which may 
+result in connection with this game.
+<LI>Your page is not commercial. If you wish to use this applet on commercial
+page, you must obtain permission from <A href=mailto:kostantin@pribluda.de>game&nbsp;author</A>. Generally usage on commercial sites will require royalty payments, conditions are negotiable.<br>
+<i><b>Note:</b> If your page contains any third party advertising, or attempts to sell anything it's commercial.</i>
+<LI>Your page does not contain adult oriented material and does not promote
+any illegal activity (i.e. pirated software, serial numbers, copyright infrigements, hate speech etc,)
+<li>You must state on the respective page that this game is
+<b>"Copyright by <a href=http://www.pribluda.de/>Konstantin Pribluda</a> 1999-2000, all rights reserved"</b> with hyperlink preserved.
+<LI>You place link to this page ( <% $Gamesite::config{baseurl} %> ) in good visible location near the applet. You may also choose to add a links to individual highscore pages.
+<li>You notify me under email address webmaster@yook.de about your game usage.
+<li>This license can be terminated at any time. You agree to remove this game immediately from your website upon email notice from game author.
+</OL>
+
+<p>You can also use this game on your private computer without making 
+it available on internet.
+
+<& page_part , title=>'Warning' , start=>1 , linkprefix=>$linkprefix&>
+
+<p>There are a lot of people, who like to made money out
+of others intelectual property without paying for it. 
+Following warning is for them.
+
+<p>As you surely know, copyrights are recognized worldwide, and 
+a lot of countries consider copyright infringement to be a crime.
+So think twice before you post it without proper credentials,
+or made money out of it without paying license fee.
+<p>You can be sure, that if I find it on internet, I will investigate the 
+matter and pass information to my lawyer[s] or appropriate law enforcement
+agency (if you have money, I will sue you for damages, if not - I will try to put you in jail).
+<p>If you country has no appropriate laws, I will just post all identifable 
+information about you stating that you are a thief. Hopefully your peers 
+will see it.
+
+<& page_part , title=>'Download archive' , start=>1 , linkprefix=>$linkprefix&>
+
+<P>If you agree with these conditions, download the <A href=<% $archive %>>
+archive</A>. You will need tar and gzip to unpack this, but recent version of
+<A href="http://www.winzip.com">WinZip</A> may be also able to unpack this.
+Installation instructions are contained inside the archive.
+<P>If you like to have full version of this game, or wish to have customized
+version for your site - contact <A href="mailto:kostantin@pribluda.de">me</A>
+via email.
+
+</%doc>
+<& page_part, stop=>1 &>
+
+
+<%args>
+$linkprefix=>undef
+$archive
+</%args>

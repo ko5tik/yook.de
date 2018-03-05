@@ -1,0 +1,17 @@
+
+<%init>
+$Colors::scoredata = $Gamesite::scoredata{colors}->get_top_scores;
+$Colors::scoredata->{person} = $Gamesite::userdata->{colors_highest};
+return $Colors::scoredata;
+</%init>
+
+<%once>
+{
+package Colors;
+use vars qw( $scoredata );
+
+$Colors::scoredata = { age=>0 };
+
+}
+</%once>
+

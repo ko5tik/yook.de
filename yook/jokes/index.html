@@ -1,0 +1,16 @@
+<& ../layout , top=>1 , title=>'Yook jokes' , path=>'jokes/'&>
+
+<& disclaimer &>
+
+
+<& front_box &>
+<&  ../.utils/headline , title=>'Past issues' &><p>
+<& month_box , month=>$month&>
+<& month_box , month=>$month - 1&>
+
+
+<& ../layout ,  bottom=>1 , path=>'jokes/'&>
+
+<%init>
+(undef,undef,undef,my $day , my $month, my $year,undef,undef,undef) = localtime;
+</%init>

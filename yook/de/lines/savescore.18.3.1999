@@ -1,0 +1,67 @@
+<%init>
+#decrypt supplied parameter
+my $qq =  pack("H*",$scoredata);
+my $key = "scoreturnsballssecondsa";
+
+my @mask =  split(/ */,$key);
+my @message = split(/ */,$qq);
+
+my $decrypted;
+for my $i ( 0..$#message)  {
+    $decrypted .=  chr(ord($message[$i]) ^ ord($mask[$i % ($#mask+1)]));
+}
+
+my $now = time;
+(my $name , my $score , my $turns , my $balls , my $seconds) = split(/\[\]/,$decrypted);
+
+$name = substr $name , 0, 30;# trim it ...
+#check for sanity
+if($seconds <= 0 || $name eq '' || ($score > $balls * 2)) {
+# somebody had cheatet ... reject this highscore.
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}/rejected.html");
+return;
+} 
+
+my $hours;
+my $secs;
+my $mins;
+{
+ use integer;
+ $hours = $seconds / 3600;
+ $mins = ($seconds % 3600) / 60;
+ $secs = $seconds % 60;
+}
+$seconds = sprintf "%d:%02d:%02d",$hours,$mins,$secs;
+
+
+
+#ok, highscore is sane -> save it
+my $globalpos;
+my $dailypos = -1;
+
+my $scoreentry = join('[]', $name , $score , $turns , $balls , $seconds , $now, $Gamesite::userdata->{url} );
+
+my $positions = $m->comp('../put_score',gamename=>'lines',scoreentry=>$scoreentry, score=>$score, now=>$now);
+
+
+#check whether the user beat own personal highscore
+if($Gamesite::userdata->{lines_highest} < $score) {
+# he did it ...
+ Apache::Cookie->set(-name=>'lines_highest',
+	 	     -expires=>'+1y',
+		     -value=>join('[]',$score,$now),
+		     -path=>'/');
+
+}
+#time to redirect where appropriate
+
+
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}/lines/achieved.html?global=$positions->{global}&daily=$positions->{daily}");
+
+
+
+</%init>
+
+<%args>
+$scoredata=>undef
+</%args>

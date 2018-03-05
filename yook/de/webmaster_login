@@ -1,0 +1,20 @@
+<&  ../page_part , start=>1, title=>'Information ändern'  , linkprefix=>'../'  &>
+Kennwort vergessen? <a href=recover_password.html>Wiederbeschaffen!</a>
+<form action=edit_link.html method=post>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Webseiten ID:</b></td>
+<td><% $Gamesite::cgi->textfield(-name=>'id',-size=>10) %></td>
+<tr valign=baseline>
+<td align=right><b>Kennwort:</b></td>
+<td><% $Gamesite::cgi->password_field(-name=>'password',-size=>10) %></td>
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Login') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+<& ../page_part , stop=>1  , linkprefix=>'../' &>
+

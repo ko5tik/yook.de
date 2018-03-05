@@ -1,0 +1,43 @@
+<form action=preview.html method=post>
+<& ../.utils/headline , title=>$tt &>
+<% $Gamesite::cgi->hidden(-name=>'kind',-value=>$kind) %>
+<p>Your entry will appear in tomorrow release. Trash entries will be discarded.
+<dl>
+<dt><b><% $tt %>:</b>
+<dd><% $Gamesite::cgi->textarea(-name=>'content',-rows=>10,-cols=>40) %>
+<%doc>
+<dt><b>Source:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'source',-size=>40) %><br>
+<i>Enter origin or author of this entry ( if known )</i>
+</%doc>
+<dt><b>You name:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'name',-size=>40) %><br>
+<i>Enter your name if you like to be credited</i>
+<dt><b>You email:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'email',-size=>40) %><br>
+<i>Your email will not be published directly, enter if you like to receive
+reader comments</i>
+<dt><b>You URL:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'url',-size=>40) %><br>
+<i>Leave URL of your homepage if you like</i>
+<dt>
+<dd><% $Gamesite::cgi->submit(-value=>$tt) %> <% $Gamesite::cgi->reset %>
+
+
+</dl>
+
+</form>
+
+
+<%init>
+my $tt;
+
+if($kind == 1) {
+$tt = 'Tell a joke';
+} else {
+$tt = 'Tell a tale';
+}
+</%init>
+<%args>
+$kind=>1
+</%args>

@@ -1,0 +1,59 @@
+<& ../../layout , top=>1 , title=>'meta generator - step 1' , linkprefix=>'../../',
+path=>'webmaster/meta_gen/' &>
+<& ../../page_part , start=>1 , title=>'Generated meta tags' &>
+<p>Copy and paste metatags into your homepage.
+<form>
+<% $cgi->textarea(-name=>'foo', -value=>$meta , -rows=>5 , -cols=>50) %>
+</form>
+<& keyword_form , text_keywords=>\%words, meta_keywords=>[keys %testmeta], description=>$description, title=>$title , locale=>$locale&>
+
+<%doc>
+<pre>
+<% Data::Dumper->Dump([\%ARGS]) %>
+</pre>
+</%doc>
+
+<& ../../layout, bottom=>1, linkprefix=>'../../' &>
+
+
+<%init>
+my $cgi = $Gamesite::cgi;
+
+my %testmeta;
+
+foreach(@selected_meta) {
+$testmeta{$_} = 1;
+}
+foreach(@selected_keyword) {
+$testmeta{$_} = 1;
+}
+
+my @uk = split(/,/,$user_keywords);
+foreach(@uk) {
+$_ = lc $_;
+$_ =~ s/^\s*//;
+$_ =~ s/\s*$//;
+$testmeta{$_} = 1;
+}
+
+my $new_keywords = join(',',keys %testmeta);
+
+my %words = split(/\[\]/,$text_keywords);
+
+$description =~ s!^\s*!!; # remove leading ...
+$description =~ s!\s*$!!; # ... and trailing whitespace
+$description =~ s!\s+?! !sg; # remove excess whitespace
+
+my $meta = '<meta name="keywords" content="' . $new_keywords . '">' ."\n".'<meta name="description" content="'. $description . '">';
+
+</%init>
+<%args>
+@selected_meta=>undef
+@selected_keyword=>undef
+$user_keywords=>undef
+$description=>undef
+$text_keywords=>undef
+$meta_keywords=>undef
+$title=>undef
+$locale=>'C'
+</%args>

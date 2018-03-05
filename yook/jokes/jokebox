@@ -1,0 +1,5 @@
+
+
+<%init>
+my $j = $Gamesite::jokes;
+</%init>

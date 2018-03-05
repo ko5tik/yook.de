@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Available formats</title>
+</head>
+<body bgcolor=white>
+<& menu &>
+<h2>Available advertising  slot formats</h2>
+<ul>
+%foreach(@$formats) {
+<li><% $_->[1] %>, id=<b><% $_->[0] %></b>
+
+%}
+</ul>
+
+</body>
+</html>
+
+<%init>
+my $formats = $Admaster::db->selectall_arrayref("select * from format order by id");
+</%init>

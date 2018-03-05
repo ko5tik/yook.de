@@ -1,0 +1,23 @@
+
+
+<%once>
+#use DBI;
+use lib '/usr/www/docs/yook/admin/admaster/libs';
+use Admaster;
+
+{ package Admaster;
+
+  use vars qw( $ad $cgi %config);
+ 
+}
+
+ 
+  	
+
+   $Admaster::ad = new Admaster("admaster","admaster","abc123");
+   $Admaster::cgi = new CGI("");
+
+   %Admaster::config = (
+	baseurl=>'http://www.yook.de/admin/admaster/'
+   );
+</%once>

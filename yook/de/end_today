@@ -1,0 +1,8 @@
+<p><center>
+<a href=highscore.html>Ewige Bestenliste</a>
+</center>
+<& ../page_part , stop=>1 , linkprefix=>$linkprefix  &>
+
+<%args>
+$linkprefix=>undef
+</%args>

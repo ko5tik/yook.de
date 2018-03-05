@@ -1,0 +1,83 @@
+%if($top){
+<html>
+<head>
+<META name="COPYRIGHT" content="Konstantin Priblouda 1999-2000 all rights reserved">
+<META name="AUTHOR" content="Konstantin Priblouda, konstantin@pribluda.de">
+%if( !($user_agent =~ /Mozilla/ ) && $m->comp_exists( $path . 'meta' )) {
+<META name="ROBOTS" content="all">
+<& $path . 'meta' &>
+%}
+<base target=<% $target %>>
+<title>
+<% $Gamesite::config{site_title} %> - <% $title %>
+</title>
+
+</head>
+<body bgcolor=white>
+
+<% $top_ad->[0] %>
+<& navig_box &>
+%if($show_email) {
+<& email_box &>
+%}
+
+<p>
+<center>
+
+</center>
+<p>
+<table border=0 cellpadding=0 cellspacing=0 width=650 align=center>
+<tr valign = top>
+<td width=480>
+
+
+
+%}
+%if($bottom) {
+<img src=<% $Gamesite::config{baseurl} %>images/tp.gif width=450 height=1>
+</td>
+<td>
+&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<& left_menu , path=>$path, linkprefix=>$linkprefix &>
+
+</td>
+</table>
+<p>
+<center>
+<% $ads->[0] %>
+</center>
+<p>
+<& bottom_box &>
+
+</body>
+</html>
+
+
+%}
+
+<%init>
+my $tt = $title;
+$tt =~ s/ /+/;
+
+my $ads = $Gamesite::ad->serve_ads('format'=>1,amount=>1);
+my $top_ad = $Gamesite::ad->serve_ads('format'=>4,amount=>1);
+
+my %hin  = $r->headers_in;
+my $user_agent = $hin{'User-Agent'};
+</%init>
+<%args>
+$top=>undef
+$bottom=>undef
+$title=>undef
+$linkprefix=>undef
+$path=>undef # where to lookup local menus
+$target=>'_top'
+$main=>undef # whether it's main page
+$show_email=>undef
+</%args>
+
+
+
+

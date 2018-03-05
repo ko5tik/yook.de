@@ -1,0 +1,137 @@
+<& layout , top=>1 , title=>'Weiterempfehlen' , linkprefix=>'../' &>
+%if($dosend && $sendok) {
+<& ../page_part , start=>1 , title=>'Ihre Nachricht wurde gesendet' , linkprefix=>'../' &>
+<p>Ihre Nachricht wurde an <b><% $email %></b> gesendet. Vieln Dank für Ihre Empfehlung. Wollen Sie diese Webseite noch jemanden Empfehlen? Benutzen Sie das Formular.
+<& ../page_part , stop=>1 , linkprefix=>'../'&>
+
+%} if($dosend &&  !$sendok) {
+<& ../page_part , start=>1 , title=>'Es hat einige Probleme gegeben' , linkprefix=>'../' &>
+<p>Es hat Problem mit der Emailadresse gegeben. Bitte überprüfen Sie es und versuchen Sie es erneut.
+<& ../page_part , stop=>1 , linkprefix=>'../'&>
+%}
+<& ../page_part , start=>1 , title=>'Empfehlen', linkprefix=>'../'  &>
+<form method=post action=recommend.html>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Email:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>30 ,-value=>$email) %><br>
+%if(!$emailok) {
+<b><font color=red>Opps, diese Email scheint nicht korrekt zu sein</font></b>
+%}
+</td>
+<tr valign=baseline>
+<td align=right><b>Ihr Name:</b></td>
+<td><% $Gamesite::cgi->textfield(-name=>'name',-size=>30 ,-value=>$name) %></td>
+<tr valign=baseline>
+<td align=right><b>Ihr Bekannte:</b></td>
+<td><% $Gamesite::cgi->textfield(-name=>'friend',-size=>30 , -value=>$friend) %></td>
+
+<tr valign=top>
+<td align=right><b>Ihre Nachricht:</b></td>
+<td><% $Gamesite::cgi->textarea(-name=>'personal',-rows=>5 ,-columns=>30,-value=>$personal) %></td>
+
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->hidden(-name=>'dosend',-value=>'1') %>
+<% $Gamesite::cgi->submit(-value=>'Recommend') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+<p>Emailadresse wird nicht weiterverwendet und nicht den dritten zu Verfügung gestellt.
+<& ../page_part , stop=>1 , linkprefix=>'../'&>
+
+
+<& layout, bottom=>1 , linkprefix=>'../'&>
+
+<%init>
+
+#first check email for correctness
+my $emailok = $m->comp('/utils/is-valid-email.fn',email=>$email);
+my $sendok = 0;
+
+if($dosend && $emailok) {
+#compose email etc
+my $lines = $m->comp('lines/top_scores');
+my $tetris = $m->comp('tetris/top_scores');
+my $moonraid= $m->comp('moonraid/top_scores');
+my $colors= $m->comp('colors/top_scores');
+
+my $now = localtime time;
+my $sender = $name ? $name : 'somebody  who knows you';
+my $msg = <<EOF;
+Hallo, 
+$sender hat entschieden das Sie die Java-Spiele auf folgender Seite
+interessant finden werden:
+$Gamesite::config{baseurl}
+
+$personal
+
+Es gibt folgende Spiele auf Dieser Seite:
+
+ Lines - Strategie/Puzzle.
+   Das Spiel ist bestens zur Stressabbau geeignet. Sehr Packend
+   ( Rekord liegt bei über 100 Stunden Spielzeit )
+   Bester Spieler ist  $lines->{global}->{name} ( $lines->{global}->{points} Punkte )
+   Lines wurde $lines->{count} mal Gespielt.
+   Benutzen Sie dieses URL um direkt zum Spiel zu Gelangen:
+   $Gamesite::config{baseurl}de/lines/
+
+ Colors - Farben am fallenden KlÃtzchen anpassen
+   Bester Spieler ist $colors->{global}->{name} ( $colors->{global}->{points} Punkte )
+   Colors wurde $colors->{count} mal gespielt
+   Benutzen Sie dieses URL um direkt zum Spiel zu Gelangen:
+   $Gamesite::config{baseurl}de/colors/
+
+ Moonraid - 3d UFO-Abschießen-Spiel
+   Bester Spieler ist $moonraid->{global}->{name} ( $moonraid->{global}->{points} Punkte )
+   Moonraid wurde $moonraid->{count} mal gespielt
+   Benutzen Sie dieses URL um direkt zum Spiel zu Gelangen:
+   $Gamesite::config{baseurl}de/moonraid/
+
+ Stakan - Klassische "KlÃ¶tzchen fallen herunter"-Spiel 
+   Bester Spieler ist  $tetris->{global}->{name} ( $tetris->{global}->{points} Punkte )
+   Stakan wurde $tetris->{count} mal Gespielt
+   Benutzen Sie dieses URL um direkt zum Spiel zu Gelangen:
+   $Gamesite::config{baseurl}de/tetris/
+
+Alle Spiele benötigen Java 1.1, und haben Highscorelisten.
+
+Dieses Nachricht ist keine Werbung. Ihre Emailadrese wird nicht 
+weiterverwendet, oder Dritten zu verfügung gestelt. Falls Sie glauben,
+das dieses System misbraucht wurde, benachrichtigen Sie bitte den
+Webmaster unter kpribloua\@yahoo.com.
+( Vergessen Sie bitte nicht die folgende Informationen zu Ihren
+  Missbrauchsbericht hinzufügen:
+  REMOTE_ADDR = $ENV{'REMOTE_ADDR'} , TIMESTAMP = $now )
+
+Bitte antworten Sie nicht auf diese Email.
+
+Viel Spass mit dem Spielen.
+Konstantin Pribluda ( Autor )
+
+
+EOF
+
+$m->comp('/utils/sendemail', to=>$email, from=>'noreturn@nowhere.net',subject=>'Invitation to play java games', body=>$msg);
+
+$sendok = 1;
+
+#log it ...
+open OF ,">>$Gamesite::config{'datapath'}/email.log";
+print OF $email, '[]', $ENV{'REMOTE_ADDR'} , '[]' , time, "\n";
+close OF;
+}
+</%init>
+
+
+<%args>
+$email=>undef
+$personal=>undef
+$dosend=>undef
+$name=>$Gamesite::userdata->{nickname}
+$friend=>undef
+
+</%args>

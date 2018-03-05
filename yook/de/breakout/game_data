@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'Breakout',
+path=>'breakout/',
+scores=>$Gamesite::scoredata{breakout},
+fieldnames=>[ 'Platz' , 'Name' , 'Punkte' , 'Level'  , 'Seit'], 
+fields=>['name','points','level','time','url'],   
+archive=>''   
+};
+
+
+</%init>

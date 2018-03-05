@@ -1,0 +1,45 @@
+<& ../layout , top=>1 , title=>'Preview' , path=>'jokes/'&>
+
+<& ../.utils/headline, title=>'Submission preview'  &>
+<form action=save_entry.html method=post>
+Please verify your submission. If you see any errors, press "Back" button 
+of your browser and correct it.
+<dl>
+<dt><b>Entry:</b>
+<dd><% $content %>
+<dt><b>Source:</b>
+<dd><% $source %>
+<dt><b>Your name:</b>
+<dd><% $name %>
+<dt><b>Email:</b>
+<dd><% $email %><br>
+%if($email ne '' && ! $m->comp('/utils/is-valid-email.fn', email=>$email)) {
+<i><font color=red><b>Your email seems to be not correct. It will not be saved.</b></font></i>
+%}
+<dt><b>URL:</b>
+<dd><a href=<% $url %> target=_blank><% $url %></a><br>
+%if($url ne '' ) {
+<i>Please verify your URL by clicking on it</i>
+%}
+<dt><b>Everything Correct?</b>
+<& /utils/preserve_args, cgi=>$Gamesite::cgi , data=>\%ARGS &>
+<dd><% $Gamesite::cgi->submit(-value=>'Save submission') %>
+
+
+
+</form>
+
+
+<& ../layout ,  bottom=>1 , path=>'jokes/'&>
+
+
+<%init>
+</%init>
+<%args>
+$kind=>undef
+$content=>undef
+$source=>undef
+$name=>undef
+$email=>undef
+$url=>undef
+</%args>

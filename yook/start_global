@@ -1,0 +1,9 @@
+<& page_part , start=>1 , title=>'All times highscore list' , linkprefix=>$linkprefix &>
+This list holds 200 of the best results ever made. If you cannot enter here, then your name will be placed in today <a href=todayscore.html>highscore list</a>.
+<p>
+Got android phone? Lines<a href="http://www.yook.de/getlines"> game is available for it</a>
+
+
+<%args>
+$linkprefix=>undef
+</%args>

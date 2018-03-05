@@ -1,0 +1,55 @@
+<& layout , top=>1 , title=>'technical support'  &>
+%if($m->comp('/utils/is-valid-email.fn', email=>$email)) {
+<& page_part , start=>1 , title=>'Your problem report was accepted'  &>
+Your problem report was accepted. Webmaster will take look at it
+and notify you about results.
+<p>Copy of your message was sent to your email adress.
+Webmaster may need to contact you via email to ask for additional information.
+<p>You message will help to make this site better. Thank you. 
+
+%} else {
+<& page_part , start=>1 , title=>'No email specified.'  &>
+Your problem report was accepted. You will not receive any comment
+or help about your problem, because you did not specified valid email 
+adress. If you require assistance, you <b>really</b> have to 
+leave a way to contact you.
+<p>You message will help to make this site better. Thank you. 
+
+%}
+<& page_part , stop=>1 &>
+
+<& layout, bottom=>1 &>
+
+
+
+<%init>
+my $now = localtime time;
+my $message=<<EOF;
+Support call logged at: $now
+Name: $name
+Email: $email
+URL: $url
+Page: $from
+Cause: $cause
+sender: $ENV{'REMOTE_ADDR'}
+Problem:
+$problem
+
+EOF
+
+$m->comp('/utils/sendemail',to=>'kpriblouda@yahoo.com', from=>'noreturn@nowhere.net', subject=>'Java sandbox support request', body=>$message);
+
+if($m->comp('/utils/is-valid-email.fn', email=>$email)) {
+   $m->comp('/utils/sendemail',to=>$email, from=>'noreturn@nowhere.net', subject=>'Java sandox - feedback received', body=>$message);
+}
+</%init>
+
+<%args>
+$name=>undef
+$email=>undef
+$url=>undef
+$cause=>undef
+$problem=>undef
+$from=>undef
+</%args>
+

@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Customer list</title>
+</head>
+<body bgcolor=white>
+<H2>Customer list</h2>
+%foreach (@$customers) {
+<hr>
+<b><% $_->[1] %></b><br><small>
+[ <a href=mailto:<% $_->[2] %>>Send email</a> ] [<a href=edit_customer.html?id=<%$_->[0]%>>Edit</a>] [<a href=remove_customer.html?id=<% $_->[0]%>>Remove customer</a> ] [<a href=create_slot.html?custid=<% $_->[0]%>>Create ad slot</a> ][<a href=view_slots.html?custid=<% $_->[0]%>>View ad slots</a> ]
+</small>
+%}
+</body>
+</html>
+
+<%init>
+my $customers = $Admaster::ad->get_customers;
+</%init>

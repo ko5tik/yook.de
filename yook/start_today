@@ -1,0 +1,8 @@
+<& page_part , start=>1 , title=>'Daily higscore list' , linkprefix=>$linkprefix &>
+This list holds all results from today games. It will be reseted at midnight GMT.
+<p>
+Got android phone? Lines<a href="http://www.yook.de/getlines"> game is available for it</a>
+
+<%args>
+$linkprefix=>undef
+</%args>

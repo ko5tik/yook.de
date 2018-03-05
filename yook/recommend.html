@@ -1,0 +1,176 @@
+<& layout , top=>1 , title=>'recommend it'  &>
+%if($dosend && $sendok) {
+<& page_part , start=>1 , title=>'Your message was sent'  &>
+<p>Your message was send to <b><% $email %></b>. Thank you for help in promotion of this site. You can invite another friend if you like.
+<& page_part , stop=>1 &>
+
+%} if($dosend &&  !$sendok) {
+<& page_part , start=>1 , title=>'Problems with your message'  &>
+<p>There was an problem in sending your message. Please verify email address
+and try again.
+<& page_part , stop=>1 &>
+%}
+<& page_part , start=>1 , title=>'Recommend it'  &>
+<form method=post action=recommend.html>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Email:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>30 ,-value=>$email) %><br>
+%if(!$emailok) {
+<b><font color=red>Oops, this email seems to have errors in it. Please check it again</font></b>
+%}
+</td>
+<tr valign=baseline>
+<td align=right><b>Your name:</b></td>
+<td><% $Gamesite::cgi->textfield(-name=>'name',-size=>30 ,-value=>$name) %></td>
+<tr valign=baseline>
+<td align=right><b>Your friend:</b></td>
+<td><% $Gamesite::cgi->textfield(-name=>'friend',-size=>30 , -value=>$friend) %></td>
+
+<tr valign=top>
+<td align=right><b>Your message:</b></td>
+<td><% $Gamesite::cgi->textarea(-name=>'personal',-rows=>5 ,-columns=>30,-value=>$personal) %></td>
+
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->hidden(-name=>'dosend',-value=>'1') %>
+<% $Gamesite::cgi->submit(-value=>'Recommend') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</td>
+</table>
+</form>
+<p>Email address of your friend will not be shared with or given to 
+third parties. This site strictly opposes SPAM (unsolicited commercial email).
+This email will be send only once.
+<& page_part , stop=>1 &>
+
+
+<& layout, bottom=>1 &>
+
+<%init>
+
+#first check email for correctness
+my $emailok = $m->comp('/utils/is-valid-email.fn',email=>$email);
+my $sendok = 0;
+
+if($dosend && $emailok) {
+#compose email etc
+my $lines = $m->comp('lines/top_scores');
+my $tetris = $m->comp('tetris/top_scores');
+my $moonraid= $m->comp('moonraid/top_scores');
+my $colors= $m->comp('colors/top_scores');
+
+my $now = localtime time;
+my $sender = $name ? $name : 'somebody  who knows you';
+my $msg = <<EOF;
+You have recieved this email because $sender decided that you
+will like this site:
+$Gamesite::config{baseurl}
+
+$personal
+
+Yook.de features free java games, daily joke releases,
+free email addresses and free webmaster tools.
+
+Games at Yook.de:
+
+ Lines - strategy/puzle game. Really addictive 
+   (record is more than 100 hours of playing!)
+   Recommendet for people who like meditative activities.
+   Best Lines player is $lines->{global}->{name} ( $lines->{global}->{points} points )
+   Lines was played $lines->{count} times
+   Go to this URL to play:
+   $Gamesite::config{baseurl}lines/
+
+ Colors - Faling blocks game
+   Best colors player is $colors->{global}->{name} ( $colors->{global}->{points} points )
+   Colors was played $colors->{count} times
+   Go to this URL to play:
+   $Gamesite::config{baseurl}colors/
+
+ Moonraid - 3d space shooter game
+   Best pilot is is $moonraid->{global}->{name} ( $moonraid->{global}->{points} points )
+   Moonraid was played $moonraid->{count} times
+   Go to this URL to play:
+   $Gamesite::config{baseurl}moonraid/
+
+ Stakan - classical falling tiles game like You Know What 
+   Best player is $tetris->{global}->{name} ( $tetris->{global}->{points} points )
+   Stakan was played $tetris->{count} times
+   Go to this URL to play:
+   $Gamesite::config{baseurl}tetris/
+
+All these games require at least java 1.1 ( newer browsers have it ) and
+have highscore lists featuring all times and daily best players.
+
+
+Free webmaster tools:
+
+ - Meta tag generator
+  Analyses text, title and description of your website
+and helps you to generate more effective meta tags based
+on contens of your page. Optimize your meta tag now!
+$Gamesite::config{baseurl}webmaster/meta_gen/
+
+ - HTML code cleaner
+  Most pages made with visual editors (and by hand)  suffer from this 
+problem. They are too big. Typical page can be shrinked from 5 to 50%
+by removing unneeded comments, whitespaces and obsolete tags & 
+attributes. Smaller pages load faster!
+$Gamesite::config{baseurl}webmaster/clean/
+
+ - Reciprocal link at Yook.de
+  If you have website, you are welcome to exchange reciprocal 
+link with Yook.de. People at Yook.de have different interests,
+so your link will be in a good place
+$Gamesite::config{baseurl}webmaster.html
+
+
+Free email address:
+ Get your free web based email service from Yook.de.
+You will get an email adress in form:
+<whatever you like as long it's free>\@yook.de
+
+This adress is free, easy to remember and your mailbox is 6MB big
+
+
+
+------------------------------------------------------------------------
+Bottom line:
+-------------------------------------------------------------------------
+This is not a SPAM, and your eMail address will not be used for anything
+except sending this message. If you believe that somebody abused this feature
+of my site, please notify me under kpribloua\@yahoo.com about such incindents.
+( do not forget to place following information in your abuse report:
+  REMOTE_ADDR = $ENV{'REMOTE_ADDR'} , TIMESTAMP = $now )
+
+Please do not reply to this email.
+
+Have a good day and enjoy my games.
+Konstantin Pribluda ( author )
+
+
+EOF
+
+$m->comp('/utils/sendemail', to=>$email, from=>'noreturn@nowhere.net',subject=>'Invitation to play java games', body=>$msg);
+
+$sendok = 1;
+
+#log it ...
+open OF ,">>$Gamesite::config{'datapath'}/email.log";
+print OF $email, '[]', $ENV{'REMOTE_ADDR'} , '[]' , time, "\n";
+close OF;
+}
+</%init>
+
+
+<%args>
+$email=>undef
+$personal=>undef
+$dosend=>undef
+$name=>$Gamesite::userdata->{nickname}
+$friend=>undef
+
+</%args>

@@ -1,0 +1,41 @@
+<& ../layout , top=>1 , title=>'Comment to teller' , path=>'jokes/'&>
+%if($id && $m->comp('/utils/is-valid-email.fn',email=>$j->teller_email)) {
+<& ../.utils/headline , title=>'Send comment to author' &>
+<dl>
+
+<form action=save_comment.html method=post>
+<% $Gamesite::cgi->hidden(-name=>'id' , -value=>$id) %>
+<dt><b>Your name:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'name' , -size=>40) %>
+<dt><b>Your email:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'email' , -size=>40) %><br>
+<i>Comments are not accepted without valid email</i>
+<dt><b>Your comment:</b>
+<dd>
+<% $Gamesite::cgi->textarea(-name=>'comment' , -rows=>8 , -cols=>40) %>
+
+<dt>
+<dd><%  $Gamesite::cgi->submit(-value=>'Send it!') %> <% $Gamesite::cgi->reset %>
+
+</form>
+%} else {
+<& ../.utils/headline , title=>'No commets accepted' &>
+<p>Comment cannot be send due to one of the following:
+<ul>
+<li>Author does not accept comments
+<li>There was no valid joke ID
+</ul>
+%}
+
+
+<& ../layout ,  bottom=>1 , path=>'jokes/'&>
+
+<%init>
+my $j = $Gamesite::jokes;
+
+$j->restore($id);
+
+</%init>
+<%args>
+$id=>0
+</%args>

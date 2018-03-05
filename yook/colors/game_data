@@ -1,0 +1,13 @@
+<%init>
+return 
+{
+title=>'Colors',
+path=>'colors/',
+scores=>$Gamesite::scoredata{colors},
+fieldnames=>[ 'Pos' , 'Name' , 'Points' , 'Level'  , 'Since'], 
+fields=>['name','points','level','time','url'],
+archive=>'colorslite.tar.gz'   
+};
+
+
+</%init>

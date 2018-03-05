@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<title>
+Java sandbox - friend applications
+</title>
+</head>
+<body bgcolor=white >
+<h2>Friend applications</h2>
+<form action=process_friends.html method=post>
+<table cellspacing=0 border=0 >
+%foreach(@log) {  @ll = split(/\[\]/);$count++; 
+<tr bgcolor=<% $bg[ $count % 2]%> valign=baseline>
+<td><% $count %>.</td>
+<td>
+<a href=<% $ll[3] %>><% $ll[0] %></a><br>
+</td>
+<td>
+<a href=mailto:<% $ll[2] %>><% $ll[1] %></A>
+</td>
+<td>
+%if($ll[6] ==1) {
+German
+%} else {
+English
+%}
+</td>
+<td>
+<% $Gamesite::cgi->popup_menu(-name=>"sid.$count",'-values'=>[ qw( accept decline delay)], -labels=>{'accept'=>'Accept', decline=>'Decline' ,'delay'=>'Delay' }, -default=>'delay') %>
+</td>
+%}
+</table>
+<% $Gamesite::cgi->submit(-value=>'Submit') %>
+<% $Gamesite::cgi->reset(-value=>'Reset') %>
+</form>
+
+</body>
+</html>
+
+<%init>
+open LF , "$Gamesite::config{'datapath'}/link.request";
+my @log = <LF>;
+my @ll;
+my $count = 0;
+my @bg = ( 'white' , '#eeeeee' );
+</%init>

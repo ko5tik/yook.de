@@ -1,0 +1,25 @@
+<& ../layout , top=>1 , title=>$gamedata->{title} , linkprefix=>'../' , path=>$gamedata->{path} , target=>'_blank'&>
+
+<& '../' . $gamedata->{path} . 'game_box', player=>$Gamesite::userdata->{nickname} , topscore=>$scoredata->{global}->{points}  &>
+
+<& ../../page_part , title=>'Wichtige Informationen' , start=>1 , linkprefix=>'../'&>
+<ul>
+<li><a href=instruction.html>Spielanleitung</a> [Neues Fenster]<br>
+Bitte lesen Sie Spielanleitung während das Spiel geladen wird.
+%if($gamedata->{archive}) {
+<li><a href=usage.html>Nuzungsbedingungen und Download</a> [Neues Fenster]
+%}
+</ul>
+ 
+
+<& ../disclaimer , linkprefix=>'../'&>
+
+
+<& ../layout, bottom=>1 , linkprefix=>'../' ,path=>$gamedata->{path}&>
+
+<%args>
+$gamedata
+$scoredata
+$linkprefix=>'../'
+$is_downloadable=>1
+</%args>

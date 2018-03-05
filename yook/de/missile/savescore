@@ -1,0 +1,57 @@
+<pre>
+<% $name %>
+<% $score %>
+<% $level %>
+<% $amountFired %>
+<% $amountKilledNormal %>
+<% $amountKilledMulti %>
+<% $amountBonus %>
+<% $checksum %>
+<% $Gamesite::scoredata{missile}->decrypt_score($scoredata) %>
+</pre>
+<%init>
+
+
+my $now = time;
+(my $name , my $score , my $level , my $amountFired, my $amountKilledNormal, my $amountKilledMulti, my $amountBonus, my $checksum ) = split(/\[\]/,$Gamesite::scoredata{missile}->decrypt_score($scoredata));
+
+$name = substr $name , 0, 30;# trim it ...
+#check for sanity
+if($level < 1  || $score <0 || ($score + $level + $amountKilledNormal + $amountKilledMulti +  $amountBonus +  $amountFired) != $checksum ) {
+# somebody had cheatet ... reject this highscore.
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}rejected.html");
+return;
+} 
+
+
+
+#ok, highscore is sane -> save it
+my $globalpos;
+my $dailypos = -1;
+
+my $positions = $Gamesite::scoredata{missile}->put_score(name=>$name,points=>$score,level=>$level,'time'=>$now,url=>$Gamesite::userdata->{url});
+$Gamesite::scoredata{missile}->cleanup_highscore;
+
+
+#check whether the user beat own personal highscore
+if($Gamesite::userdata->{missile_highest} < $score) {
+# he did it ...
+ Apache2::Cookie->new($r,
+                     -name=>'missile_highest',
+	 	     -expires=>'+1y',
+		     -value=>join('[]',$score,$now),
+		     -path=>'/')->bake($r);
+
+}
+#time to redirect where appropriate
+
+
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}missile/achieved.html?global=$positions->{global}&daily=$positions->{daily}");
+
+
+
+</%init>
+
+<%args>
+$scoredata=>undef
+</%args>

@@ -1,0 +1,28 @@
+<& preferences_box , linkprefix=>$linkprefix , target=>$target &>
+<br>
+<center>
+<script type="text/javascript" src="http://www.yook.de/dispatch/slot.action?id=4"/>
+</center>
+<br>
+<& amazon &>
+<%doc>
+<& ../gamez_box , linkprefix=>$linkprefix &>
+</%doc>
+<& recommend_box , linkprefix=>$linkprefix&>
+<& $path . 'local_menu' , linkprefix=>$linkprefix &>
+<& dispatch_link , linkprefix=>$linkprefix &>
+<%doc>
+<& community_box &>
+</%doc>
+
+<& support_box , linkprefix=>$linkprefix , target=>$target&>
+<%doc>
+<& webmaster_box, linkprefix=>$linkprefix , target=>$target&>
+</%doc>
+<& partner_box , linkprefix=>$linkprefix, target=>$target&>
+
+<%args>
+$linkprefix=>undef
+$target=>undef
+$path=>undef
+</%args>

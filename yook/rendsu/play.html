@@ -1,0 +1,17 @@
+<& ../layout , top=>1, title=>"rendsu test" , linkprefix=>"../", path=>"rendsu/"&>
+
+
+<& ../page_part , title=>'Rendsu game test' , start=>1 &>
+<center>
+<applet code="Rendsu.class" codebase="http://rendsu.net4u.de" archive="rendsu.jar" width="400" height="450">
+</applet>
+</center>
+<p>Please do not forget to login when game starts. Use login name and password
+you entered by registration.
+<p>In the left list you see players waiting for opponent. Select one of them and press "join game" button. If there is nobody waiting right now, it does not mean that nobody is online. Offer your own game and they will join (press "offer game" button.
+<p>You can also snoop into running game. Select one from right list, and press "view" button.
+<& ../page_part ,  stop=>1 &>
+
+<& ../layout, bottom=>1 , linkprefix=>"../", path=>"rendsu/"&>
+
+

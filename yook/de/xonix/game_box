@@ -1,0 +1,18 @@
+<center>
+<applet codebase=. code="xonix.class"  align="center"
+alt="If your browser vould support java 1.1 you would be able to play a cool game" width="450" height="280" archive="xonix_de.jar">
+If your browser would support java 1.1 , you will see cool applet here.
+
+<param name=highscore value="<% $topscore %>">
+<param name=player value="<% $player %>">
+
+</applet>
+</center>
+<BR>
+
+
+
+<%args>
+$player=>undef
+$topscore=>undef
+</%args>

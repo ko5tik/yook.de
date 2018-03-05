@@ -1,0 +1,120 @@
+<& layout , top=>1 , title=>'Freunde'  &>
+
+<& ../page_part , start=>1 , title=>'Freunde' &>
+Hier sind die Freundesseiten aufgelistet. Wollen Sie das Ihre Seite in diesen Liste Steht ? Melden Sie es <a href=webmaster.html>hier</a> an.
+<p>
+<& ../.utils/surround_start, width=>'100%' &>
+<table border=0 cellpadding=3 cellspacing=1 width="100%" bgcolor=<% $Gamesite::config{menubg} %>>
+<tr>
+<td colspan=4 bgcolor=white>
+<& .fromto , fr=>$from , t=>$to ,  max=>$amount, pagename=>'friends.html'&>
+</td>
+<tr>
+<td><b>Pos.</b> </td><td> <b><a href=friends.html?sort=name>Freund</a></b> </td><td> <b><a href=friends.html?sort=in>Ein</a></b> </td><td> <b><a href=friends.html?sort=out>Aus</a></b> </td>
+
+<% $tablebody %>
+
+</table>
+<& ../.utils/surround_end &>
+
+<p>Reihenfolge:
+<ul>
+<li><b>"Ein"</b> - Nach Anzahl der Eingägne.
+<li><b>"Aus"</b> - Nach Anzahl der Ausgänge.
+<li><b>"Freund"</b> - Nach Freundesnamen.
+</ul>
+<& ../page_part , stop=>1 , linkpefix=>'../'&>
+
+<& layout, bottom=>1 , linkprefix=>'../'&>
+
+
+<%init>
+
+
+my $amount = $Gamesite::linkomatic->get_amount(1);
+my $to;
+if($from < 1)  {
+$from = 1;
+}
+$to = $from+20;
+$to = $amount if $to > $amount;
+
+my $ary;
+
+
+
+if($sort eq 'in') {
+$ary =  $Gamesite::linkomatic->get_links( order=>"click_in desc", site=>1);
+} elsif($sort eq 'out') {
+$ary =  $Gamesite::linkomatic->get_links( order=>"click_out desc", site=>1);
+} elsif($sort eq 'name') {
+$ary =  $Gamesite::linkomatic->get_links( order=>"title",site=>1);
+}
+
+
+my @bgcolor = ( 'white' , '#eeeeee' );
+my $tablebody;
+for($from..$to) {
+$tablebody .= "<tr bgcolor=$bgcolor[$_ % 2]><td align=right>$_.</td><td> <a href=jump_out?id=$ary->[$_- 1]->[0]>$ary->[$_-1]->[1]</a> </td><td>$ary->[$_-1]->[6] </td><td>$ary->[$_-1]->[7]</td>";
+}
+
+</%init>
+
+
+
+
+
+
+<%def .fromto>
+<table width=100%>
+<tr>
+<td align=left>
+%if ($left < $fr) {
+<small><b>
+<a href=<% $pagename %>?from=<% $left %>&to=<% $fr -1 %>>&lt;&lt;&lt;</a> <% $left %>-<% $fr -1 %> 
+</b></small>
+%} else {
+&nbsp;
+%}
+</td>
+<td align=right>
+%if ($right > $t) {
+<small><b>
+<% $t+1 %>-<% $right %> <a href=<% $pagename %>?from=<% $t+1 %>&to=<% $right %>>&gt;&gt;&gt;</a>
+</b></small>
+%} else {
+&nbsp;
+%}
+
+</td>
+</table>
+<%init>
+
+my $left = $fr - 20 ;
+$left = 1 if $left < 1;
+
+my $right = $t + 20;
+$right = $max if $right > $max;
+
+</%init>
+<%args>
+$fr
+$t
+$max
+$pagename
+</%args>
+</%def>
+
+
+
+
+
+
+
+
+
+
+<%args>
+$from=>1
+$sort=>'in'
+</%args>

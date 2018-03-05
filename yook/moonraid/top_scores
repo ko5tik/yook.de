@@ -1,0 +1,16 @@
+
+<%init>
+$Moonraid::scoredata = $Gamesite::scoredata{moonraid}->get_top_scores;
+$Moonraid::scoredata->{person} = $Gamesite::userdata->{moonraid_highest};
+return $Moonraid::scoredata;
+</%init>
+
+<%once>
+{
+package Moonraid;
+use vars qw( $scoredata );
+
+$Moonraid::scoredata = { age=>0 };
+
+}
+</%once>

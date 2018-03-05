@@ -1,0 +1,4 @@
+<%init>
+$m->comp('init/init');
+$m->call_next;
+</%init>

@@ -1,0 +1,31 @@
+<& layout , top=>1 , title=>'wellcome'  &>
+
+<& page_part , start=>1 , title=>'What\'s happened?'  &>
+<p>You have followed a link to one of the pages formerly located under
+URL <b>http://www.elcom.spb.ru/~kostik/</b>. This URL is no longer active, 
+but some webmasters are still linking to it.
+<p>All games from the old server are now here. Highscore lists were preserved
+Just choose them from the top Menu.
+<p>Please go to the <a href=<% $Gamesite::config{baseurl} %>>main page</a>
+and update your bookmarks.
+<& page_part , stop=>1 &>
+
+
+<& page_part, start=>1, title=>'Was ist passiert?' &>
+<p>Sie haben einen Link gefolgt, der nicht mehr aktuell ist.
+Das alte URL ist nicht mehr aktiv, und Sie wurden hierher 
+umgeleitet. 
+<p>Alle Spiele die unter <b>http.//www.elcom.spb.ru/~kostik/</b> zu finden 
+waren, befinden sich jetzt hier. 
+<p>Folgen Sie bitte zu <a href=<% $Gamesite::config{baseurl} %>de/>Hauptseite</a>, oder wählen Sie Ihr Spiel von den oberen Menü.
+<& page_part , stop=>1 &>
+
+<& layout, bottom=>1 &>
+
+
+<%init>
+</%init>
+
+<%args>
+$refurl=>undef
+</%args>

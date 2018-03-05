@@ -1,0 +1,77 @@
+<& layout , top=>1 , title=>'personal setup' , linkprefix=>'../'&>
+%if(defined $nickname && defined $url) {
+<&../page_part , title=>'Einstellungen gespeichert' , start=>1 , linkprefix=>'../'&>
+<p>Ihre Einstellungen sind gespeichert. 
+
+
+<& ../page_part , stop=>1 &>
+%}
+
+<& ../page_part , title=>'Persönliche Einstellungen' , start=>1  , linkprefix=>'../' &>
+
+<dl>
+<dt><b>Wozu?</b>
+<dd>Sie Konnen Ihren bevorzugten Spielernamen in einen Cookie auf Ihren Komputer abspeichern. Sie Brauchen es Später nicht mehr eingeben.  Falls Sie eine Webseite haben, wird ein Link zu Ihrer Webseite in Highscorelisten presentiert.
+<dt><b>Datenschutz?</b>
+<dd>Die Daten, die Sie eingeben werden Auf Ihrer Festplatte gespeichert. 
+Diese Daten dienen nur dazu, Ihnen überflüssige Eingaben zu sparen.
+Sie können auch sebstverständlich als Anonymes Spieler Spielen. 
+</dl>
+<p>Um Einstellungen speichern zu können, müssen bei Ihnen die Cookies erlaubt sein. 
+
+<& ../page_part , stop=>1 &>
+
+
+<& ../form_start , title=>'Ihre Einstellungen', action=>'setup.html' ,linkprefix=>'../' &>
+<tr valign=baseline>
+<td align=right>
+<small>
+<b>Spielername:</b>
+</small>
+</td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'nickname',-value=>$Gamesite::userdata->{nickname}, -size=>30 , -maxlength=>20) %>
+</td>
+<tr valign=baseline>
+<td align=right>
+<small>
+<b>Homepage:</b>
+</small>
+</td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'url',-value=>$Gamesite::userdata->{url}, -size=>30 , -maxlength=>100) %><br>
+<small>Bitte benutzen Sie das volle Form von URL oder Emailadresse ( URL beginnt mit <b>http://</b>, und Emailadresse mit <b>mailto:</b>)<small>
+</td>
+<tr>
+<td>
+</td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Einstellen') %>
+<% $Gamesite::cgi->reset(-value=>'Zurücksetzen') %>
+</td>
+<& ../form_stop  &>
+
+<& layout , bottom=>1 , linkprefix=>'../' &>
+
+
+<%init>
+
+
+if(defined $nickname  && defined $url) {
+$Gamesite::userdata->{nickname} = substr $nickname, 0,20;
+$Gamesite::userdata->{url} = $url;
+
+Apache::Cookie->set(-value=>join('[]', 'nickname' , $nickname ,'url',  $url),
+		    -expires=>'+1y',
+		    -name=>'general_setup',
+		    -path=>'/');
+
+}
+$url = $Gamesite::userdata->{url} if $Gamesite::userdata->{url};
+$nickname = $Gamesite::userdata->{nickname} if $Gamesite::userdata->{nickname};
+</%init>
+
+<%args>
+$nickname=>undef
+$url=>undef
+</%args>

@@ -1,0 +1,6 @@
+<& ../.utils/sidebox_start , title=>'Partnerseiten' &>
+<small>
+<a href=http://www.yook.de/de/jump_out?id=68>GamezPlanet.de</a><br>
+<a href=http://www.yook.de/de/jump_out?id=91>Die Deutschen Untergrund Spiele</a><br>
+</small>
+<& ../.utils/sidebox_end &>

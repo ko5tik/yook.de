@@ -1,0 +1,29 @@
+<& ../page_start , title=>'News admin - edit entry' &>
+
+<& entry_form, target=>'edit_news.html', id=>$id, headline=>$headline, teaser=>$teaser, contens=>$contens &>
+
+<& ../page_end &><%init>
+$m->comp('init');
+
+my $n = $NewsEdit::news;
+
+$n->restore($id);
+
+$n->headline($headline) if $headline;
+$n->teaser($teaser) if $teaser;
+$n->contens($contens) if $contens;
+
+$n->save if $headline || $teaser || $contens;
+
+$headline = $n->headline;
+$teaser = $n->teaser;
+$contens = $n->contens;
+
+
+</%init>
+<%args>
+$id
+$headline=>undef
+$teaser=>undef
+$contens=>undef
+</%args>

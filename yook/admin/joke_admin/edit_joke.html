@@ -1,0 +1,33 @@
+<& ../page_start , title=>'Editing joke' &>
+
+<& tell_form , kind=>$j->kind , id=>$j->id , status=>$j->status , content=>$j->joke , name=>$j->teller , email=>$j->teller_email , url=>$j->teller_url &>
+
+<& ../page_end &>
+
+<%init>
+my $j = $Gamesite::jokes;
+$j->restore($id);
+
+if($content) {
+# save joke info
+$j->joke($content);
+$j->status($status);
+$j->kind($kind);
+$j->teller($name);
+$j->teller_email($email) if $m->comp('/utils/is-valid-email.fn',email=>$email);
+$j->teller_url($url);
+$j->save;
+
+}
+</%init>
+
+<%args>
+$id
+$content=>undef
+$status=>undef
+$kind=>undef
+$name=>undef
+$email=>undef
+$url=>undef
+
+</%args>

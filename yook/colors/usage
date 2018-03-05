@@ -1,0 +1,22 @@
+<& ../../page_part , title=>'Nutzungsbedingungen' , start=>1 , linkprefix=>'../../'&>
+
+
+<P>It's allowed to use light version of this applet on your web page 
+under following conditions
+<UL>
+<LI>Your page is not originated from .gov and .mil domains.
+<LI>Your page is not commercial ( note, that paid advertising 
+or attempt to generate money from page makes it commercial. Contact <a href=mailto:kpriblouda@yahoo.com>author</a> for conditions if you like to use this game on commercial page )
+<LI>Your page is not adult oriented and does not promote any illegal activity
+( i.e. serial numbers , warez etc. )
+<LI>You place copyright notice on this page stating that this game is: "Copyright by Konstantin Pribluda 1999 , all rights reserved".
+<LI>You place link to the main game page ( this page ->  http://www.yook.de/ ) in a good visible location near the applet.
+<LI>You have notified the <A href=mailto:kpriblouda@yahoo.com>author</A> 
+about your page - it's needed in case a new version of software is produced, so
+you can be notifyed about changes.
+</UL>
+<P>If you agrree with these conditions you may download the <A href=colorslite.tar.gz>archive</a>. <B>For WindBlows users</B> - this is not zip archive, so pkzip would not work. You may need <A href=http://www.winzip.com>WinZip</A> to unpack this.
+<P>If you like to use full ( or even cutomised for appearance ) version of
+ this game you shall contact the <a href=mailto:kpriblouda@yahoo.com>author</a>.
+
+<& ../../page_part, stop=>1 &>

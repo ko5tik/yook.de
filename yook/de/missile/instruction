@@ -1,0 +1,17 @@
+
+
+<p>
+Schützen Sie Ihre Stützpunke gegen ein Raketenangriff.
+<p>Um eine Ankommende Rekete zu abfangen, klicken Sie mit der Maus auf die Position, wo die Abfangrakete explodieren soll. Falls der Raketenkopf innerhalb des Explosionbereichs kommt, wird diese Rakete zersört.
+<p>Normalraketen geben Ihnen 10 Punkte, lila ( Mehrfachsprengköpfe ) - 20.
+Jede Abfangakete kostet Ihnen ein Punkt. Falls Sie alle ankommende Raketen abfangen können, gibt's am ende der Level ein Bonus.
+
+<p>Benutzen Sie die <b>"P"</b>-Taste um das Spiel anzuhalten.
+
+<p>Vergessen Sie nicht Ihr Spielergebniss abzuspeichern.
+
+
+<P>Sie Brauchen während des Spiels nicht Online zu Sein. Sobald das Spiel villständig geladen ist, ist die Intenetverbindung nicht notwendig.
+(Sie müssen jedoch online sein, um Ihr Spielewrgebniss abzuspeichern)
+
+<& ../../page_part, stop=>1 &>

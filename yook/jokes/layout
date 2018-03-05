@@ -1,0 +1,59 @@
+%if($top){
+<html>
+<head>
+<META name="COPYRIGHT" content="Konstantin Priblouda 1999-2000 all rights reserved">
+<META name="AUTHOR" content="Konstantin Priblouda, konstantin@pribluda.de">
+<META name="ROBOTS" content="all">
+<META name="KEYWORDS" content="jokes,tales,anekdote,anekdotes,joke,tale,fun,funny,free,anecdote,anecdotes">
+<META name="DESCRIPTION" content="Collection of funny jokes and true (or fictional) tales. New issue every day. Know a joke or tale? Tell it here.">
+<base target=<% $target %>>
+<title>
+<% $Gamesite::config{site_title} %> - <% $title %>
+</title>
+</head>
+<body bgcolor=white>
+
+<& ../navig_box &>
+<p>
+<center>
+<% $ads->[0] %>
+</center>
+%}
+
+%if($bottom) {
+
+<p>
+<center>
+<table border=0 cellspacing=10>
+<tr><td>
+<% $ads->[1] %>
+</td>
+<td>
+<& ../hitbox_code &>
+</td>
+</table>
+</center>
+<p>
+<& ../bottom_box &>
+
+</body>
+</html>
+
+
+%}
+<%init>
+my $tt = $title;
+$tt =~ s/ /+/;
+
+my $ads = $Gamesite::ad->serve_ads('format'=>1,amount=>2);
+
+</%init>
+
+
+<%args>
+$top=>undef
+$bottom=>undef
+$title=>undef
+$linkprefix=>undef
+$target=>'_top'
+</%args>

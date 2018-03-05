@@ -1,0 +1,68 @@
+
+<%init>
+
+
+my $now = time;
+(my $name , my $score , my $level , my $seconds) = split(/\[\]/,$Gamesite::scoredata{samegame}->decrypt_score($scoredata));
+
+$name = substr $name , 0, 30;# trim it ...
+#check for sanity
+#
+if(  $seconds <= 0 || $name eq '' || $level <= 0) {
+# somebody had cheatet ... reject this highscore.
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}rejected.html");
+return;
+#die <<EOF;
+# $scoredata
+# $name
+# $score 
+# $level 
+# $seconds 
+#
+#EOF
+} 
+
+my $hours;
+my $secs;
+my $mins;
+{
+ use integer;
+ $hours = $seconds / 3600;
+ $mins = ($seconds % 3600) / 60;
+ $secs = $seconds % 60;
+}
+my $ss = $seconds;
+$seconds = sprintf "%d:%02d:%02d",$hours,$mins,$secs;
+
+
+#ok, highscore is sane -> save it
+my $globalpos;
+my $dailypos = -1;
+
+
+my $positions = $Gamesite::scoredata{samegame}->put_score(name=>$name,points=>$score,level=>$level,seconds=>$seconds,url=>$Gamesite::userdata->{url},'time'=>$now);
+
+ $Gamesite::scoredata{samegame}->cleanup_highscore;
+
+#check whether the user beat own personal highscore
+if($Gamesite::userdata->{same_highest} < $score) {
+# he did it ...
+ Apache2::Cookie->new($r,
+                     -name=>'samegame_highest',
+	 	     -expires=>'+1y',
+		     -value=>join('[]',$score,$now),
+		     -path=>'/')->bake($r);
+
+}
+#time to redirect where appropriate
+
+
+$m->comp('/utils/redirect', url=>"$Gamesite::config{'baseurl'}samegame/achieved.html?global=$positions->{global}&daily=$positions->{daily}&spend=$ss");
+
+
+
+</%init>
+
+<%args>
+$scoredata=>undef
+</%args>

@@ -1,0 +1,69 @@
+<& layout , top=>1 , title=>'qq' &>
+
+<p>
+%if($from < time ) {
+<& release_head , kind=>$kind , rel=>$from&>
+<p>Do not forget to vote for entries. 5 Points is the best note, -5 is the worst. By default every entry receives 0 points
+<form action=<% $Gamesite::config{baseurl}%>jokes/vote.html method=post>
+<% $Gamesite::cgi->hidden(-name=>'rel',-value=>$from) %>
+<% $Gamesite::cgi->hidden(-name=>'kind',-value=>$kind) %>
+%while($j->restore_next) { $cc++;
+<b><% $cc %>.</b> Told by <% $j->teller %>
+at <% scalar localtime $j->date %><br>
+%if($m->comp('/utils/is-valid-email.fn',email=>$j->teller_email)) {
+[<a href=<% $Gamesite::config{baseurl} %>jokes/tell_author.html?id=<% $j->id %>>send comment to <% $j->teller %></a>]
+%}
+%if($j->teller_url ne '') {
+[<a href=<% $j->teller_url %>><% $j->teller %>'s homepage</a>]
+%}
+<pre>
+<% $j->joke %>
+</pre>
+<table border=0 cellpadding=0 cellspacing=3>
+<tr>
+<td>
+Your note: <% $Gamesite::cgi->popup_menu(-name=>'jid.'. $j->id , '-values'=>[qw( 5 4 3 2 1 0 -1 -2 -3 -4 -5)], -default=>'0') %>
+</td>
+<td>
+<% $j->voters %> votes, mean value <% substr(($j->voters ? ($j->note / $j->voters): 0), 0,4) %> points
+</td>
+</table>
+<hr>
+%}
+<% $Gamesite::cgi->submit(-value=>'Vote!') %> <% $Gamesite::cgi->reset(-value=>'Reset votes') %>
+</form>
+
+<& forward_box &>
+%} else {
+<& ../.utils/headline , title=>'Wrong URL' &>
+<p>This release does not exist at this time. Come again <% POSIX::strftime "%d %B %Y", localtime($to) %>.
+%}
+
+<& layout, bottom=>1 , title=>'qq' &>
+<%init>
+$r->content_type('text/html');
+my ( $k , $rel ) = split (/\//, $m->dhandler_arg );
+
+my $dd = $rel;
+my $year = substr $dd , 0 , 4;
+my $month = substr $dd , 4,2;
+my $day = substr $dd , 6,2;
+
+
+my $from = mktime(0,0,0,$day,$month-1,$year-1900,0,0,0);
+my $to = mktime(59,59,23,$day,$month-1,$year-1900,0,0,0);
+
+my $kind = undef;
+
+$kind = &Joke::JOKE if $k eq 'j';
+$kind = &Joke::TALE if $k eq 't';
+
+my $j = $Gamesite::jokes;
+
+my $ed = $rel + 86400;
+if($from < time ) {
+$j->restore_where("kind=$kind and date < $to and date > $from and status=". &Joke::ACCEPTED,  "date");
+}
+my $cc = 0;
+
+</%init>

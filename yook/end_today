@@ -1,0 +1,8 @@
+<p>
+<center>see <a href=highscore.html>All times highscore list</a></center>
+
+<& page_part , stop=>1 , linkprefix=>$linkprefix&>
+
+<%args>
+$linkprefix=>undef
+</%args>

@@ -1,0 +1,77 @@
+<%doc>
+      Author: Konstantin Pribluda
+        Name: calendar
+ Description: produces calendar link table
+</%doc>
+
+
+<table bgcolor=<%$bordercolor%> border=0 cellpadding=0 cellspacing=0>
+<tr><td>
+<table bgcolor=<% $bgcolor %> border=0 width=100% cellpadding=2 cellspacing=1>
+<tr><td colspan=7 bgcolor=<% $headcolor %>><center><b><%$months[$month] %> <% $year %></b></center></td>
+<tr><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td><td>Su</td>
+<% $tablebody %>
+</table>
+</td>
+</table>
+
+<%init>
+use POSIX;
+
+my @months = qw( Jan Feb Mar Apr Mai Jun Jul Aug Sep Oct Nov Dez );
+
+
+
+( undef,  undef , undef, undef, $month , undef , undef , undef , undef ) = localtime(time) if !defined $month;
+
+$month = 0 if($month < 0);
+$month = 11 if($month >11);
+
+( undef,  undef , undef, undef, undef , $year , undef , undef , undef ) = localtime(time) unless $year;
+$year += 1900 if $year < 1000;
+
+
+my $som = mktime(0,0,0,1,$month,$year - 1900, 0,0,0);
+(undef,undef,undef,undef,undef,undef,my $dow,undef,undef) = localtime($som);
+
+
+
+my $tablebody= "<tr align=right>";
+#generate first row
+$dow = ($dow + 6) % 7;
+
+$tablebody .='<td>&nbsp;</td>' x $dow;
+
+#$tablebody .= "<td>1</td>";
+my $tstr;
+my $cmo;
+for(1..31) {
+$som = mktime(0,0,0,$_,$month,$year - 1900, 0,0,0);
+(undef,undef,undef,undef,$cmo,undef,$dow,undef,undef) = localtime($som);
+last if $cmo != $month;
+$tablebody .="<tr align=right>" if $dow==1 && $_ > 1;
+
+$tstr = POSIX::strftime "%Y%m%d" , localtime($som);
+$tablebody .= ("<td> " .  ( $link_prefix && $days_linked[$_] ? "<a href=$link_prefix$tstr$link_suffix>" :"")  .  $_ . ($link_prefix  && $days_linked[$_] ? "</a>" : "") . " </td>");
+}
+$dow-- if $cmo != $month;
+$dow %= 7;
+$tablebody .="<td>&nbsp;</td>" x (7 - $dow) if $dow;
+</%init>
+
+
+
+
+
+
+<%args>
+$month=>undef # produce calendar for this month ...
+$year=>undef # produce calendar for this year
+@days_linked=>undef # for which days to produce links
+$link_prefix=>undef # use this link prefix
+$link_suffix=>undef # use this as link suffix
+$link_target=>undef # use as link target frame
+$bordercolor=>'black' # color of border ...
+$bgcolor=>'white' # background color
+$headcolor=>'white' # headline color
+</%args>

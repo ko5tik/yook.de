@@ -1,0 +1,13 @@
+[<a href=<% $Gamesite::config{baseurl}%>de/>yook</a>]
+[<a href=http://email.yook.de/>email</a>]
+[<a href="javascript: openchat()">chat</a>]
+[<a href=http://yook.community.everyone.net/community/scripts/community_directory.pl>forum</a>]
+[<a href=http://yook.search.everyone.net/>search</a>]
+[<a href=<% $Gamesite::config{baseurl}%>de/webmaster.html>webmaster</a>]
+[<a href=<% $Gamesite::config{baseurl}%>de/friends.html>freunde</a>]
+<br>
+[<a href=<% $Gamesite::config{baseurl}%>de/lines/>lines</a>]
+[<a href=<% $Gamesite::config{baseurl}%>de/colors/>colors</a>]
+[<a href=<% $Gamesite::config{baseurl}%>de/tetris/>tetris</a>]
+[<a href=<% $Gamesite::config{baseurl}%>de/moonraid/>moonraid</a>]
+[<a href=<% $Gamesite::config{baseurl}%>de/missile/>missile command</a>]

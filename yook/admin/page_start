@@ -1,0 +1,15 @@
+<html>
+<head>
+
+<title>
+Java sandbox admin - <% $title %>
+</title>
+</head>
+<body bgcolor=white >
+
+<& admin_menu &>
+<h2><% $title %></h2>
+
+<%args>
+$title=>'Java sandbox admin area'
+</%args>

@@ -1,0 +1,4 @@
+<p>
+<center>see <a href=todayscore.html>Today highscores</a></center>
+
+<& page_part , stop=>1 &>

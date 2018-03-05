@@ -1,0 +1,35 @@
+<& .utils/sidebox_start, title=>'Best players' &>
+
+<b><small><a href=highscore.html>All times:</a></small></b><br>
+
+<small><b>
+%if($scoredata->{global}->{url}) {
+<a href=<%$scoredata->{global}->{url}%>><% $scoredata->{global}->{name} %></a>
+%} else {
+<% $scoredata->{global}->{name} %>
+%}
+</b>
+(<% $scoredata->{global}->{points} %>)<br>
+since <%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($scoredata->{global}->{'time'}) %></small>
+</td>
+<tr>
+<td bgcolor=<% $Gamesite::config{barcolor} %>>
+<b><small><a href=todayscore.html>Today:</a></small></b><br>
+<small>
+<b>
+%if($scoredata->{today}->{url}) {
+<a href=<%$scoredata->{today}->{url}%>><% $scoredata->{today}->{name} %></a>
+%} else {
+<% $scoredata->{today}->{name} %>
+%}
+</b>
+(<% $scoredata->{today}->{points} %>)<br>
+since <%  POSIX::strftime "%H:%M  %d/%m/%y" , localtime($scoredata->{today}->{'time'}) %>
+</small>
+
+<& .utils/sidebox_end &>
+<%args>
+$scoredata
+$linkprefix
+</%args>
+

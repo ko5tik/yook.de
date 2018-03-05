@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+
+<% $ad->[0] %>
+</body>
+</html>
+
+<%init>
+my $ad;
+#my $tt = rand(1000);
+#leak_test {
+$ad = $Admaster::ad->serve_ads('format'=>1,amount=>1);
+#}
+#eval "\$ad->[0]=\"$ad->[0]\";";
+
+</%init>

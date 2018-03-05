@@ -1,0 +1,16 @@
+
+<%init>
+
+$Lines::scoredata = $Gamesite::scoredata{lines}->get_top_scores;
+
+$Lines::scoredata->{person} = $Gamesite::userdata->{lines_highest};
+return $Lines::scoredata;
+</%init>
+
+<%once>
+{
+package Lines;
+use vars qw( $scoredata );
+
+}
+</%once>

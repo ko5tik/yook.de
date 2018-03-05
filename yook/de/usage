@@ -1,0 +1,67 @@
+<& ../page_part , title=>'Nutzungsbedingungen' , start=>1 , linkprefix=>$linkprefix &>
+<p>Um eine von diesen Spielen auf Ihrer Website nutzen zu dÃrfen,
+benÃ¶tigen Sie die Erlaubnis von Author
+<%doc>
+<P>Diese Spiel darf unter folgenden Bedingungen aud den Internetseiten
+benutzt werden.
+<OL>
+
+<li>Ihre Seite ist nicht Kommerziell. Als nicht Kommerziell gelten
+Privat-Betriebene Webseiten, die Keine Bezahlte webrung enthalten
+(auch nicht von Dritten).
+Alle andere Webseiten benötigen explizite Erlaubnis und in der Regel
+die Zahlung eines Gebührs.
+(Frage Sie bei  <A href=mailto:konstantin@pribluda.de>Spielauthor</a> nach).
+
+<li>Sie müßen eine Urheberrechtnotiz gut sichtbar neben dem Spielappet
+platzieren. Die Notiz muss folgendes Text enthalten:
+<p><b>"Copyright by <a href=http://www.pribluda.de/>Konstantin Pribluda</a> 1999-2000, Alle rechte Vorbehalten"</b>.
+<p>Das Hyperlink muß intakt bleiben, und auf
+<b>http://www.pribluda.de/</b> verweisen.
+
+<li>Sie müßen ein Link zu <b><% $Gamesite::config{baseurl} %>de/</b>  in der gut sichtbaren Platz in der Nähe zum Spielapplet platzieren.
+<li>Ihre Website darf  kein sexuellorientiertes Material, und keine illegale Inhalte ( u.a. MP3, Rechtsradikales etc. ) enthalten.
+
+<li>Sie übernehmen volle Verantwortung  für alle mögliche Schaden
+die durch diese Applet auf Ihrer Seite entstehen können.
+
+<li>Sie erhalten dieses Applet so, wie es ist. Sie haben keine Anspruche 
+auf die Funktionalität oder Benutzbarkeit.
+
+<li>Diese Lizenz kann durch Spieleautor jederzeit 
+via Email wiederrufen werden. Sie verpflichten sich
+diese Appelt nach erster Nacricht sofort zu Entfernen.
+
+<li>Benutzung von diesen Applet setzt die Anerkennung diser 
+Lizenz voraus.
+
+</OL>
+
+<& ../page_part , title=>'Warnung' , start=>1 , linkprefix=>$linkprefix&>
+<p>Es ist oft vorgekommen, das meine Applets ohne entsprechende 
+anerkenung oder Bezahlung von Anderen Leuten verwendet würden.
+<p>Manche von deren  habe finanzielle Vorteile erzielt.
+<p>Solches Verhalten wird nicht geduldet. Falls ich meine Applets auf einer 
+Seite, ohne den richtigen Urheberrechthinweis, oder mit bezahlten Werbung
+entdecke, werde ich Ihren Provider informieren, der verpflichet ist sofort
+die Entsprechende Seite zu Löschen, bzw.  Zugang zu sperren.
+<p>Ferner werde ich einen Rechtsanwalt mit Abmahnung beauftragen,
+was fur Adressaten etwa DM 2000 kostet.
+<p>Falls eine Firma schuldig sein Sollte, werde ich es Verklagen.
+<p><b>Also</b>, falls Sie nicht sicher Sind, ob Ihnen erlaubt ist das Applet 
+zu Benutzen, fragen Sie lieber zuerst bei dem Author nach.
+<p>Kommerzielle Lizenzen sind auch möglich.
+
+<& ../page_part , title=>'Donload' , start=>1 , linkprefix=>$linkprefix&>
+<P>Falls Sie damit einverstanden sind, laden Sie das <A href=<% $archive %>>Archiv</A>.Sie werden  tar und gzip zum Entpacken brauchen, 
+<A href="http://www.winzip.com">WinZip</A> ist eine Alternative für WindBlows Benutzer.
+Installationsanweisungen sind im Archiv enthalten.
+<P>Falls Sie die Vollversion für Ihre kommerzielle Website haben wollen, kontaktieren Sie <A href="mailto:kostantin@pribluda.de">mich</A>.
+
+
+</%doc>
+<& ../page_part, stop=>1, linkprefix=>$linkprefix &>
+<%args>
+$archive
+$linkprefix=>undef
+</%args>

@@ -1,0 +1,14 @@
+<%init>
+return 
+{
+title=>'Missile command',
+path=>'missile/',
+scores=>$Gamesite::scoredata{missile},
+fieldnames=>[ 'Pos' , 'Name' , 'Points' , 'Level'  , 'Since'], 
+fields=>['name','points','level','time','url'],   
+archive=>'missilelite.tar.gz'
+
+};
+
+
+</%init>

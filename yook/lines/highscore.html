@@ -1,0 +1,23 @@
+<& ../templates/highscore.tmpl , gamedata=>$dd, from=>$from, to=>$to &>
+<%doc>
+<& ../highscore.t , 
+  linkprefix=>'../',
+  path=>$dd->{path},
+  title=>$dd->{title} . ' highscore list',
+  pagename=>'highscore.html',
+  scores=>$dd->{scores},
+  fieldnames=>$dd->{fieldnames}, 
+  fields=>$dd->{fields}, 
+  from=>$from,
+  to=>$to
+&>
+</%doc>
+
+<%init>
+my $dd = $m->comp('game_data');
+</%init>
+
+<%args>
+$from=>1
+$to=>20
+</%args>

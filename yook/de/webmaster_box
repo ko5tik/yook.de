@@ -1,0 +1,10 @@
+<& ../.utils/sidebox_start , title=>'Webmaster' &>
+
+<small>
+Sind Sie ein Webmaster? Haben Sie eine Homepage? Platzieren Sie einen Link zu <b>yook.de</b>, und  es  wird belohnt. <a href=<% $Gamesite::config{baseurl} %>de/webmaster.html>Lesen Sie weiter</a>
+</small>
+<& ../.utils/sidebox_end &>
+
+<%args>
+$linkprefix=>undef
+</%args>

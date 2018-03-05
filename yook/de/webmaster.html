@@ -1,0 +1,70 @@
+<& layout , top=>1 , title=>'Webmasterbereich' , linkprefix=>'../' &>
+
+<& ../page_part , start=>1 , title=>'Linktausch' , linkprefix=>'../' &>
+Web besteht aus Links. Falls Sie zu diesen Seiten linken, wird das Belohnt.
+Ihre Seite wird als Linkempfehlung gleichberechtigt mit anderen Seiten presentiert.
+<& ../page_part , stop=>1 , linkprefix=>'../'  &>
+
+<&  ../page_part , start=>1, title=>'Tragen Sie Ihre webseite ein'  , linkprefix=>'../'  &>
+Ihre Webseite muss für die Allgemeinheit akzeptabel sein. Das heißt, kein
+Sexuell-orientirtes oder illegales Inhalt. 
+<p>Ferner muss Ihre Webseite Inhalt haben, der auch die andere interessiert.
+Die Webseiten , die diese Bedingungen nicht erfüllen, weren nicht akzeptiert.
+Ferner müßen Sie ein richtiges URL ( fängt mit http:// an !!! ) und gültige EMail Adresse eintragen. Sonst kann Ihr Link nicht bearbeitet werden.
+<form action=add_link.html method=post>
+<table cellpadding=0 cellspacing=3>
+<tr valign=baseline>
+<td align=right><b>Webseite:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'site',-size=>30) %><br>
+<small>Webseitentitel</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>URL:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'url',-size=>30) %><br>
+<small>URL, zum verlinken</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Kontakt:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'contact',-size=>30) %><br>
+<small>Name von Kontaktperson</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Email:</b></td>
+<td>
+<% $Gamesite::cgi->textfield(-name=>'email',-size=>30) %><br>
+<small>Ihre Emailadresse</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Kennwort:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'password',-size=>30) %><br>
+<small>Tragen Sie das Kennwort ein</small>
+</td>
+<tr valign=baseline>
+<td align=right><b>Bestätigung:</b></td>
+<td>
+<% $Gamesite::cgi->password_field(-name=>'password2',-size=>30) %><br>
+<small>Bestätgen Sie Ihr Kennwort</small>
+</td>
+<tr valign=top>
+<td align=right></td>
+<td>
+<% $Gamesite::cgi->submit(-value=>'Registrieren') %>
+<% $Gamesite::cgi->reset(-value=>'Zurücksetzen') %>
+</td>
+</table>
+</form>
+
+
+<& ../page_part , stop=>1  , linkprefix=>'../' &>
+
+
+<& ../page_part , start=>1  , title=>'Änderungen', linkprefix=>'../' &>
+Falls Sie in Ihren Freundeslike etwas verändern wollen, senden Sie ein
+EMail an <a href=mailto:webmaster@yook.de>Webmaster</a>
+
+
+<& layout, bottom=>1 , linkprefix=>'../'&>

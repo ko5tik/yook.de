@@ -1,0 +1,22 @@
+
+
+<%init>
+#create new advertising slot
+my $now = time;
+
+open OF , ">$Gamesite::config{adpath}/$now.ad";
+print OF $adcode;
+close OF;
+
+open OF , ">>$Gamesite::config{adpath}/adindex";
+print OF join('[]',$now,0,0) , "\n";
+close OF;
+
+$m->comp('/utils/redirect',url=>"$Gamesite::config{baseurl}/admin/ads.html");
+return;
+</%init>
+
+
+<%args>
+$adcode
+</%args>

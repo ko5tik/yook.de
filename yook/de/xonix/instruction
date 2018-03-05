@@ -1,0 +1,29 @@
+
+<H4>Kurze Spielanleitung</H4>
+<OL>
+<LI>Warten Sie bis das Applet voll geladen wurde.
+<LI>Klicken sie mit den Maus in das Applet, damit es die Tastatur 
+erkennen kann.
+<li>Drücken sie die beliebige Taste um das Spiel zu starten.
+<li>Verwenden Sie die Pfeiltasten um der rote Punkt zu steuern.
+<li>Verwenden Sie die "P"-Taste um das Spiel aunzuhalten.
+
+</OL>
+<h4>Spielbeschreibung</h4>
+<p>Sie mussen mit dem roten Punkt die Gebiete von den
+Feld abschneiden. Dabei dar der eigene Pfad nicht gekreuzt verden.
+<p>Vermeiden Sie gelbe (nur in blauen Bereichen) und grüne (in schrazen) Punkte. Jeder Kontakt mit deren kostet ein Leben. .
+<p>Falls ein grüner Punkt in den abgeschnittenen Gebiet befindet, wird es gefangen. Falls Sie alle grüne Punkte fangen, bekommen Sie am Levelende ein Bonus.
+
+<p>Ein Level ist zu ende, wenn Sie vorgeschriebene Teil des Feldes 
+abgeschnitten haben (aktuelle und benötigte Prozentsatz 
+werden oben-rechts angezeigt).
+
+<p>Sie bekommen ein Bonus für uberschreiten des Prozentsatztes.
+
+<p>Sie brauchen während des Spiels nicht Online zu sein. Die Internetverbindung wird nur für Spielergebnisübertragung benötigt.
+
+
+
+
+<& ../../page_part, stop=>1 &>

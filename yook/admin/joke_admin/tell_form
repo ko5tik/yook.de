@@ -1,0 +1,44 @@
+<form action=<% $action %> method=post>
+<% $Gamesite::cgi->hidden(-name=>'id', -value=>$id) %>
+
+<dt><b>Status:</b>
+<dd>
+<% $Gamesite::cgi->popup_menu(-name=>'status', '-values'=> [qw ( 0 1 2 )] , -labels=>{'0'=>'Not reviewed','1'=>'Accepted', '2'=>'Removed'} , -default=>$status) %>
+<dt><b>Kind:</b>
+<dd>
+<% $Gamesite::cgi->popup_menu(-name=>'kind', '-values'=> [qw ( 1 2 )] , -labels=>{'1'=>'Joke', '2'=>'Tale'} , -default=>$kind) %>
+
+<dt><b>Edit entry:</b>
+<dd><% $Gamesite::cgi->textarea(-name=>'content',-rows=>10,-cols=>40, -value=>$content) %>
+
+<dt><b>Name:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'name',-size=>40, -value=>$name) %><br>
+<i>Enter your name if you like to be credited</i>
+<dt><b>email:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'email',-size=>40, -value=>$email) %><br>
+<i>Your email will not be published directly, enter if you like to receive
+reader comments</i>
+<dt><b>URL:</b>
+<dd><% $Gamesite::cgi->textfield(-name=>'url',-size=>40, -value=>$url) %><br>
+<dt>
+<dd><% $Gamesite::cgi->submit(-value=>'Save changes') %> <% $Gamesite::cgi->reset %>
+
+
+</dl>
+
+</form>
+
+
+<%init>
+
+</%init>
+<%args>
+$kind=>1
+$status=>undef
+$action=>'edit_joke.html'
+$id=>undef
+$content=>undef
+$name=>undef
+$email=>undef
+$url=>undef
+</%args>

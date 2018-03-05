@@ -1,0 +1,27 @@
+<center>
+<!--
+<applet codebase=. code=tetris.class  align="center"
+alt="If your browser vould support java 1.1 you would be able to play a cool game" width=300 height=400>
+If your browser would support java 1.1 , you will see cool applet here.
+
+<param name=highscore value="<% $topscore %>">
+<param name=player value="<% $player %>">
+
+</applet>
+-->
+</center>
+<BR>
+<p>
+This game is currently disabled pending iinvestigation of validity of legal claims
+of elorg inc which thinks that look and feel of this game infringes their
+copyright. 
+</p>
+<p>
+seen news from the frontpage for more information
+</p>
+
+
+<%args>
+$player=>undef
+$topscore=>undef
+</%args>
